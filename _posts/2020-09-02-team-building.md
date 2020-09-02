@@ -1,7 +1,6 @@
 ---
 layout: post
 title: 2020赛季团建总结
-featured-img: teambuliding
 ---
 
 # 2020赛季团建总结
