@@ -15,28 +15,20 @@ title: 2020赛季团建总结
 
 在第一学期的每个`周六下午4:00到5:00`，我们都会订下场地，组织队员去校园内的场馆打羽毛球和乒乓球。该活动自`2019年9月28日`起至`12月21日`止，风雨无阻，共举办了`11`次，得到了队员的热烈欢迎和好评。活动形式多为自由双打，队员在活动中既锻炼了身体，又能体会到竞技比赛中合作的力量。
 
-<table>
-<caption align="center">图一：羽毛球乒乓球活动精选图片</caption>
-    <tr>
-        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/exercise1.jpg"   width="400"></center></td>
-        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/exercise2.jpg" width="400"></center></td>
-    </tr>
-    <tr>
-        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/exercise3.jpg"   width="400"></center></td>
-        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/exercise4.jpg" width="400"></center></td>
-    </tr>
-</table>
+
+<center>图一：羽毛球乒乓球活动精选图片</center>
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/exercise1.jpg"   width="400"></center>
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/exercise2.jpg" width="400"></center>
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/exercise3.jpg"   width="400"></center>
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/exercise4.jpg" width="400"></center>
 
 * 集训期间的夜跑活动
 
 寒假集训期间，我们每天晚上都会号召还留在工训的同学去南区体育场夜跑，缓解了备赛压力，提高了身体素质。
-<table>
-<caption align="center">图二：夜跑精选图片</caption>
-    <tr>
-        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/exercise5.jpg"   width="400"></center></td>
-        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/exercise6.jpg" width="400"></center></td>
-    </tr>
-</table>
+
+<center>图二：夜跑精选图片</center>
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/exercise5.jpg"   width="400"></center>
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/exercise6.jpg" width="400"></center>
 
 * 集体观看比赛回放战术讨论
 
