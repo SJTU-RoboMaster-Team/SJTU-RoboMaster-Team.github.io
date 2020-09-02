@@ -18,12 +18,12 @@ title: 2020赛季团建总结
 <table>
 <caption align="center">图一：羽毛球乒乓球活动精选图片</caption>
     <tr>
-        <td><center><img src="../_img/posts/teambuliding/exercise1.jpg"   width="400"></center></td>
-        <td><center><img src="../_img/posts/teambuliding/exercise2.jpg" width="400"></center></td>
+        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/exercise1.jpg"   width="400"></center></td>
+        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/exercise2.jpg" width="400"></center></td>
     </tr>
     <tr>
-        <td><center><img src="../_img/posts/teambuliding/exercise3.jpg"   width="400"></center></td>
-        <td><center><img src="../_img/posts/teambuliding/exercise4.jpg" width="400"></center></td>
+        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/exercise3.jpg"   width="400"></center></td>
+        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/exercise4.jpg" width="400"></center></td>
     </tr>
 </table>
 
@@ -33,8 +33,8 @@ title: 2020赛季团建总结
 <table>
 <caption align="center">图二：夜跑精选图片</caption>
     <tr>
-        <td><center><img src="../_img/posts/teambuliding/exercise5.jpg"   width="400"></center></td>
-        <td><center><img src="../_img/posts/teambuliding/exercise6.jpg" width="400"></center></td>
+        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/exercise5.jpg"   width="400"></center></td>
+        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/exercise6.jpg" width="400"></center></td>
     </tr>
 </table>
 
@@ -49,7 +49,7 @@ title: 2020赛季团建总结
 `2019年10月7日`，交龙第二届定向越野大赛举办。大赛的起点和终点设在机动大草坪，活动范围了包括整个校园，参与人数约`四十人`。四人一队，两人一起跑，最先经过所有点位的队伍获得冠军。该大赛旨在增进大家之间的交流，帮助大家快速融入团队，体验和队友并肩作战的快乐。
 
 <center>图三：定向越野合照</center>
-<center><img src="../_img/posts/teambuliding/activity1.jpg" width="500"></center>
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/activity1.jpg" width="500"></center>
 
 * 趣味运动会
 
@@ -101,9 +101,9 @@ c)飞盘
 	③进攻方持盘者在传出飞盘后不得接飞盘，否则视为违规，攻守交换，放置飞盘于脚下。
 
 <center>图四：寻人bingo表格</center>
-<center><img src="../_img/posts/teambuliding/activity2.jpg" width="500"></center>
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/activity2.jpg" width="500"></center>
 <center>图五：趣味运动会合照</center>
-<center><img src="../_img/posts/teambuliding/activity3.jpg" width="500"></center>
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/activity3.jpg" width="500"></center>
 
 * 年末大型团建
 
@@ -112,24 +112,24 @@ c)飞盘
 <table>
 <caption align="center">图六：年末大型团建照片精选</caption>
     <tr>
-        <td><center><img src="../_img/posts/teambuliding/activity4.jpg"   width="400"></center></td>
-        <td><center><img src="../_img/posts/teambuliding/activity5.jpg" width="400"></center></td>
+        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/activity4.jpg"   width="400"></center></td>
+        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/activity5.jpg" width="400"></center></td>
     </tr>
     <tr>
-        <td><center><img src="../_img/posts/teambuliding/activity6.jpg"   width="400"></center></td>
-        <td><center><img src="../_img/posts/teambuliding/activity7.jpg" width="400"></center></td>
+        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/activity6.jpg"   width="400"></center></td>
+        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/activity7.jpg" width="400"></center></td>
     </tr>
     <tr>
-        <td><center><img src="../_img/posts/teambuliding/activity8.jpg"   width="400"></center></td>
-        <td><center><img src="../_img/posts/teambuliding/activity9.jpg" width="400"></center></td>
+        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/activity8.jpg"   width="400"></center></td>
+        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/activity9.jpg" width="400"></center></td>
     </tr>
     <tr>
-        <td><center><img src="../_img/posts/teambuliding/activity10.jpg"   width="400"></center></td>
-        <td><center><img src="../_img/posts/teambuliding/activity11.jpg" width="400"></center></td>
+        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/activity10.jpg"   width="400"></center></td>
+        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/activity11.jpg" width="400"></center></td>
     </tr>
     <tr>
-        <td><center><img src="../_img/posts/teambuliding/activity12.jpg"   width="400"></center></td>
-        <td><center><img src="../_img/posts/teambuliding/activity13.jpg" width="400"></center></td>
+        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/activity12.jpg"   width="400"></center></td>
+        <td><center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/activity13.jpg" width="400"></center></td>
     </tr>
 </table>
 
@@ -161,8 +161,8 @@ c)飞盘
     一石二鸟、守株待兔、日拱一卒、护目镜、能量机关、单杀基地
 
 <center>图七：暑假团建之欢乐小游戏"RM"合照</center>
-<center><img src="../_img/posts/teambuliding/activity14.png" width="500"></center>
-<center><img src="../_img/posts/teambuliding/activity15.png" width="500"></center>
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/activity14.png" width="500"></center>
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/teambuliding/activity15.png" width="500"></center>
 
 * 未完待续
 * 更多精彩在2021赛季
