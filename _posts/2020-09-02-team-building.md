@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 2020赛季团建总结
-featured-img: <img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/cover/teambuliding">
+featured-img: teambuliding
 ---
 
 # 2020赛季团建总结
