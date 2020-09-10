@@ -1,6 +1,8 @@
+---
 layout: post
 title: 视觉教程第二弹：cpp进阶之零开销
 categories: [vision, course]
+---
 
 # 视觉教程第二弹：cpp进阶之零开销
 
