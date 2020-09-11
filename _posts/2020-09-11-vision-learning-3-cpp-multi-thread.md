@@ -10,9 +10,9 @@ categories: [vision, course]
 
 ---
 
-现代CPU几乎总是有多个多个核心可以参与计算，尤其是视觉会用到的各类计算平台，没有个4核8核什么的都不好意思拿出来卖。
+现代CPU几乎总是有多个核心可以参与计算，尤其是视觉会用到的各类计算平台，没有个4核8核什么的都不好意思拿出来卖。
 
-虽然有多个CPU内核，但常规的编程都是循序执行，只能由一个CPU内核进行计算。如果计算任务繁重，就会造成“一核有难，八核围观”的现象，此时看CPU监视器就会发现，一个核心的占用率几乎100%，而其他核心却基本在10%以内。显然这样一个软件设计，没有能利用上所有的硬件资源，造成了资源浪费，同时执行效率也不高。
+虽然有多个CPU内核，但常规的编程都是顺序执行，只能由一个CPU内核进行计算。如果计算任务繁重，就会造成“一核有难，八核围观”的现象，此时看CPU监视器就会发现，一个核心的占用率几乎100%，而其他核心却基本在10%以内。显然这样一个软件设计，没有能利用上所有的硬件资源，造成了资源浪费，同时执行效率也不高。
 
 本节我们主要探讨如何使用cpp进行多线程编程，以及多线程编程时的各类需要注意的点。 
 
@@ -25,7 +25,7 @@ categories: [vision, course]
 当线程数大于CPU物理核心数时（最典型的例子是在单片机上，CPU通常只有一个核心），如果线程A正在运行，那么线程B一定是无法运行的，因为只有一个CPU内核嘛。线程B想要运行，需要线程A释放出CPU使用权，而释放出CPU使用权通常有两种释放方式：
 
 * 线程A主动让出CPU使用权。通常是因为线程A需要等待一些外部资源（如用户输入）而主动进入休眠状态。
-* 线程A被动让出CPU使用权。这种情况通常是由于产生了一个中断，打断了线程A的执行，而在从中断退出前，操作系统往往会重新判断一下当前CPU使用权应该交给谁，如果操作系统决定将CPU使用权交给线程B（比如操作系统发现线程A长时间占用CPU），那么线程A就会被动交出CPU使用权。
+* 线程A被动让出CPU使用权。这种情况通常是由于产生了一个中断，打断了线程A的执行，而在中断退出前，操作系统往往会重新判断一下当前CPU使用权应该交给谁，如果操作系统决定将CPU使用权交给线程B（比如操作系统发现线程A长时间占用CPU），那么线程A就会被动交出CPU使用权。
 
 由于存在被动交出CPU使用权的现象，**程序员往往不能确定当前线程会在何时失去CPU使用权**。
 
@@ -43,7 +43,7 @@ int part_sum(const std::vector<int> &vec, int begin, int end){
 
 // 此函数使用两个线程，对一个数组进行求和
 int parallel_sum(const std::vector<int> &vec){
-	auto len = vec.size();
+    auto len = vec.size();
     int sum1, sum2;
     std::thread t1([&](){ sum1 = part_sum(vec, 0, len/2); });
     std::thread t2([&](){ sum2 = part_sum(vec, len/2, len); });
@@ -73,7 +73,7 @@ void part_sum(const std::vector<int> &vec, int begin, int end, int &result){
 
 // 此函数使用两个线程，对一个数组进行求和
 int parallel_sum(const std::vector<int> &vec){
-	auto len = vec.size();
+    auto len = vec.size();
     int result = 0;
     std::thread t1([&](){ part_sum(vec, 0, len/2, result); });
     std::thread t2([&](){ part_sum(vec, len/2, len, result); });
@@ -132,7 +132,7 @@ void part_sum(const std::vector<int> &vec, int begin, int end, int &result){
 
 // 此函数使用两个线程，对一个数组进行求和
 int parallel_sum(const std::vector<int> &vec){
-	auto len = vec.size();
+    auto len = vec.size();
     int result = 0;
     std::thread t1([&](){ part_sum(vec, 0, len/2, result); });
     std::thread t2([&](){ part_sum(vec, len/2, len, result); });
@@ -172,7 +172,7 @@ std::mutex mtx;
 // 此函数对一个数组[begin, end)的区间进行求和，作为新线程的入口函数
 void part_sum(const std::vector<int> &vec, int begin, int end, int &result){
     for(int i=begin; i<end; i++) {
-		std::unique_lock lock(mtx);
+        std::unique_lock lock(mtx);
         result += vec[i];
     }
 }
@@ -194,7 +194,7 @@ void part_sum(const std::vector<int> &vec, int begin, int end, std::atomic<int> 
 
 // 此函数使用两个线程，对一个数组进行求和
 int parallel_sum(const std::vector<int> &vec){
-	auto len = vec.size();
+    auto len = vec.size();
     std::atomic<int> result = 0;
     std::thread t1([&](){ part_sum(vec, 0, len/2, result); });
     std::thread t2([&](){ part_sum(vec, len/2, len, result); });
@@ -245,9 +245,9 @@ int main(){
         std::unique_lock lock(mtx);
         // 这个条件变量等待的条件是，线程执行完毕或字符串非空（表示有用户输入）
         cv.wait(lock, [](){return is_exit || !str.empty()});
-		// 如果线程结束，则退出主循环
+        // 如果线程结束，则退出主循环
         if(is_exit) break;
-		// 打印用户输入，并清空用户输入，用于接收下一个用户输入
+        // 打印用户输入，并清空用户输入，用于接收下一个用户输入
         std::cout << str << std::endl;
         str.clear();
     }
