@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 视觉教程第四弹：CMake构建工具的介绍
+title: 视觉教程第五弹：OpenCV安装教程
 categories: [vision, course, cmake]
 ---
 
