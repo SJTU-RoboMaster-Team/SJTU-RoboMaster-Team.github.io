@@ -12,9 +12,9 @@ categories: [vision, course, cmake]
 
 ## 一、安装环境
 
-1. [Ubuntu系统]()版本：18.04 LTS
-2. [OpenCV]()版本：4.4.0
-3. [OpenCV_contrib]()版本：4.4.0
+1. Ubuntu系统版本：18.04 LTS
+2. OpenCV版本：4.4.0
+3. OpenCV_contrib版本：4.4.0
 
 
 
