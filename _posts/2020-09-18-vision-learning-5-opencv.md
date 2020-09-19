@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 视觉教程第五弹：OpenCV安装教程
-categories: [vision, course, cmake]
+categories: [vision, course, opencv]
 ---
 
 # 视觉教程第五弹：OpenCV安装教程
