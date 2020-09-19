@@ -18,7 +18,7 @@ categories: [vision, course, opencv]
 
 
 
-以上内容通过官网下载可能会非常缓慢，所以我们提供了百度网盘下载地址：链接: https://pan.baidu.com/s/1dxP-EFLLgXgZFc-NFhK6ng  密码: r3ip
+以上内容通过官网下载可能会非常缓慢，所以我们提供了百度网盘下载地址：链接： https://pan.baidu.com/s/1dxP-EFLLgXgZFc-NFhK6ng  密码: r3ip ，以及交大jbox链接：https://jbox.sjtu.edu.cn/l/5odMzG。
 
 注：百度网盘中还有`face_landmark_model.dat`文件，是OpenCV编译安装过程中可能需要问题的问题，后续步骤中会相应提及。
 
