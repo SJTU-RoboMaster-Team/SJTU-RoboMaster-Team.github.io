@@ -165,27 +165,34 @@ sudo updatedb
 
 
 
-## Clion中配置cmake-gui
+## 五、Clion中配置cmake-gui
 
 ![Clion中配置cmake-gui](https://img-blog.csdnimg.cn/20190318201029460.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MTcwNjI2,size_16,color_FFFFFF,t_70)
 
 
 
-实例代码：
+用以下实例代码检测是否配置成功，在项目文件夹中放置一张`ai.jpg`图片：
+
+CMakeLists.txt
 
 ```cmake
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.13)
 project(ocv)
-set(CMAKE_BUILD_TYPE Release)
-set(CMAKE_TOOLCHAIN_FILE G:/E_Then_Windows/vcpkg/scripts/buildsystems/vcpkg.cmake)
 
-find_package(OpenCV REQUIRED)
+
 set(CMAKE_CXX_STANDARD 11)
+
+find_package( OpenCV REQUIRED )
+
+include_directories(${OpenCV_INCLUDE_DIRS})
+
 add_executable(ocv main.cpp)
-target_link_libraries(ocv ${OpenCV_LIBS})
+target_link_libraries(  ocv ${OpenCV_LIBS}  )
 ```
 
-```C++
+main.cpp
+
+```
 #include <iostream>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -201,3 +208,6 @@ int main() {
 }
 ```
 
+
+
+作者：黄弘骏，github主页：[传送门](https://github.com/Harry-hhj)。
