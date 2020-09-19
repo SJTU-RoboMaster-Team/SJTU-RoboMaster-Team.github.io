@@ -84,9 +84,9 @@ sudo apt-get install libeigen3-dev
 
 在配置完系统后，我们终于可以配置OpenCV了。
 
-先到[github](https://github.com)下载最新的[opencv](https://github.com/opencv/opencv/tree/4.4.0)和[opencv_contrib](https://github.com/opencv/opencv_contrib/tree/4.4.0)库（此链接为4.4.0），进入github搜索opencv，点击master下拉按钮->Tags->需要的版本数，点击Code按钮，复制ssh网址，使用`git clone`命令下载，当然直接下载ZIP也是可以的。对于git的使用教程请查看[这篇教程]()（TODO）。如果网络较差，我们在文章开头也提供了百度网盘下载地址。下载完的两个zip文件手动解压到某个地方，比如Downloads。
+先到[github](https://github.com)下载最新的[opencv](https://github.com/opencv/opencv/tree/4.4.0)和[opencv_contrib](https://github.com/opencv/opencv_contrib/tree/4.4.0)库（此链接为4.4.0），进入github搜索opencv，点击master下拉按钮->Tags->需要的版本数，点击Code按钮，复制ssh网址，使用`git clone`命令下载，当然直接下载ZIP也是可以的。对于git的使用教程请查看这篇教程（TODO）。如果网络较差，我们在文章开头也提供了百度网盘下载地址。下载完的两个zip文件手动解压到某个地方，比如Downloads。
 
-然后将`opencv...`的文件夹重命名为`opencv`，并移动到``/home/`文件夹下，opencv_contrib...`的文件夹重命名为`opencv_contrib`，并移动到opencv`文件夹下，并在`opencv`文件夹下新建`build`文件夹。
+然后将`opencv...`的文件夹重命名为`opencv`，并移动到`/home/`文件夹下，`opencv_contrib...`的文件夹重命名为`opencv_contrib`，并移动到`opencv`文件夹下，并在`opencv`文件夹下新建`build`文件夹。
 
 ![文件夹结构](https://img-blog.csdnimg.cn/20190318195609953.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MTcwNjI2,size_16,color_FFFFFF,t_70)
 
