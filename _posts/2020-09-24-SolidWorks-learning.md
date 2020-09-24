@@ -1,0 +1,66 @@
+---
+layout: post
+title: SolidWorks2020培训教程
+---
+
+# SolidWorks2020培训教程
+
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/sw2.png"   width="400"></center>
+
+Solidworks有功能强大、易学易用和技术创新三大特点，这使得SolidWorks成为主流的三维CAD解决方案。SolidWorks能够提供不同的设计方案、减少设计过程中的错误以及提高产品质量。SolidWorks不仅提供如此强大的功能，而且对每个工程师和设计者来说，操作简单方便、易学易用。在2021赛季，交龙战队将统一采用**SolidWorks2020**作为机械部3D模型绘制软件。
+提供b站学习链接：[SolidWorks2018视频教程](https://www.bilibili.com/video/BV1At41187nD)
+
+---
+
+## 1.二维草图绘制
+草图是由直线、圆弧等基本几何元素构成，它构成了特征的截面轮廓或路径，并且由此生成特征。
+
+### 1.1 草图曲线绘制工具
+
+### 1.2 草图约束概述
+* 欠定义：草图中有些尺寸未定义，欠定义的草图呈蓝色，此时草图的形状会随着光标的拖动而改变，同时属性管理器面板中现实欠定义符号。
+
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/sw3.png"   width="400"></center>
+
+* 完全定义：所有曲线变成黑色，即草图的位置由尺寸和几何关系完全固定。
+
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/sw4.png"   width="400"></center>
+
+* 过定义：在完全定义的基础上对草图再进行尺寸标注，将会过定义草图，即所定义的尺寸之间存在矛盾，约束信息再状态栏中显示
+
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/sw5.png"   width="400"></center>
+
+* 没有找到解：草图无法解出的几何关系和尺寸，如过定义的草图。
+* 发现无效的解：草图中出现了无效的几何体，如零长度直线，零半径圆弧或自相交的样条曲线。
+
+### 1.3 草图几何约束
+
+
+### 1.4 草图尺寸约束
+
+
+## 2.创建特征
+
+### 2.1 创建基体特征
+
+### 2.2 创建附加特征
+
+
+### 2.3 特征变换与修改
+
+
+## 3.机械装配设计
+
+### 3.1 装配概述
+
+
+### 3.2 控制装配体
+
+
+## 3. 机械工程图设计
+
+
+### 参考文献
+1. 《SolidWorks2018从入门到精通》
+2. 《SolidWorks2018自学手册》
+3. 《SolidWorks2018完全实战技术手册》
