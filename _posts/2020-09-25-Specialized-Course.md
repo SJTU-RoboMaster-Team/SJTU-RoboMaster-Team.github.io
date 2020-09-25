@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 机械部专业课培训教程
+categories: [machinery , Specialized course]
 ---
 
 # 机械部专业课培训教程

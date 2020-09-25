@@ -1,6 +1,7 @@
 ---
 layout: post
 title: SolidWorks2020培训教程
+categories: [machinery , course , SolidWorks]
 ---
 
 # SolidWorks2020培训教程
