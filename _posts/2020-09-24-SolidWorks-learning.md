@@ -9,7 +9,9 @@ categories: [machinery , course , SolidWorks]
 <center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/sw2.png"   width="400"></center>
 
 Solidworks有功能强大、易学易用和技术创新三大特点，这使得SolidWorks成为主流的三维CAD解决方案。SolidWorks能够提供不同的设计方案、减少设计过程中的错误以及提高产品质量。SolidWorks不仅提供如此强大的功能，而且对每个工程师和设计者来说，操作简单方便、易学易用。在2021赛季，交龙战队将统一采用**SolidWorks2020**作为机械部3D模型绘制软件。
-提供b站学习链接：[SolidWorks2018视频教程](https://www.bilibili.com/video/BV1At41187nD)
+提供b站学习链接：
+1. [SolidWorks2018视频教程](https://www.bilibili.com/video/BV1At41187nD)
+2. [solidworks新手到高级机械工程师必备教程-王江平](https://www.bilibili.com/video/BV16E411d723)
 
 ---
 
@@ -47,17 +49,17 @@ Solidworks有功能强大、易学易用和技术创新三大特点，这使得S
 草图的定义状态有以下几种：
 * 欠定义：草图中有些尺寸未定义，欠定义的草图呈蓝色，此时草图的形状会随着光标的拖动而改变，同时属性管理器面板中现实欠定义符号。
 
-<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/sw3.png"   width="50"></center>
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/sw3.png"   width="250"></center>
 <center><font size=1>欠定义的草图</font></center>
 
 * 完全定义：所有曲线变成黑色，即草图的位置由尺寸和几何关系完全固定。
 
-<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/sw4.png"   width="50"></center>
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/sw4.png"   width="250"></center>
 <center><font size=1>完全定义的草图</font></center>
 
 * 过定义：在完全定义的基础上对草图再进行尺寸标注，将会过定义草图，即所定义的尺寸之间存在矛盾，约束信息再状态栏中显示
 
-<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/sw5.png"   width="50"></center>
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/sw5.png"   width="250"></center>
 <center><font size=1>过定义的草图</font></center>
 
 * 没有找到解：草图无法解出的几何关系和尺寸，如过定义的草图。
@@ -67,7 +69,7 @@ Solidworks有功能强大、易学易用和技术创新三大特点，这使得S
 草图几何约束为草图实体之间或草图实体与基准面、基准轴、边线或顶点之间的几何约束，可以自动或手动添加几何约束关系，主要类型有：
 
 <center class="half">
-    <img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/ct3.png" width="50"/><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/ct4.png" width="50"/>
+    <img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/ct3.png" height="100"/>     <img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/ct4.png" height="100"/>
 </center>
 <center><font size=1>常见的几何约类型</font></center>
 
@@ -82,34 +84,15 @@ Solidworks有功能强大、易学易用和技术创新三大特点，这使得S
 
 尺寸约束就是给草图中的曲线进行**定位和定形**，使草图满足设计者的要求并让草图固定，其中最常用且便捷的是**智能尺寸**约束：
 
-<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/sw5.png"   width="50"></center>
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/ct5.png"   height="100"></center>
 <center><font size=1>尺寸标注类型</font></center>
 
-1. 路径长度尺寸：对于连续曲线的长度尺寸约束
-2. 尺寸链：从工程图或草图中的零坐标开始测量的尺寸链组
-3. 竖直尺寸：标注尺寸总是与坐标系的Y轴平行
-4. 水平尺寸：标注尺寸总是与坐标系的X轴平行
-5. 智能尺寸：包括长度尺寸、角度尺寸、直径尺寸、半径尺寸、弧长尺寸
+1. **路径长度尺寸：** 对于连续曲线的长度尺寸约束
+2. **尺寸链：** 从工程图或草图中的零坐标开始测量的尺寸链组
+3. **竖直尺寸：** 标注尺寸总是与坐标系的Y轴平行
+4. **水平尺寸：** 标注尺寸总是与坐标系的X轴平行
+5. **智能尺寸：** 包括长度尺寸、角度尺寸、直径尺寸、半径尺寸、弧长尺寸,可标注多种对象的尺寸
 
-## 2.创建特征
-
-### 2.1 创建基体特征
-
-### 2.2 创建附加特征
-
-
-### 2.3 特征变换与修改
-
-
-## 3.机械装配设计
-
-### 3.1 装配概述
-
-
-### 3.2 控制装配体
-
-
-## 3. 机械工程图设计
 
 
 ### 参考文献
