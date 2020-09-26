@@ -11,7 +11,7 @@ categories: [machinery , course , SolidWorks]
 Solidworks有功能强大、易学易用和技术创新三大特点，这使得SolidWorks成为主流的三维CAD解决方案。SolidWorks能够提供不同的设计方案、减少设计过程中的错误以及提高产品质量。SolidWorks不仅提供如此强大的功能，而且对每个工程师和设计者来说，操作简单方便、易学易用。在2021赛季，交龙战队将统一采用**SolidWorks2020**作为机械部3D模型绘制软件。
 提供b站学习链接：
 1. [SolidWorks2018视频教程](https://www.bilibili.com/video/BV1At41187nD)
-2. [solidworks新手到高级机械工程师必备教程-王江平](https://www.bilibili.com/video/BV16E411d723)
+2. [SolidWorks新手到高级机械工程师必备教程-王江平](https://www.bilibili.com/video/BV16E411d723)
 
 ---
 
