@@ -19,7 +19,7 @@ Solidworks有功能强大、易学易用和技术创新三大特点，这使得S
 ### 1.1 草图曲线工具
 草图曲线常用的绘制工具包括以下几种：
 
-<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/ct1.png"   width="400"></center>
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/ct1.png"   width="200"></center>
 <center><font size=1>草图曲线绘制工具栏</font></center>
 
 1. **直线：** SolidWorks的直线为由端点的直线，中心线为辅助线，可选择无限长度绘制真正的直线。
@@ -32,7 +32,7 @@ Solidworks有功能强大、易学易用和技术创新三大特点，这使得S
 
 除基础的草图元素绘制工具外，还有一些较为实用的草图曲线编辑工具，用来对草图进行剪裁、延伸、移动、缩放、偏移、镜像、阵列等操作和定义的工具：
 
-<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/ct2.png"   width="400"></center>
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/ct2.png"   width="200"></center>
 <center><font size=1>草图曲线编辑工具栏</font></center>
 
 1. **剪裁实体：** 剪裁实体工具用于剪裁或延伸草图曲线。
@@ -40,30 +40,56 @@ Solidworks有功能强大、易学易用和技术创新三大特点，这使得S
 3. **等距实体：** 等距实体工具可以将一个或多个草图曲线、所选模型边线或模型面按照指定距离值等距离偏移、复制。
 4. **镜像实体：** 镜像实体工具使以直线、中心线、模型实体边以及线性工程图边线作为对称中心来镜像复制曲线的工具。
 5. **复制工具：** SolidWorks草图环境中提供了用于草图曲线的移动、复制、旋转、缩放比例及伸展等复制类型的工具。
-
-
+6. **草图阵列：** 草图对象的阵列是一个对象复制过程，阵列的方式包括圆形阵列和矩形阵列。在含有多个重复且间距相同的草图对象时，采用阵列的方式可以快速复制并且简化定义。
 
 ### 1.2 草图约束概述
+草图中的“约束”就是能创建容易更新且可预见的参数驱动设计，能清晰表达设计意图，能自我限制长短及形状的一种工具。草图中的约束包括几何约束和尺寸约束。**几何约束**就是限制图形元素在二位平面上的自由度；**尺寸约束**则限制图形元素的长度、角度、位置关系、形状等。
+草图的定义状态有以下几种：
 * 欠定义：草图中有些尺寸未定义，欠定义的草图呈蓝色，此时草图的形状会随着光标的拖动而改变，同时属性管理器面板中现实欠定义符号。
 
-<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/sw3.png"   width="400"></center>
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/sw3.png"   width="50"></center>
+<center><font size=1>欠定义的草图</font></center>
 
 * 完全定义：所有曲线变成黑色，即草图的位置由尺寸和几何关系完全固定。
 
-<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/sw4.png"   width="400"></center>
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/sw4.png"   width="50"></center>
+<center><font size=1>完全定义的草图</font></center>
 
 * 过定义：在完全定义的基础上对草图再进行尺寸标注，将会过定义草图，即所定义的尺寸之间存在矛盾，约束信息再状态栏中显示
 
-<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/sw5.png"   width="400"></center>
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/sw5.png"   width="50"></center>
+<center><font size=1>过定义的草图</font></center>
 
 * 没有找到解：草图无法解出的几何关系和尺寸，如过定义的草图。
 * 发现无效的解：草图中出现了无效的几何体，如零长度直线，零半径圆弧或自相交的样条曲线。
 
-### 1.3 草图几何约束
+### 1.3 草图几何约束与尺寸约束
+草图几何约束为草图实体之间或草图实体与基准面、基准轴、边线或顶点之间的几何约束，可以自动或手动添加几何约束关系，主要类型有：
 
+<center class="half">
+    <img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/ct3.png" width="50"/><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/ct4.png" width="50"/>
+</center>
+<center><font size=1>常见的几何约类型</font></center>
 
-### 1.4 草图尺寸约束
+1. **水平：** 使直线保持水平，与x轴平行
+2. **竖直：** 使直线保持竖直，与y轴平行
+3. **共线：** 令两条直线处于同一直线
+4. **垂直：** 令两直线保持垂直关系
+5. **平行：** 令两直线保持平行关系
+6. **相切：** 令直线与圆弧/圆弧与圆弧相切
+7. **同心：** 令两圆弧的圆心位置相同
+8. **相等：** 对于直线而言即令直线长度相等，对于圆或圆弧而言即令两者半径相等
 
+尺寸约束就是给草图中的曲线进行**定位和定形**，使草图满足设计者的要求并让草图固定，其中最常用且便捷的是**智能尺寸**约束：
+
+<center><img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/SolidWorks/sw5.png"   width="50"></center>
+<center><font size=1>尺寸标注类型</font></center>
+
+1. 路径长度尺寸：对于连续曲线的长度尺寸约束
+2. 尺寸链：从工程图或草图中的零坐标开始测量的尺寸链组
+3. 竖直尺寸：标注尺寸总是与坐标系的Y轴平行
+4. 水平尺寸：标注尺寸总是与坐标系的X轴平行
+5. 智能尺寸：包括长度尺寸、角度尺寸、直径尺寸、半径尺寸、弧长尺寸
 
 ## 2.创建特征
 
