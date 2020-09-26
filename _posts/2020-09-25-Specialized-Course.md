@@ -41,4 +41,4 @@ categories: [machinery , Specialized course]
 ### 参考文献
 1. 《老师的PPT》
 2. 百度百科
-3. google
+3. Google
