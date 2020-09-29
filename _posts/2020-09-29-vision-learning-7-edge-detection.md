@@ -58,9 +58,87 @@ categories: [vision, course]
 
 有了HSV颜色空间，由于其H通道就代表了像素的颜色，我们就可以在H通道上使用上述几种边缘检测方式，从而得出颜色边缘。
 
-## 三、OpenCV中的边缘检测
+## 三、边缘检测的后处理
 
+不论是使用二值化、还是自适应二值化、还是基于梯度的边缘检测方法，其检测结果都不可能正好分毫不差的将目标完整保留下来，并将背景完全剔除。即使图像质量极佳，或者目标特征极为明显，使得正好将目标和背景区分开，检测结果也还停留于像素层面，即每个像素是目标还是背景，而我们想要的则是目标在哪片区域。
 
+所以后处理的目的主要有三个：**剔除错误的背景边缘、补充缺失的目标边缘、将目标表达成一个区域**。
+
+对于前两点，我们通常会首先使用开闭运算处理边缘图。其中开运算连接断开区域，闭运算删除游离的噪声区域。详细算法的计算方式，这里不作介绍，有兴趣可以自行百度。
+
+对于第三点，我们会使用轮廓检测。轮廓可以理解为一系列连通的边缘点，并且这些边缘点可以构成一个闭合曲线。
+
+仅仅使用开闭运算，对前两点的改善十分有限，为了进一步从大量边缘中找到目标边缘，我们在进行完轮廓提取后，还会进行形状筛选。即根据目标的形状信息，剔除形状不正确的的轮廓（这里的形状同样包括大小等各种目标独特的特征）。形状筛选的方式通常有，计算轮廓面积，计算最小外接矩形，椭圆拟合，多边形拟合等。
+
+## 四、OpenCV中的边缘检测
+
+这一节，我们介绍一下使用哪些函数可以在OpenCV中进行边缘检测。
+
+---
+
+```c++
+double cv::threshold(InputArray src, 
+                     OutputArray dst,
+                     double thresh,
+                     double maxval, 
+                     int type);
+```
+
+该函数是OpenCV中进行二值化的函数，其第一个参数是需要进行二值化的图像，第二个参数接收处理结果的位置，后几个参数详细使用方法请百度，全部介绍一遍比较冗长。
+
+使用示例：
+
+```c++
+cv::threshold(src, bin, 150, 255, cv::THRESH_BINARY);
+```
+
+上述函数调用将图像src中大于150的像素设为255，小于150的像素设为0，并保存在图像bin中。
+
+---
+
+```c++
+void cv::Canny(InputArray image,
+               OutputArray edges,
+               double threshold1,
+               double threshold2,
+               int apertureSize = 3,
+               bool L2gradient = false);	
+```
+
+该函数是OpenCV进行canny边缘检测的函数，其第一个参数是待处理的图像，第二个参数是接收处理结果的位置，后几个参数详细使用方法请百度，全部介绍一遍比较冗长。
+
+使用示例：
+
+```
+cv::Canny(src, edge, 50, 150);
+```
+
+上述函数调用对图像src进行canny边缘检测，并将检测结果保存在图像edge中，而50和150是canny算法需要的两个参数。
+
+---
+
+```c++
+// 轮廓提取函数，详细用法请百度
+cv::findContours(InputOutputArray image, 
+                 OutputArrayOfArrays contours,
+                 OutputArray hierarchy, int mode,
+                 int method,
+                 Point offset=Point());
+// 最小外接矩形，详细用法请百度
+RotatedRect cv::minAreaRect(InputArray points);
+// 椭圆拟合，详细用法请百度
+RotatedRect cv::fitEllipse(InputArray points);
+// 多边形拟合，详细用法请百度
+void cv::approxPolyDP(InputArray curve, OutputArray approxCurve, double epsilon, bool closed);
+// 开闭运算，详细用法请百度
+void morphologyEx(InputArray src, OutputArray dst,
+                  int op, InputArray kernel,
+                  Point anchor=Point(-1,-1), int iterations=1,
+                  int borderType=BORDER_CONSTANT,
+                  const Scalar& borderValue=morphologyDefaultBorderValue());
+```
+
+上述函数常用于后处理阶段。
 
 ---
 
