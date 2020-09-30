@@ -22,7 +22,7 @@ sudo apt-get install libopencv-dev python-opencv
 
 打开clion配置toolchain，如下图所示：
 
-<img src="/Users/sjtuhuanghongjun/Desktop/SJTU-RoboMaster-Team.github.io/_img/posts/clion.png" alt="clion" style="zoom:50%;" />
+<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/blob/master/_img/posts/vision-course/clion-toolchain.png?raw=true" alt="clion" style="zoom:50%;" />
 
 然后新建项目并把以下复制到相应的文件，点击右上角的箭头，如果程序成功运行，则表明环境安装成功。
 
