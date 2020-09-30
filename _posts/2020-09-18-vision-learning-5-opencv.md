@@ -161,7 +161,11 @@ sudo updatedb
 
 ## 四、Clion安装
 
-见百度网盘中安装包，解压后有安装教程。同样可以使用交大邮箱申请免费使用。
+见百度网盘中安装包，解压后有安装教程。
+
+Clion和Pycharm的安装教程在对应的安装包中都有提供，这里给出申请学生免费账号的方法。
+
+首先进入[官方申请网站](https://www.jetbrains.com/idea/buy/#discounts?billing=yearly)，选择For students and teachers下的 learn more，用自己的学校邮箱申请，然后打开邮箱内的确认邮件。然后创建自己的JetBrains Account，在软件安装完之后的activate过程中输入账号密码就可以使用了。
 
 
 
