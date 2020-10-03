@@ -140,6 +140,12 @@ void morphologyEx(InputArray src, OutputArray dst,
 
 上述函数常用于后处理阶段。
 
+## 五、作业
+
+识别并框出下面图片中的苹果。
+
+![apple](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/apple.png)
+
 ---
 
 作者：唐欣阳，github主页：[传送门](https://github.com/xinyang-go)。
