@@ -105,6 +105,8 @@ OpenCV中使用的求解焦距和成像原点的算法是基于张正友的方�
 
 略，以后补充
 
+https://my.oschina.net/makeit/blog/314446
+
 在opencv中求出了畸变系数和摄像机内参数以后，就可以用`cvUndistort2( ImageC1, Show1, &intrinsic_matrix, &distortion_coeffs);`来进行图像矫正了。
 
 
@@ -133,7 +135,7 @@ OpenCV中使用的求解焦距和成像原点的算法是基于张正友的方�
 
 编写OpenCV代码进行相机标定，并与Matlab标定参数进行对比。
 
-相机标定图片地址：链接: https://pan.baidu.com/s/16eyLzBNyby0nv5JahPercg 密码: c8ap
+相机标定图片地址：链接: https://pan.baidu.com/s/1xEKv0_EH1SFctE0vgYt_0g  密码: jbda
 
 请用百度网盘中`chess`文件夹下的图片（1280x720）标定相机，棋盘格大小为6x9，一格边长17mm。
 
