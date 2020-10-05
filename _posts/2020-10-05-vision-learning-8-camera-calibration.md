@@ -27,12 +27,18 @@ categories: [vision, course]
 上图中，（u、v）表示以像素为单位的图像坐标系的坐标，（x、y）表示以mm为单位的图像坐标系的坐标。
 
 两者存在一下关系式：
+
+
 $$
 \begin{bmatrix} u \\ v \\ 1 \\ \end{bmatrix} = 
 \begin{bmatrix} \frac{1}{d_x} & 0 & u_x \\ 0 & \frac{1}{d_y} & v_0 \\ 0 & 0 & 1 \\ \end{bmatrix}
 \begin{bmatrix} x \\ y \\ z \\ \end{bmatrix} \tag{1}\\
 $$
+
+
 即
+
+
 $$
 \left \{ 
 \begin{array}{c}
@@ -41,6 +47,7 @@ v = \frac{y}{d_y} + v_0
 \end{array}
 \right.
 $$
+
 
 
 #### 摄像机坐标系
@@ -53,12 +60,15 @@ $$
 
 要理解图像坐标系与摄像机坐标系的关系，就需要理解**针孔模型**。
 针孔模型又称为线性摄像机模型，任何空间点M在图像中的投影位置m，为光心Oc与M的连线OcM与图像平面的交点。在这个模型中包含着大量的相似三角形，但是要注意像平面和现在讨论的平面其实是关于Oc对称的，所以计算的时候不要忘记了负号，不然出来的图像就是倒着的。这种关系也称为重心摄影或者透视投影。此时有比例关系如下：
+
+
 $$
 Z_c
 \begin{bmatrix} x \\ y \\ 1 \\ \end{bmatrix} = 
 \begin{bmatrix} f & 0 & 0 & 0 \\ 0 & f & 0 & 0 \\ 0 & 0 & 1 & 0 \\ \end{bmatrix}
 \begin{bmatrix} X_c \\ Y_c \\ Z_c \\ 1 \\ \end{bmatrix} \tag{2}\\
 $$
+
 
 
 <img src="http://static.oschina.net/uploads/img/201409/16213747_8tAy.png" alt="16213747_8tAy" style="zoom:120%;" />
@@ -70,19 +80,25 @@ $$
 由于摄像机可以安放在现实环境中任意位置，所以在环境中任选一个基准坐标系来描述摄像机位置，并用它描述环境中任何物体的位置，该坐标系为世界坐标系。它有Xw、Yw和Zw轴组成，摄像机坐标系与世界坐标系之间的关系可以用旋转矩阵R与平移向量t来描述。这就是两个刚体坐标系上的坐标关系。
 
 世界坐标系和摄像机坐标系之间的转化关系符合如下公式：
+
+
 $$
 \begin{bmatrix} X_c \\ Y_c \\ Z_c \\ 1 \\ \end{bmatrix} = 
 \begin{bmatrix} R & t \\ 0^T & 1 \\ \end{bmatrix}
 \begin{bmatrix} X_w \\ Y_w \\ Z_w \\ 1 \\ \end{bmatrix} \tag{3}\\
 $$
 
----
+
+
+----
 
 总结来说，三个坐标系之间有如下图的转化关系：
 
 <img src="http://static.oschina.net/uploads/img/201409/16213746_mqeC.png" alt="16213746_mqeC" style="zoom:120%;" />
 
 综合公式1和2，可以得到
+
+
 $$
 Z_c
 \begin{bmatrix} u \\ v \\ 1 \\ \end{bmatrix} = 
@@ -90,6 +106,8 @@ Z_c
 \begin{bmatrix} R & t \\ \end{bmatrix}
 \begin{bmatrix} X_w \\ Y_w \\ Z_w \\ 1 \\ \end{bmatrix} \tag{4}\\
 $$
+
+
 
 alpha = f/dx，beta = f/dy，分别代表了以X轴与Y轴方向上的像素为单位表示的等效焦距。gamma在较高精度的相机模型中引入，表示图像平面中以像素为单位的坐标轴倾斜程度的量度，gamma=alpha*tan（theta），theta是相机CCD阵列v轴的偏斜角度。
 
