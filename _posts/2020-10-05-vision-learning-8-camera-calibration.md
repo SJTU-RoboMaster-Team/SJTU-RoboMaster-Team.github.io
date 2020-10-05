@@ -28,13 +28,7 @@ categories: [vision, course]
 
 两者存在一下关系式：
 
-
-$$
-\begin{bmatrix} u \\ v \\ 1 \\ \end{bmatrix} = 
-\begin{bmatrix} \frac{1}{d_x} & 0 & u_x \\ 0 & \frac{1}{d_y} & v_0 \\ 0 & 0 & 1 \\ \end{bmatrix}
-\begin{bmatrix} x \\ y \\ z \\ \end{bmatrix} \tag{1}\\
-$$
-
+<img src="https://latex.codecogs.com/gif.latex?\begin{bmatrix}&space;u&space;\\&space;v&space;\\&space;1&space;\\&space;\end{bmatrix}&space;=&space;\begin{bmatrix}&space;\frac{1}{d_x}&space;&&space;0&space;&&space;u_x&space;\\&space;0&space;&&space;\frac{1}{d_y}&space;&&space;v_0&space;\\&space;0&space;&&space;0&space;&&space;1&space;\\&space;\end{bmatrix}&space;\begin{bmatrix}&space;x&space;\\&space;y&space;\\&space;z&space;\\&space;\end{bmatrix}\\" title="\begin{bmatrix} u \\ v \\ 1 \\ \end{bmatrix} = \begin{bmatrix} \frac{1}{d_x} & 0 & u_x \\ 0 & \frac{1}{d_y} & v_0 \\ 0 & 0 & 1 \\ \end{bmatrix} \begin{bmatrix} x \\ y \\ z \\ \end{bmatrix}\\" />
 
 即
 
@@ -61,15 +55,7 @@ $$
 要理解图像坐标系与摄像机坐标系的关系，就需要理解**针孔模型**。
 针孔模型又称为线性摄像机模型，任何空间点M在图像中的投影位置m，为光心Oc与M的连线OcM与图像平面的交点。在这个模型中包含着大量的相似三角形，但是要注意像平面和现在讨论的平面其实是关于Oc对称的，所以计算的时候不要忘记了负号，不然出来的图像就是倒着的。这种关系也称为重心摄影或者透视投影。此时有比例关系如下：
 
-
-$$
-Z_c
-\begin{bmatrix} x \\ y \\ 1 \\ \end{bmatrix} = 
-\begin{bmatrix} f & 0 & 0 & 0 \\ 0 & f & 0 & 0 \\ 0 & 0 & 1 & 0 \\ \end{bmatrix}
-\begin{bmatrix} X_c \\ Y_c \\ Z_c \\ 1 \\ \end{bmatrix} \tag{2}\\
-$$
-
-
+<img src="https://latex.codecogs.com/gif.latex?Z_c\begin{bmatrix}&space;x&space;\\&space;y&space;\\&space;1&space;\\&space;\end{bmatrix}&space;=&space;\begin{bmatrix}&space;f&space;&&space;0&space;&&space;0&space;&&space;0&space;\\&space;0&space;&&space;f&space;&&space;0&space;&&space;0&space;\\&space;0&space;&&space;0&space;&&space;1&space;&&space;0&space;\\&space;\end{bmatrix}\begin{bmatrix}&space;X_c&space;\\&space;Y_c&space;\\&space;Z_c&space;\\&space;1&space;\\&space;\end{bmatrix}\\" title="Z_c\begin{bmatrix} x \\ y \\ 1 \\ \end{bmatrix} = \begin{bmatrix} f & 0 & 0 & 0 \\ 0 & f & 0 & 0 \\ 0 & 0 & 1 & 0 \\ \end{bmatrix}\begin{bmatrix} X_c \\ Y_c \\ Z_c \\ 1 \\ \end{bmatrix}\\" />
 
 <img src="http://static.oschina.net/uploads/img/201409/16213747_8tAy.png" alt="16213747_8tAy" style="zoom:120%;" />
 
@@ -81,12 +67,7 @@ $$
 
 世界坐标系和摄像机坐标系之间的转化关系符合如下公式：
 
-
-$$
-\begin{bmatrix} X_c \\ Y_c \\ Z_c \\ 1 \\ \end{bmatrix} = 
-\begin{bmatrix} R & t \\ 0^T & 1 \\ \end{bmatrix}
-\begin{bmatrix} X_w \\ Y_w \\ Z_w \\ 1 \\ \end{bmatrix} \tag{3}\\
-$$
+<img src="https://latex.codecogs.com/gif.latex?\begin{bmatrix}&space;X_c&space;\\&space;Y_c&space;\\&space;Z_c&space;\\&space;1&space;\\&space;\end{bmatrix}&space;=&space;\begin{bmatrix}&space;R&space;&&space;t&space;\\&space;0^T&space;&&space;1&space;\\&space;\end{bmatrix}&space;\begin{bmatrix}&space;X_w&space;\\&space;Y_w&space;\\&space;Z_w&space;\\&space;1&space;\\&space;\end{bmatrix}\\" title="\begin{bmatrix} X_c \\ Y_c \\ Z_c \\ 1 \\ \end{bmatrix} = \begin{bmatrix} R & t \\ 0^T & 1 \\ \end{bmatrix} \begin{bmatrix} X_w \\ Y_w \\ Z_w \\ 1 \\ \end{bmatrix}\\" />
 
 
 
@@ -96,18 +77,9 @@ $$
 
 <img src="http://static.oschina.net/uploads/img/201409/16213746_mqeC.png" alt="16213746_mqeC" style="zoom:120%;" />
 
-综合公式1和2，可以得到
+综合以上公式，可以得到
 
-
-$$
-Z_c
-\begin{bmatrix} u \\ v \\ 1 \\ \end{bmatrix} = 
-\begin{bmatrix} \alpha & \gamma & u_0 \\ 0 & \beta & v_0 \\ 0 & 0 & 1 \\ \end{bmatrix}
-\begin{bmatrix} R & t \\ \end{bmatrix}
-\begin{bmatrix} X_w \\ Y_w \\ Z_w \\ 1 \\ \end{bmatrix} \tag{4}\\
-$$
-
-
+<img src="https://latex.codecogs.com/gif.latex?Z_c&space;\begin{bmatrix}&space;u&space;\\&space;v&space;\\&space;1&space;\\&space;\end{bmatrix}&space;=&space;\begin{bmatrix}&space;\alpha&space;&&space;\gamma&space;&&space;u_0&space;\\&space;0&space;&&space;\beta&space;&&space;v_0&space;\\&space;0&space;&&space;0&space;&&space;1&space;\\&space;\end{bmatrix}&space;\begin{bmatrix}&space;R&space;&&space;t&space;\\&space;\end{bmatrix}&space;\begin{bmatrix}&space;X_w&space;\\&space;Y_w&space;\\&space;Z_w&space;\\&space;1&space;\\&space;\end{bmatrix}\\" title="Z_c \begin{bmatrix} u \\ v \\ 1 \\ \end{bmatrix} = \begin{bmatrix} \alpha & \gamma & u_0 \\ 0 & \beta & v_0 \\ 0 & 0 & 1 \\ \end{bmatrix} \begin{bmatrix} R & t \\ \end{bmatrix} \begin{bmatrix} X_w \\ Y_w \\ Z_w \\ 1 \\ \end{bmatrix}\\" />
 
 alpha = f/dx，beta = f/dy，分别代表了以X轴与Y轴方向上的像素为单位表示的等效焦距。gamma在较高精度的相机模型中引入，表示图像平面中以像素为单位的坐标轴倾斜程度的量度，gamma=alpha*tan（theta），theta是相机CCD阵列v轴的偏斜角度。
 
