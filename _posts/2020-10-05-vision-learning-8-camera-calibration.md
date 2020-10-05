@@ -137,7 +137,7 @@ OpenCV中使用的求解焦距和成像原点的算法是基于张正友的方�
 6. 计算反向投影误差
 7. 可选：可以使用matlab查看自己的标定精度
 
-
+![Matlab](https://raw.githubusercontent.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/Matlab_camera_calibration.tiff)
 
 ### 三、作业
 
