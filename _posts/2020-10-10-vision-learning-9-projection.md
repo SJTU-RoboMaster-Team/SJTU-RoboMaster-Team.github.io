@@ -1,4 +1,15 @@
-# ***\*仿射变换和透视变换\****
+---
+layout: post
+title: 视觉教程第九弹：透视变换与仿射变换
+categories: [vision, course]
+
+---
+
+# 视觉教程第九弹：透视变换与仿射变换
+
+> 机械是血肉，电控是大脑，视觉是灵魂。
+
+
 
 我们今天学习两种平面几何变换：
 
@@ -46,7 +57,7 @@ Point2f，就是含float x和float y的二元组![img](https://github.com/SJTU-R
 
 ![img](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/wps9.jpg) 
 
-用两个不同位置处的照相机拍摄同一个绿色平面，两张图片的坐标可以通过![img](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/wps10.jpg)（单应性矩阵）来转换。透视变换也称作射影变换，见下图。
+用两个不同位置处的照相机拍摄同一个绿色平面，两张图片的坐标可以通过![img](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/wps10.png)（单应性矩阵）来转换。透视变换也称作射影变换，见下图。
 
 ![img](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/wps11.jpg) 
 
@@ -76,7 +87,7 @@ https://www.microsoft.com/en-us/research/wp-content/uploads/2004/10/tr-2004-92.p
 
 拓展目标：利用你学习到的轮廓提取、HSV颜色空间转换等知识，实现识别并筛选出车牌轮廓后转化为正视车牌图后，通过二值化方法提取出正视的仅有字符的二值图。
 
-![img](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/wps15.jpg) 
+![img](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/wps14.png) 
 
  
 
