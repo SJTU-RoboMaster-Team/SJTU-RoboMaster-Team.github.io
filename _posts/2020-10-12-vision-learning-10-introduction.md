@@ -161,7 +161,7 @@ git reflog可以查看版本变化的历史，从中选取所需的版本号回�
 
 输入以下指令：
 	
-	git remote add origin git@github.com:michaelliao/learngit.git
+	git remote add origin git@github.com:Your_name/repo_name.git
 
 ### 从远程库克隆
 克隆远程库的操作极为简单，在你想要克隆到的仓库的目录下打开git bash后
@@ -175,6 +175,11 @@ git reflog可以查看版本变化的历史，从中选取所需的版本号回�
 ![img](https://github.com/void-zxh/RM/blob/master/image/11.JPG)
 
 此方法为通过https协议克隆，亦可使用ssh协议进行clone，不过需要实现配置SSH密钥，过程较多，感兴趣的同学可自行上网搜索教程学习
+
+当需要在本地更新远程库的信息时
+输入以下指令即可：
+
+	git pull --rebase origin master
 
 ## 四、小结
 在本教程中，我们介绍了git的安装以及git基本的建库、添加文件、版本回溯、关联远程库、克隆远程库的功能，初步实现了其版本控制系统的功能
