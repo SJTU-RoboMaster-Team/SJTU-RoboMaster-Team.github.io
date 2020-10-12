@@ -159,6 +159,9 @@ git reflog可以查看版本变化的历史，从中选取所需的版本号回�
 
 ### 添加远程库
 
+输入以下指令：
+	
+	git remote add origin git@github.com:michaelliao/learngit.git
 
 ### 从远程库克隆
 克隆远程库的操作极为简单，在你想要克隆到的仓库的目录下打开git bash后
