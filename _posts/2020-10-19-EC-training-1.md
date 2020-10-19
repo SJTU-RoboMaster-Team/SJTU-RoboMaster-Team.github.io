@@ -12,6 +12,10 @@ categories: [EC, training]
 
 ## 经典的自虐方式
 
+### 什么都想知道
+
+### 什么都不敢做
+
 ----
 
 作者：席望，github主页：[传送门](https://github.com/bddwyx)。
