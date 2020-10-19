@@ -8,25 +8,24 @@ categories: [EC,Explanation Text]
 
 # 一、结构体 ESCC6x0RxMsg_t
 ## 1.1 概述
-### 对于结构体 ESCC6x0RxMsg_t：
-typedef struct {
-int16_t angle;//角度
-int16_t rotateSpeed;//转速
-int16_t moment;//扭矩
-} ESCC6x0RxMsg_t;//电调解码器发送的数据 用户可以直接读出数据进行处理。
+对于结构体 ESCC6x0RxMsg_t：
+    typedef struct {
+    int16_t angle;//角度
+    int16_t rotateSpeed;//转速
+    int16_t moment;//扭矩
+    } ESCC6x0RxMsg_t;//电调解码器发送的数据 用户可以直接读出数据进行处理。
 
 该结构体存储的是解码器返回的数值，用户可以直接调用。
 ## 1.2 结构体成员详解
-### 1、angle 解码器获得的角度值，通过一定的映射关系可以求得真实的角度realAngle。该参数通常用于NormalMotor(在下文中将会讲解)这类电机PID
-运算中计算反馈值(Fdb)，
-或者是底盘跟随(该功能将在chassisTask说明文档中解释)。
+1、angle 解码器获得的角度值，通过一定的映射关系可以求得真实的角度realAngle。该参数通常用于NormalMotor(在下文中将会讲解)这类电机PID
+运算中计算反馈值(Fdb)，或者是底盘跟随(该功能将在chassisTask说明文档中解释)。
 2、rotateSpeed 通常用于ChassisMotor这类电机(下文同样会进行讲解)的PID运算，见下面的代码：
-void ChassisMotor::Handle() {
-speedPid.PIDInfo.ref = targetAngle;
-speedPid.PIDInfo.fdb = RxMsgC6x0.rotateSpeed;//此处用到了该参数
-speedPid.Calc();
-intensity = speedPid.PIDInfo.output;
-}
+    void ChassisMotor::Handle() {
+    speedPid.PIDInfo.ref = targetAngle;
+    speedPid.PIDInfo.fdb = RxMsgC6x0.rotateSpeed;//此处用到了该参数
+    speedPid.Calc();
+    intensity = speedPid.PIDInfo.output;
+    }
 /*以上代码摘自MotorTask.cpp*/
 3、moment 即扭矩。实时反馈电机的扭矩值。可用于配合实现机械限位，调零点等工作。
 以工程车为例，其爪子在使用前或者使用后必须进行位置的调零，以保证每次工作时都能转动正确的角度。为了辅助调零，通常会有一个机械限位，即阻止
@@ -41,7 +40,7 @@ intensity = speedPid.PIDInfo.output;
 
 # 二、Motor 类
 ## 1.1 概述
-### Motor类是所有电机类的基类。其派生关系满足下面的示意图。
+Motor类是所有电机类的基类。其派生关系满足下面的示意图。
                ____________ ChassisMotor
               /____________ NormalMotor
    Motor |____________ GMYawMotor
@@ -64,7 +63,7 @@ double reductionRate;//电机减速比
 double lastRead;//辅助计算realAngle，具体请看相关代码，此处不赘述。
 double realAngle;//真实角度
 ## 1.3 接口
-### 1、targetAngle:可供用户设置的目标角度(对ChassisMotor而言是目标速度)。
+1、targetAngle:可供用户设置的目标角度(对ChassisMotor而言是目标速度)。
 2、Reset函数:用于分配电机的can类型，RxID，减速比，PID(双环PID)等参数。
 can类型:CAN_TYPE_1 即can1
 CAN_TYPE_2 即can2
@@ -102,7 +101,7 @@ CAN_TYPE_2 即can2
 在主循环中会不断调用Handle函数，实现对各个电机的控制。
 4、其余的Getter和Setter由于比较简单易懂，此处不再赘述。
 ##1.3 派生类简介
-### Motor的派生情况如下所示：
+Motor的派生情况如下所示：
                ____________ ChassisMotor
               /____________ NormalMotor
    Motor |____________ GMYawMotor
@@ -119,5 +118,5 @@ CAN_TYPE_2 即can2
 相关成员函数实现对电机的操作。可类比ChassisTask等。
 
 ## 1.4 派生类Handle函数的简略说明
-### 派生类Handle函数主要就是使用传统PID或者双环PID控制，把控制量以intensity的方式传给电机。
+派生类Handle函数主要就是使用传统PID或者双环PID控制，把控制量以intensity的方式传给电机。
 若了解PID相关原理，理解起来不难，此处不赘述。
