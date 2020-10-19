@@ -53,7 +53,8 @@ categories: [EC,Explanation Text]
 
 ## 1.1 概述
 
-Motor类是所有电机类的基类。其派生关系满足下面的示意图。
+Motor类是所有电机类的基类。其派生关系满足下面的示意图:
+
           ____________ ChassisMotor
          /____________ NormalMotor
     Motor|____________ GMYawMotor
@@ -143,6 +144,7 @@ CAN_TYPE_2 即can2
 ##1.3 派生类简介
 
 Motor的派生情况如下所示：
+
           ____________ ChassisMotor
          /____________ NormalMotor
     Motor|____________ GMYawMotor
