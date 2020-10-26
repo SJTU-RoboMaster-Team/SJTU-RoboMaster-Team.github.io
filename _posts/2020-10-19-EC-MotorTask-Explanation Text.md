@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 电控说明文档(一)：MotorTask
-categories: [EC,Explanation Text]
+categories: [EC,Explanation Text, training]
 ---
 
 # 该文档为解释MotorTask .h以及.cpp文件的解释说明文档，将分为两个部分进行阐述。
@@ -63,35 +63,35 @@ Motor类是所有电机类的基类。其派生关系满足下面的示意图:
 
 Motor类具有丰富的接口，可用于辅助用户实现对电机的多种操作。
 
-##1.2 Protected成员
+## 1.2 Protected成员
 
 Motor类具有以下Protected成员，以注释解释各成员的作用以及含义。
 
-PID speedPid; //速度环PID，所有类型的电机都有。
+	PID speedPid; //速度环PID，所有类型的电机都有。
 
-PID anglePid; //角度环PID，只有用双环PID的电机才有，例如GMYawMotor，NormalMotor等。
+	PID anglePid; //角度环PID，只有用双环PID的电机才有，例如GMYawMotor，NormalMotor等。
 
-uint16_t TxID; //can通讯相关参数，按照Can通讯标准设置
+	uint16_t TxID; //can通讯相关参数，按照Can通讯标准设置
 
-uint16_t RxID; //can通讯相关参数，和电调ID(设其为i)之间满足以下映射关系：
+	uint16_t RxID; //can通讯相关参数，和电调ID(设其为i)之间满足以下映射关系：
 
-//RxID = 0x200 + i;
+	//RxID = 0x200 + i;
 
-int16_t intensity;//通过can通讯发送给电机的电流强度。也就是所谓PID输出的控制量。
+	int16_t intensity;//通过can通讯发送给电机的电流强度。也就是所谓PID输出的控制量。
 
-ESCC6x0RxMsg_t RxMsgC6x0;//前文提过，不再赘述。
+	ESCC6x0RxMsg_t RxMsgC6x0;//前文提过，不再赘述。
 
-uint8_t firstEnter;//是否第一次进入？电机是否做初始化工作的判据。
+	uint8_t firstEnter;//是否第一次进入？电机是否做初始化工作的判据。
 
-uint8_t s_count;//调节电机控制频率。
+	uint8_t s_count;//调节电机控制频率。
 
-uint8_t reseted;//用于判断云台电机是否回归零点。
+	uint8_t reseted;//用于判断云台电机是否回归零点。
 
-double reductionRate;//电机减速比
+	double reductionRate;//电机减速比
 
-double lastRead;//辅助计算realAngle，具体请看相关代码，此处不赘述。
+	double lastRead;//辅助计算realAngle，具体请看相关代码，此处不赘述。
 
-double realAngle;//真实角度
+	double realAngle;//真实角度
 
 ## 1.3 接口
 
@@ -141,7 +141,7 @@ CAN_TYPE_2 即can2
 
 4、其余的Getter和Setter由于比较简单易懂，此处不再赘述。
 
-##1.3 派生类简介
+## 1.3 派生类简介
 
 Motor的派生情况如下所示：
 
