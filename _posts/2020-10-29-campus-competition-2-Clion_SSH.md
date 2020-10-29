@@ -11,7 +11,7 @@ categories: [vision, campus-competition]
 
 ---
 
-如果你可以在一个系统上用clion写程序，并使用另一个系统的内核来编译完成代码运行，是不是一件非常省事而且高效地事情呢？Clion可以帮助你完成这一点。我们可以在主机上写代码，并把虚拟机作为服务器完成代码的编写和调试，并且代码的同步是完全自动完成的。
+如果你可以在一个系统上用clion写程序，并使用另一个系统的内核来编译完成代码运行，是不是一件非常省事而且高效地事情呢？这在另一个系统没有图形化界面的时候尤其有用。Clion可以帮助你完成这一点。我们可以在主机上写代码，并把虚拟机作为服务器完成代码的编写和调试，并且代码的同步是完全自动完成的。
 
 ## 一、虚拟机配置
 
@@ -31,7 +31,7 @@ ps -ef | grep sshd
 
 如何出现类似于下图所示内容表明ssh启动成功：
 
-![]()
+![sshd.png](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/blob/master/_img/posts/vision-course/sshd.png?raw=true)
 
 安装完成后如果没有启动则输入一下命令（一般不需要）：
 
@@ -61,19 +61,19 @@ sudo apt install net-tools
 
 打开clion，点击Preference->Build, Execution, Deployment->Toolchains->+->Remote Host，如下图
 
-![]()
+![Clion-SSH1](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/blob/master/_img/posts/vision-course/Clion-SSH1.png?raw=true)
 
 然后如图配置，点击Credentials右侧的⚙️打开，输入刚刚得到的虚拟机ip地址，虚拟机用户名和密码，完成后点击OK。
 
-![]()
+![Clion-SSH2](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/blob/master/_img/posts/vision-course/Clion-SSH2.png?raw=true)
 
 点击Preference->Build, Execution, Deployment->Cmake->Toolchain，选择刚刚设置过的toolchain即可，如图。
 
-![]()
+![Clion_SSH3](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/blob/master/_img/posts/vision-course/Clion_SSH3.png?raw=true)
 
-然后点击项目就可以发现clion完成了自动编译和上传，大功告成。
+然后点击项目就可以发现clion完成了自动编译和上传，大功告成。以后就可以像以前一样运行项目了。
 
-![]()
+![Clion_SSH4](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/blob/master/_img/posts/vision-course/Clion_SSH4.png?raw=true)
 
 
 
