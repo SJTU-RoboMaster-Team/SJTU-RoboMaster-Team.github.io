@@ -83,15 +83,15 @@ sudo apt install net-tools
 
 配置 Pycharm 服务器的代码同步，打开 Preferences -> Build, Execution, Deployment -> Deployment，点击左边的 + 添加一个部署配置，输入配置名 Name，Type 选择 SFTP，然后确认；
 
-![Pycharm_SSH1]()
+![Pycharm_SSH1](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/blob/master/_img/posts/vision-course/Pycharm_SSH1.png?raw=true)
 
 配置远程服务器的 IP，端口，用户名和密码，Root Path 是项目文件在远程服务器中的根目录，根据需求配置，例如`/`
 
-![Pycharm_SSH2]()
+![Pycharm_SSH2](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/blob/master/_img/posts/vision-course/Pycharm_SSH2.png?raw=true)
 
 点击 Mappings，将 Local Path 设置为当前主机下的工程目录（一般已经自动设置好了，即项目文件夹的绝对路径），自己视情况设定。将 Deployment path设置为远程服务器中的项目目录，例如` /tmp`，即在服务器上代码存放的目录，Web path on server 暂时不用设置，貌似 Web 相关的程序会用到，需要用到的话请自行 Google；
 
-![Pycharm_SSH3]()
+![Pycharm_SSH3](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/blob/master/_img/posts/vision-course/Pycharm_SSH3.png?raw=true)
 
 点击 Excluded Paths 可以设置一些不想同步的目录，例如软件的配置文件目录等，此步可省略。
 
@@ -101,27 +101,27 @@ sudo apt install net-tools
 
 Preferences -> Project:XXX -> Deployment->Project Interpreter，点击右侧小齿轮，点击Add，如图
 
-![Pycharm_SSH4]()
+![Pycharm_SSH4](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/blob/master/_img/posts/vision-course/Pycharm_SSH4.png?raw=true)
 
-![Pycharm_SSH5]()
+![Pycharm_SSH5](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/blob/master/_img/posts/vision-course/Pycharm_SSH5.png?raw=true)
 
 选择SSH Interpreter，填写主机的 SSH 配置信息，Python interpreter path 选择自己需要的远程服务器的解释器。这里提一下，如果安装了anaconda等环境管理包，那么不同环境对应的python解释器的位置是不同的，系统默认的解释器存在于`/usr/bin`中，但比如anaconda的base环境解释器存在于`anaconda安装路径/bin/`中，默认`/home/<username>/anaconda3/bin/python`，而某XXX环境的python解释器为`anaconda安装路径/envs/<XXX>/bin/python`，例如`/home/<username>/anaconda3/envs/opencv/bin/python`。
 
-![Pycharm_SSH6]()
+![Pycharm_SSH6](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/blob/master/_img/posts/vision-course/Pycharm_SSH6.png?raw=true)
 
-![Pycharm_SSH7]()
+![Pycharm_SSH7](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/blob/master/_img/posts/vision-course/Pycharm_SSH7.png?raw=true)
 
 设置完成后应该出现如下界面
 
-![Pycharm_SSH8]()
+![Pycharm_SSH8](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/blob/master/_img/posts/vision-course/Pycharm_SSH8.png?raw=true)
 
 把第二行的文件路径复制到刚刚配置过的deployment处，就大功告成了。
 
-![Pycharm_SSH9]()
+![Pycharm_SSH9](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/blob/master/_img/posts/vision-course/Pycharm_SSH9.png?raw=true)
 
 笔者发现pycharm虽然选择了自动同步，但自动同步的效果很差，所以每次在运行前，为了确保远程的文件与本机文件一致，建议进行手动同步，手动同步的方法如下图所示。
 
-![Pycharm_SSH10]()
+![Pycharm_SSH10](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/blob/master/_img/posts/vision-course/Pycharm_SSH10.png?raw=true)
 
 
 
