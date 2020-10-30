@@ -19,7 +19,7 @@ categories: [EC,Explanation Text]
 **/
 
 该文档主要说明PIDTask文件中部分函数或参数的作用。
-PID相关原理解释可参考：https://www.zhihu.com/question/23088613，此处不再赘述。
+PID相关原理解释可参考：<https://www.zhihu.com/question/23088613>，此处不再赘述。
 
 # 一、PID_Regulator_t 结构体
 
@@ -102,10 +102,12 @@ void PID::Reset(double _kp, double _ki, double _kd, double _pMax, double _iMax, 
 
 相关资料推荐：
 PID：
-    https://zhuanlan.zhihu.com/p/129254220
-    https://blog.csdn.net/tingfenghanlei/article/details/85028677
-双环PID
-    https://www.zhihu.com/question/293450508/answer/488607731
+<https://zhuanlan.zhihu.com/p/129254220>
+<https://blog.csdn.net/tingfenghanlei/article/details/85028677>
+双环PID:
+<https://www.zhihu.com/question/293450508/answer/488607731>
+
+
 
 
 
