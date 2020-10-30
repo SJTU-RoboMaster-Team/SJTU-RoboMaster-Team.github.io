@@ -174,7 +174,3 @@ categories: [EC,Explanation Text]
             motor.targetAngle = constant;//constant为一个常数。
 
 ​		相关的实现位于MotorTask.h文件中，Handle函数主要利用PID获取电机控制量，原理较为简单，此处不再赘述。
-
-```
-
-```
