@@ -3,20 +3,7 @@ layout: post
 title: 电控说明文档(三)：GimbalTask
 categories: [EC,Explanation Text]
 ---
-/**
-******************************************************************************
-  * @FileName			    GimbalTask
-  * @Description            Describe and explain the functions or meaning of some parameters and functions,
-  *                         in order that user can better understand as well as exert the code.
-  * @author                 Zihong Lin
-  * @note
-******************************************************************************
-  *
-  * Copyright (c) 2021 Team JiaoLong-ShanghaiJiaoTong University
-  * All rights reserved.
-    *
-******************************************************************************
-**/
+
 类似其他文档，该文档将讲解GimbalTask中的函数、变量的含义和作用。
 
 # 一、概述

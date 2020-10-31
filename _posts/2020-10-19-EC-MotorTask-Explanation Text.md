@@ -10,13 +10,15 @@ categories: [EC,Explanation Text, training]
 
 ## 1.1 概述
 
-对于结构体 ESCC6x0RxMsg_t：
+对于结构体 
+``` C++
+ESCC6x0RxMsg_t：
     typedef struct {
     int16_t angle;//角度
     int16_t rotateSpeed;//转速
     int16_t moment;//扭矩
     } ESCC6x0RxMsg_t;//电调解码器发送的数据 用户可以直接读出数据进行处理。
-
+```
 该结构体存储的是解码器返回的数值，用户可以直接调用。
 
 ## 1.2 结构体成员详解
@@ -24,6 +26,7 @@ categories: [EC,Explanation Text, training]
 运算中计算反馈值(Fdb)，或者是底盘跟随(该功能将在chassisTask说明文档中解释)。
 
 2、rotateSpeed 通常用于ChassisMotor这类电机(下文同样会进行讲解)的PID运算，见下面的代码：
+```C++
     void ChassisMotor::Handle() {
     speedPid.PIDInfo.ref = targetAngle;
     speedPid.PIDInfo.fdb = RxMsgC6x0.rotateSpeed;//此处用到了该参数
@@ -31,6 +34,7 @@ categories: [EC,Explanation Text, training]
     intensity = speedPid.PIDInfo.output;
     }
 /*以上代码摘自MotorTask.cpp*/
+```
 3、moment 即扭矩。实时反馈电机的扭矩值。可用于配合实现机械限位，调零点等工作。
 
 以工程车为例，其爪子在使用前或者使用后必须进行位置的调零，以保证每次工作时都能转动正确的角度。为了辅助调零，通常会有一个机械限位，即阻止机构向某个方向运动。
@@ -66,33 +70,33 @@ Motor类具有丰富的接口，可用于辅助用户实现对电机的多种操
 ## 1.2 Protected成员
 
 Motor类具有以下Protected成员，以注释解释各成员的作用以及含义。
-
+```C++
 	PID speedPid; //速度环PID，所有类型的电机都有。
-
+	
 	PID anglePid; //角度环PID，只有用双环PID的电机才有，例如GMYawMotor，NormalMotor等。
-
+	
 	uint16_t TxID; //can通讯相关参数，按照Can通讯标准设置
-
+	
 	uint16_t RxID; //can通讯相关参数，和电调ID(设其为i)之间满足以下映射关系：
-
+	
 	//RxID = 0x200 + i;
-
+	
 	int16_t intensity;//通过can通讯发送给电机的电流强度。也就是所谓PID输出的控制量。
-
+	
 	ESCC6x0RxMsg_t RxMsgC6x0;//前文提过，不再赘述。
-
+	
 	uint8_t firstEnter;//是否第一次进入？电机是否做初始化工作的判据。
-
+	
 	uint8_t s_count;//调节电机控制频率。
-
+	
 	uint8_t reseted;//用于判断云台电机是否回归零点。
-
+	
 	double reductionRate;//电机减速比
-
+	
 	double lastRead;//辅助计算realAngle，具体请看相关代码，此处不赘述。
-
+	
 	double realAngle;//真实角度
-
+```
 ## 1.3 接口
 
 1、targetAngle:可供用户设置的目标角度(对ChassisMotor而言是目标速度)。
@@ -106,7 +110,7 @@ CAN_TYPE_2 即can2
 3、Handle函数:一个虚函数，即电机的控制函数。
 
 在CarTask.cpp中，有以下代码:
-
+``` C++
     void MainControlLoop(void) {
     Car::car.WorkStateFSM();
     if (Car::car.GetWorkState() > 0) {
@@ -136,7 +140,7 @@ CAN_TYPE_2 即can2
     AutoAim::autoAim.Handle();
     #endif
     }
-
+```
 在主循环中会不断调用Handle函数，实现对各个电机的控制。
 
 4、其余的Getter和Setter由于比较简单易懂，此处不再赘述。
