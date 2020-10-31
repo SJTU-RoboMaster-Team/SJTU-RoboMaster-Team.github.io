@@ -44,7 +44,7 @@ sudo /etc/init.d/ssh start/stop
 然后查看虚拟机的ip地址，请确保虚拟机连接到网络，并处于桥接模式。记录下inet地址。
 
 ```bash
-ipconfig -a
+ifconfig -a
 ```
 
 <img src="https://exp-picture.cdn.bcebos.com/f59dbe39131fceec759b8cc179c4ec9958430b9b.jpg?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_500%2Climit_1" alt="ifconfig" style="zoom:100%;" />
