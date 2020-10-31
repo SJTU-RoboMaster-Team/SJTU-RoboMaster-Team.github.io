@@ -3,20 +3,7 @@ layout: post
 title: 电控说明文档(四)：PIDTask
 categories: [EC,Explanation Text]
 ---
-/**
-******************************************************************************
-  * @FileName			    PIDTask
-  * @Description            Describe and explain the functions or meaning of some parameters and functions,
-  *                         in order that user can better understand as well as exert the code.
-  * @author                 Zihong Lin
-  * @note
-******************************************************************************
-  *
-  * Copyright (c) 2021 Team JiaoLong-ShanghaiJiaoTong University
-  * All rights reserved.
-    *
-******************************************************************************
-**/
+
 
 该文档主要说明PIDTask文件中部分函数或参数的作用。
 PID相关原理解释可参考：<https://www.zhihu.com/question/23088613>，此处不再赘述。

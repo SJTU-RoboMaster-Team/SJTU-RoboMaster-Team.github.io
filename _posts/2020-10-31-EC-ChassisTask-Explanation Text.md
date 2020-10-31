@@ -3,21 +3,6 @@ layout: post
 title: 电控说明文档(二)：ChassisTask
 categories: [EC,Explanation Text]
 ---
-/**
-******************************************************************************
-  * @FileName			    ChassisTask
-  * @Description            Describe and explain the functions or meaning of some parameters and functions,
-  *  in order that user can better understand as well as exert the code.
-  * @author                 Zihong Lin
-  * @note
-******************************************************************************
-  *
-  * Copyright (c) 2021 Team JiaoLong-ShanghaiJiaoTong University
-  * All rights reserved.
-    *
-******************************************************************************
-**/
-
 # 一、概述  
 ​	Chassis即底盘，ChassisTask完成了对底盘相关工作的处理。  
 ​	本文档将会对Chassis的参数和函数进行详解。  
