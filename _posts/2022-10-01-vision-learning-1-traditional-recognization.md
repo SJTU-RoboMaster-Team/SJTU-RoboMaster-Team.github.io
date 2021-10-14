@@ -235,20 +235,20 @@ src = cv::imread("/home/nvidia/Documents/a.jpg")；
 	在这一步骤中，需要将目标图像进行各种运算，输出的图像矩阵中应当只有``0``和``255``两个数值，所以叫二值化。
 	比较常用的方法是通过``HSV空间``进行颜色提取。
 	下面是一个二值化的例子：
-	![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633011378582.png)
+	![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633011378582.png)
 	下面是对于这张图片，我们提取红色部分颜色进行二值化的结果。
-	![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633011400629.png)
+	![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633011400629.png)
 2. 滤波
 	由于相机采样本身存在噪声，同时自然环境中也有各种光噪声干扰，因此我们常常对二值化图像进行滤波来减小噪声。
-	![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633011616994.png)
+	![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633011616994.png)
 	这张图片是对原图进行中值滤波的结果，可以看到图像中的噪点变少，图像更加平滑。
 3. 形态学运算
 	如果我们仔细观察滤波后的图像，我们会发现图像中扇叶下端的流动条中间有缝隙。这种缝隙被称为``HSV空洞``，在现实场景中往往难以避免。但``HSV空洞``会导致图像轮廓断裂，给基于轮廓的传统视觉带来各种不同的困难。因此我们常常使用形态学运算消除这种缝隙。
-	![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633011831364.png)
+	![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633011831364.png)
 	上图是做了一遍形态学开运算后的结果，可以看到流动条处的``HSV空洞``已经基本消除。
 4. 边缘检测&轮廓提取
 	图像是一段连续的点阵，然而想让计算机理解这些点阵并不是一件容易的事，因此我们常常需要从图像中提取出轮廓来方便后续的操作。
-	![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633012317102.png)
+	![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633012317102.png)
 	上图是对二值化图像执行canny算法之后得到的边缘检测结果。
 	但边缘检测的输出结果一般仍然是一张图片，为了方便研究轮廓的特征，我们所需要的是一个点序列构成的轮廓。
 	由于轮廓提取的结果难以可视化，我们将在后面进行更详细的讲述。
@@ -294,12 +294,12 @@ THRESH_TOZERO:		将小于 thres 的值变为 0 , 大于 thres 的值不变
 THRESH_TOZERO_INV:	将大于 thres 的值变为 0 , 小于 thres 的值不变
 ```
 下面这张图片形象地讲述了``threshold``的几种方法的作用效果。
-![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633016915260.png)
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633016915260.png)
 
 我们用下面一个例子熟悉一下设定``threshold``实现二值化的方法。
 
 现在我们需要将这样一种图进行二值化，提取其中棋盘格黑色的区域：
-![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633017088709.png)
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633017088709.png)
 我们用下面这段程序实现了这一功能：
 ```cpp
 #include <opencv2/core/core.hpp>
@@ -320,7 +320,7 @@ int main(int argc, char ** argv)
 }
 ```
 这是这段程序的运行结果：
-![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633017242223.png)
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633017242223.png)
 可以看到我们很好地提取出了黑色的部分。
 
 ##### 自适应二值化
@@ -357,10 +357,10 @@ int main(int argc, char ** argv)
 **但是设定单一阈值的方法仍然有明显的缺点，对于一张图中有明显的光线亮度渐变的图像，单一阈值往往难以起到好的效果**
 
 例如这张图片，可以看到右下角亮度偏暗：
-<img src="../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633019181071.png" width="345" height="460">
+<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633019181071.png" width="345" height="460">
 
 如果使用大津法自动求阈值并直接二值化，会得到类似下图的结果：
-<img src="../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633019383353.png" width="345" height="460">
+<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633019383353.png" width="345" height="460">
 
 这样的结果并不是我们想要的。
 
@@ -390,7 +390,7 @@ int main(int argc, char ** argv)
 }
 ```
 这是自适应二值化算法的运行结果：
-<img src="../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633020353230.png" width="345" height="460" />
+<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633020353230.png" width="345" height="460" />
 
 **对于灰度图的二值化算法就介绍到这里，下面介绍对于彩色图片的二值化方法**
 
@@ -404,7 +404,7 @@ int main(int argc, char ** argv)
 然而，在计算机视觉中，``HSV``空间和``HSI``空间更常用。
 
 下面主要介绍``HSV``空间。``HSV``空间通过色相(H)，饱和度(S)，和亮度(V)表示空间内的每一个颜色。下图为``HSV``空间的示意图：
-![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633021594383.png)
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633021594383.png)
 从上图中可以看出，``HSV``空间相对于``RGB``空间的一大优势，即``HSV``空间中每一种颜色所在的区域是连续的。
 ``HSV``空间的三个坐标都各有其范围：$H$坐标的范围为$[0,180]$，$S$和$V$得范围都为$[0, 255]$。
 
@@ -445,7 +445,7 @@ int main(int argc, char ** argv)
 ##### 多通道相减
 对于，彩色图片的二值化，最容易想到的方法是颜色通道相减并二值化的方法。
 例如下图中，如果想要分离红色。那么通过红色通道与蓝色通道相减就可以取得极佳的效果：
-![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633022544535.png)
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633022544535.png)
 下面这段代码实现了通过多通道相减的方法对此图进行二值化。
 ```cpp
 #include <opencv2/core/core.hpp>
@@ -477,7 +477,7 @@ int main(int argc, char ** argv)
 }
 ```
 他得到的结果如图：
-![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633023264302.png)
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633023264302.png)
 
 多通道相减的方法很方便，但也有许多局限性，例如，如果使用多通道相减的方法，就很难区分红色和橙色。尤其是在背景中出现白光干扰时，多通道相减将难以下手。因此只有在处理少数图像中色相相差较大的情况比较合适。
 
@@ -487,10 +487,10 @@ int main(int argc, char ** argv)
 前文中已经介绍了``HSV颜色空间``的概念，他有一个重要的性质，即同一种颜色在``HSV颜色空间``是连续的。因此，如果我们想要提取图像中的某一种颜色，那么只需要找到所求颜色在``HSV空间``中出现的坐标范围，并把图像中处在这个区间内的像素点的值全部置为$255$，其余值置为$0$即可完成二值化。
 
 我们下面仍然以这张图为例：
-![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633022544535.png)
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633022544535.png)
 
 我们想要提取的颜色为红色和橙色的区域，通过百度搜索，我们了解到红色和橙色的颜色在``HSV空间``中处于区间$ [(0, 43, 46), (25, 255, 255)] \bigcup [(156, 43, 46), (180, 255, 255)] $中。
-![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633024146098.png)
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633024146098.png)
 
 而OpenCV又提供了可以实现颜色提取的函数``inRange()``。
 下面为``inRange``函数的具体声明：``void cv::inRange(InputArray src, InputArray lowerb, InputArray upperb, OutputArray dst )``
@@ -527,7 +527,7 @@ int main(int argc, char ** argv)
 }
 ```
 他得到的结果如图：
-![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633025384624.png)
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633025384624.png)
 
 当然，``HSV颜色提取``虽然是一种非常优秀的二值化方法，但他也存在自己的局限性。例如亮度的变化会对``HSV``数值造成干扰。同时，在实际使用过程中，如果相机的感光元件敏感度较高，也会造成图像中出现噪点，形成椒盐噪声。此外，在感光角度不同时，相机获取到的颜色饱和度和色相也会发生一定程度的变化，造成``HSV空洞``。
 
@@ -551,7 +551,7 @@ $$ K = \frac{1}{ksize.width \times ksize.height} \times \left[\begin{matrix} 1 &
 其中``ksize``即为卷积的矩阵的大小。
 
 例如下图中，我们有一张看起来点很多的图：
-![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633027388944.png)
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633027388944.png)
 
 以下的代码使用均值滤波试图对其进行滤波：
 ```cpp
@@ -575,7 +575,7 @@ int main(int argc, char ** argv)
 }
 ```
 滤波的结果如图：
-![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633027470180.png)
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633027470180.png)
 
 可以看到均值滤波的结果只是使得图片更加模糊，噪声并没有得到很好的消除。
 均值滤波是最快速的滤波算法之一，但同时它的效果却也不够理想，一般无法有效地去除椒盐噪声，
@@ -618,7 +618,7 @@ int main(int argc, char ** argv)
 ```
 
 滤波效果如图：
-![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633028568321.png)
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633028568321.png)
 可以看到图中的噪声仍然很大，但图像在平滑效果和特征保留上相对均值滤波都有一定的提升。
 
 ##### 中值滤波
@@ -651,7 +651,7 @@ int main(int argc, char ** argv)
 }
 ```
 下图为中值滤波的效果：
-![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633029568263.png)
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633029568263.png)
 可以看到中值滤波在去除椒盐噪声上有着良好的表现，但在信息的保存上劣于高斯滤波。
 
 ##### 形态学运算
@@ -689,7 +689,7 @@ int main(int argc, char ** argv)
 ```
 
 边缘检测的效果如图：
-![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633030996308.png)
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633030996308.png)
 
 **但是Canny只能在图像中画出检测出的边缘，而我们真正感兴趣的是有点序列构成的边缘，因为对这种边缘信息我们才能分析它的几何和拓扑特征**
 
@@ -771,7 +771,7 @@ int main(int argc, char ** argv)
 ```
 
 实现效果如图：
-![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633033989477.png)
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1633033989477.png)
 
 #### 轮廓筛选
 通过``findContours``完成轮廓提取后，我们面对的问题便是如何对提取出的轮廓进行筛选，在大量的轮廓中找出我们感兴趣的轮廓。
@@ -816,7 +816,7 @@ bool judgeContourByArea(const std::vector<cv::Point> &contour)
 }
 ```
 他对能量机关的轮廓提取如图：
-![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1634192394613.png)
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1634192394613.png)
 
 这种方法简单高效，但也尤其缺点，确定是**鲁棒性低，容易受干扰**，对于每一个场景往往**需要针对输入调参**后才能使用。
 
@@ -849,7 +849,7 @@ bool judgeContourByConvexity(const std::vector<cv::Point> &contour)
 }
 ```
 他对能量机关的提取如图：
-![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1634193485720.png)
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1634193485720.png)
 
 #### 与矩形相似性约束
 在轮廓筛选时常常会需要筛选一些较规则的形状，如矩形轮廓等。
@@ -883,7 +883,7 @@ bool judgeContourByRect(const std::vector<cv::Point> &contour)
 }
 ```
 运行结果如图：
-![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1634195583622.png)
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1634195583622.png)
 
 以上几种方法是主要的几种基于``单个轮廓本身几何性质``的筛选方法，下面介绍几种轮廓间几何关系的约束。
 
@@ -924,7 +924,7 @@ bool judgeContourByTuopu(const std::vector<cv::Vec4i> &hierachy, const int &id, 
 ```
 
 运行结果如图：
-![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1634197853445.png)
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1634197853445.png)
 
 
 
@@ -983,7 +983,7 @@ bool judgeContourByRelation(const std::vector<std::vector<cv::Point>> &contours,
 ```
 
 运行结果如图：
-![Alt text](../_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1634199484314.png)
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-10-01-vision-learning-1-traditional-recognization/1634199484314.png)
 
 
 #### 对于轮廓筛选的部分就介绍到这里，传统视觉的奥妙远不止于此。以上内容有一部分是笔者的个人总结，并不一定是主流方法。读者可以在实践中慢慢探索，寻找自己的传统视觉的思路。
