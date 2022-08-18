@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 2022赛季视觉部第一次培训——基于轮廓的传统视觉
+title: 2022赛季视觉部第三次培训——单目视觉介绍
 categories: [vision, course, camera]
 ---
 
