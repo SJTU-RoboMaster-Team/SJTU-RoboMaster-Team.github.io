@@ -12,8 +12,6 @@ categories: [vision, course, camera]
 
 *由于作者写本教程时的水平原因，不保证本教程中的所有内容正确。如果你想要系统地学习相关内容，请阅读相关书籍。*
 
-![1](http://latex.codecogs.com/svg.latex?\int_a^bf(x)\ dx)
-
 # 单目视觉补充
 单目视觉系统一般由一个相机或者一个相机与一个陀螺仪组成。
 
