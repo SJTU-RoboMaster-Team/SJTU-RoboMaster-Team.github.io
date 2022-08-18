@@ -152,3 +152,8 @@ $$ R = cos \theta I + (1 - cos \theta ) n n^T + sin \theta n^{\wedge} $$
 而旋转角$ \theta $也可以有公式
 $$ \theta = arccos(\frac{tr(R) - 1}{2})$$
 计算得到。
+
+
+----
+
+作者：冯临溪。
