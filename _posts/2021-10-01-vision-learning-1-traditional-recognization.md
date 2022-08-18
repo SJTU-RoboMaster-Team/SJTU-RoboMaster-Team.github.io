@@ -991,4 +991,4 @@ bool judgeContourByRelation(const std::vector<std::vector<cv::Point>> &contours,
 
 ----
 
-作者：冯临溪，github主页：[传送门](https://github.com/E-T-E-R-N-A-L-B-L-U-E)。
+作者：冯临溪。
