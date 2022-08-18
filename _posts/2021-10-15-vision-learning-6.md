@@ -12,18 +12,21 @@ categories: [vision, course, camera]
 
 *由于作者写本教程时的水平原因，不保证本教程中的所有内容正确。如果你想要系统地学习相关内容，请阅读相关书籍。*
 
+**由于gitbook不支持markdown公式，本文章公式是在太多，笔者懒得改，你可以直接这一版本**[传送门](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/substitute.html)
+
+
 ### 为什么要使用卡尔曼滤波
 
 在比赛中的自瞄系统中，如果想要准确预测地方车辆的运动轨迹，就必须要精确地求出对方车辆的速度。而卡尔曼滤波可以高效、较准确，实时地根据一系列带有时间戳的坐标点推算出敌方车辆的速度。
 
 为了方便研究，我们可以先把这个二维空间内的速度求解问题转换到一维。
-假设我们有一系列处在函数$f(x) = kx + b$ 上的一系列离散点，我们可以通过哪些方法通过这些离散点推算出$f(x)$的斜率$k$。
+假设我们有一系列处在函数![1](http://latex.codecogs.com/svg.latex?f(x) = kx + b) 上的一系列离散点，我们可以通过哪些方法通过这些离散点推算出![1](http://latex.codecogs.com/svg.latex?f(x))的斜率![1](http://latex.codecogs.com/svg.latex?k)。
 
 对于这一问题，最简单的方法是通过差分的方式求解速度。即通过公式：
-$$ v = \frac{x2 - x1}{t2 - t1} $$
+![1](http://latex.codecogs.com/svg.latex?v = \frac{x2 - x1}{t2 - t1})
 这是最朴素的思路，但是问题在于：
 1. 受噪声干扰大
-2. 求出的速度与实际速度有一定延迟（由于求解的是平均速度，因此这一方法求出的速度事实上是时刻$\frac{t2 + t1}{2}$的瞬时速度）
+2. 求出的速度与实际速度有一定延迟（由于求解的是平均速度，因此这一方法求出的速度事实上是时刻![1](http://latex.codecogs.com/svg.latex?\frac{t2 + t1}{2})的瞬时速度）
 3. 输出的速度不连续，在不断跳跃。
 
 下面这段代码是这一思路的简单实现：
@@ -69,12 +72,12 @@ int main()
 
 我们可以看一下他的效果：
 这是输入：
-<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636026383992.png" width = "500" height = "500">
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636026383992.png)
 
 这是输出：
-<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636026703078.png" width="500" height="500">
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636026703078.png")
 
-由于对每一帧求出的速度求了平均值，他得出了还算不错的离线结果（速度）：$2.53$
+由于对每一帧求出的速度求了平均值，他得出了还算不错的离线结果（速度）：![1](http://latex.codecogs.com/svg.latex?2.53)
 
 但是在这一例子中，这种朴素的求解方法的问题也基本展现了出来：
 1、数据抖动严重
@@ -108,17 +111,17 @@ int main()
 
 这里引入一点简单的数学：
 1. 通过**预测量**，我们可以得到如下的方程
-	$$ x_2 = x_1 + v_1  \Delta t $$
-	$$ v_2 = v_1 $$
+	![1](http://latex.codecogs.com/svg.latex?x_2 = x_1 + v_1  \Delta t)
+	![1](http://latex.codecogs.com/svg.latex?v_2 = v_1)
 2. 通过**观测量**，我们可以得到如下的方程
-	$$ x_2 = x_1 + \Delta x$$
-	$$ v_2 = v_1 + a  \Delta t $$
-	$$ x_2 = v_1  \Delta t + \frac{1}{2} a t^2 $$
+	![1](http://latex.codecogs.com/svg.latex?x_2 = x_1 + \Delta x)
+	![1](http://latex.codecogs.com/svg.latex?v_2 = v_1 + a  \Delta t)
+	![1](http://latex.codecogs.com/svg.latex?x_2 = v_1  \Delta t + \frac{1}{2} a t^2)
 
-其中$x_1, v_1 $为上一时刻小车的位置和速度，$x_2, v_2$为这一时刻小车的位置和速度。
-$\Delta t$为前后两时刻之间的时间差，$\Delta x$为编码器得到的汽车位移，$a$为惯性测量单元得到的小车加速度。
+其中![1](http://latex.codecogs.com/svg.latex?x_1, v_1)为上一时刻小车的位置和速度，![1](http://latex.codecogs.com/svg.latex?x_2, v_2)为这一时刻小车的位置和速度。
+![1](http://latex.codecogs.com/svg.latex?\Delta t)为前后两时刻之间的时间差，![1](http://latex.codecogs.com/svg.latex?\Delta x)为编码器得到的汽车位移，![1](http://latex.codecogs.com/svg.latex?a)为惯性测量单元得到的小车加速度。
 
-通过这些变量，公式，以及得到的传感器数据，观察上面的$5$个算式，我们可以用$3$种不同的算法得到小车的位置$x$，$2$种不同的方法得到小车的速度。
+通过这些变量，公式，以及得到的传感器数据，观察上面的![1](http://latex.codecogs.com/svg.latex?5)个算式，我们可以用![1](http://latex.codecogs.com/svg.latex?3)种不同的算法得到小车的位置![1](http://latex.codecogs.com/svg.latex?x)，![1](http://latex.codecogs.com/svg.latex?2)种不同的方法得到小车的速度。
 
 我们的目标是求出小车的位置，因此我们来看一下位置的三种求解方法：
 第一个**预测的方法**利用牛顿运动定律约束前后之前位置的关系
@@ -136,13 +139,13 @@ $\Delta t$为前后两时刻之间的时间差，$\Delta x$为编码器得到的
 
 这里我们不妨假设我们的计算模型绝对正确，对数据的使用过程中也没有出现原理上的问题，也就是说**不存在系统误差**。
 那么再考虑上述的三个计算结果，由于每个结果都存在**随机误差**，因此他们的实际分布应该是一个概率上的**正态分布**。
-<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636033066350.png" width=300 height = 300>
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636033066350.png")
 如果呈现在坐标轴上，他们应该大致分布成这样：
-<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636033870649.png" width=600 height = 200>
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636033870649.png")
 可以看到，这会是多个独立的正态分布曲线，每个曲线代表一种方式计算出的小车的位置的分布区间。
 
 **而卡尔曼滤波所做的，就是推算出一个合适的每个计算结果的权重，并以此预测物体的未来状态**
-<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636031363053.png" width=600 height=200>
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636031363053.png")
 如图，他通过预测量和观测量一同推算出小车最可能出现在的最终位置。
 
 简单来讲，卡尔曼滤波器就是根据上一时刻的状态，预测当前时刻的状态，将预测的状态与当前时刻的测量值进行加权，加权后的结果才认为是当前的实际状态，而不是仅仅听信当前的测量值。
@@ -285,9 +288,9 @@ int main()
 
 我们同样看一下他的效果：
 这是输入：
-<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636091017017.png" width = 500 height=500>
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636091017017.png")
 这是输出：
-<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636091170499.png" width=500 height=500>
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636091170499.png")
 本次测试的输出为：$2.45391$
 
 由于没有对每一次的计算结果取平均，因此单单看最终的输出他似乎并没有明显优于差分法求解速度。
@@ -332,10 +335,10 @@ $$ x_k = k(\sqrt{\frac{x_{k-1}}{k}} + 1)^2 $$
     data = (data.array() * data.array()).matrix();
 ```
 测试数据如图：
-<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636102741243.png" width=500 height=500>
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636102741243.png")
 
 输出结果如图：
-<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636102862595.png" width=500 height=500>
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636102862595.png")
 
 可以看到数据受到的扰动极大，且滤出的速度反复在滞后和超前之间跳跃，这是因为滤波器的预测模型和实际模型不匹配导致的。
 
@@ -627,7 +630,7 @@ int main()
 }
 ```
 下面是他的表现：
-<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636113030055.png" width=500 height=500>
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636113030055.png")
 可以看到，EKF对于函数$f(x)=x^2$的滤波结果几乎逼近它的导数$f'(x)=2x$。
 相比与普通的线性卡尔曼滤波，他在平滑程度和抗噪声表现上都显得更加优秀。
 
@@ -715,7 +718,7 @@ int main()
 
 
 输出序列：
-<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636100295036.png" width=500 height=500>
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636100295036.png")
 
 ##### 测试1
 参数：
@@ -724,7 +727,7 @@ $$ R =  \left[\begin{matrix} 2 & 0 \\
 \end{matrix}\right]  Q = \left[\begin{matrix} 10 \\
 0 \\
 \end{matrix}\right]$$
-<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636100575268.png" width=500 height=500>
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636100575268.png")
 
 
 ##### 测试2
@@ -734,7 +737,7 @@ $$ R =  \left[\begin{matrix} 2 & 0 \\
 \end{matrix}\right]  Q = \left[\begin{matrix} 1000 \\
 0 \\
 \end{matrix}\right]$$
-<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636100929858.png" width=500 height=500>
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636100929858.png")
 
 ##### 测试3
 参数：
@@ -743,7 +746,7 @@ $$ R =  \left[\begin{matrix} 2 & 0 \\
 \end{matrix}\right]  Q = \left[\begin{matrix} 0.01 \\
 0 \\
 \end{matrix}\right]$$
-<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636101072444.png" width=500 height=500>
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636101072444.png")
 
 
 ##### 测试4
@@ -753,7 +756,7 @@ $$ R =  \left[\begin{matrix} 2000 & 0 \\
 \end{matrix}\right]  Q = \left[\begin{matrix} 10 \\
 0 \\
 \end{matrix}\right]$$
-<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636101206203.png" width=500 height=500>
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636101206203.png")
 
 
 ##### 测试5
@@ -763,7 +766,7 @@ $$ R =  \left[\begin{matrix} 0.02 & 0 \\
 \end{matrix}\right]  Q = \left[\begin{matrix} 10 \\
 0 \\
 \end{matrix}\right]$$
-<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636101270372.png" width=500 height=500>
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636101270372.png")
 
 ##### 测试5
 参数：
@@ -772,7 +775,7 @@ $$ R =  \left[\begin{matrix} 2 & 0 \\
 \end{matrix}\right]  Q = \left[\begin{matrix} 10 \\
 0 \\
 \end{matrix}\right]$$
-<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636101379423.png" width=500 height=500>
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636101379423.png")
 
 ##### 测试6
 参数：
@@ -781,7 +784,7 @@ $$ R =  \left[\begin{matrix} 2 & 0 \\
 \end{matrix}\right]  Q = \left[\begin{matrix} 10 \\
 0 \\
 \end{matrix}\right]$$
-<img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636101457158.png" width=500 height=500>
+![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-6/1636101457158.png")
 
 
 ----
