@@ -1,3 +1,10 @@
+---
+layout: post
+title: 2022赛季视觉部第四次培训——单目视觉补充与Eigen速成
+categories: [vision, course, camera]
+---
+
+
 # 2022赛季视觉部第四次培训——单目视觉补充与Eigen速成
 > 机械是肉体，电控是大脑，视觉是灵魂
 
