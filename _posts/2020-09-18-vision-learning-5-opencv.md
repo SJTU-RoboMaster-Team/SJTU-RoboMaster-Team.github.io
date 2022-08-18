@@ -212,8 +212,25 @@ int main() {
 }
 ```
 
+----
+
+作者：黄弘骏，github主页：[传送门](https://github.com/Harry-hhj)。
 
 
 ----
 
-作者：黄弘骏，github主页：[传送门](https://github.com/Harry-hhj)。
+### 写在最后
+
+如果你看完了以上的教程，并进行了实践，然而失败了，那么你可以选择直接使用我们配置好的虚拟机。
+[这是配置好的虚拟机链接](https://jbox.sjtu.edu.cn/l/G1Ep4O)。
+
+虚拟机信息：
+* 虚拟机平台：VMware Workspace 16 Pro
+* 操作系统： Ubuntu20.04
+* 已安装环境：
+  * OpenCV
+  * Eigen
+  * Ceres
+  * fmt
+
+配置者：冯临溪
