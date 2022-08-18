@@ -131,8 +131,8 @@ Eigen has good compiler support.
 	* 存放二进制代码
 
 #####访问速度：
-$ heap < stack$
-$ heap < static memory $
+![1](http://latex.codecogs.com/svg.latex?heap < stack)
+![1](http://latex.codecogs.com/svg.latex?heap < static memory)
 没有找到有关栈和静态储存区对比的相关资料
 
 ### 内存对齐
@@ -420,9 +420,9 @@ int main()
 | mat.rows(i) | 取第i行 |
 
 **广播**
-将一个矩阵的一个大小为$1$的重复补全后和另一个矩阵进行计算。
-例如，一个矩阵A维度为$(3, 3, 1)$，另一个矩阵B维度为$(3, 3, 3)$。
-那么运算$A + B$中就发生了广播，矩阵$A$的维度被补全为$(3, 3, 3)$后和$B$进行运算。
+将一个矩阵的一个大小为![1](http://latex.codecogs.com/svg.latex?1)的重复补全后和另一个矩阵进行计算。
+例如，一个矩阵A维度为![1](http://latex.codecogs.com/svg.latex?(3, 3, 1))，另一个矩阵B维度为![1](http://latex.codecogs.com/svg.latex?(3, 3, 3))。
+那么运算![1](http://latex.codecogs.com/svg.latex?A + B)中就发生了广播，矩阵![1](http://latex.codecogs.com/svg.latex?A)的维度被补全为![1](http://latex.codecogs.com/svg.latex?(3, 3, 3))后和![1](http://latex.codecogs.com/svg.latex?B)进行运算。
 
 e.g.
 ```cpp
@@ -455,10 +455,10 @@ int main()
 * 绕旋转之后的x轴旋转，得到滚转角roll
 
 如果选用的轴的旋转顺序不同，则欧拉角不同。
-上述的欧拉角为$rpy$欧拉角，以$z轴，y轴，x轴$顺序旋转，是比较常用的一种。
+上述的欧拉角为![1](http://latex.codecogs.com/svg.latex?rpy)欧拉角，以![1](http://latex.codecogs.com/svg.latex?z轴，y轴，x轴)顺序旋转，是比较常用的一种。
 
 **万向锁**
-当$pitch$为90°时，欧拉角失去了一个自由度
+当![1](http://latex.codecogs.com/svg.latex?pitch)为90°时，欧拉角失去了一个自由度
 ![Alt text](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-10-22-vision-learning-4/1634904641659.png)
 
 ### 四元数
@@ -466,13 +466,13 @@ int main()
 事实上，我们找不到不带奇异性的三维向量描述方式。
 
 形如：
-$$ q = q_0 + q_1 * i + q_2 * j + q_3 * k $$
+![1](http://latex.codecogs.com/svg.latex?q = q_0 + q_1 * i + q_2 * j + q_3 * k )
 
 且满足：
-$$ i^2 = j^2 = k^2 = -1$$
-$$ i *j = k, j * i = -k $$
-$$ j * k = i, k * j = -i $$
-$$ k *i = j, i *k = -j $$
+![1](http://latex.codecogs.com/svg.latex?i^2 = j^2 = k^2 = -1)
+![1](http://latex.codecogs.com/svg.latex?i *j = k, j * i = -k)
+![1](http://latex.codecogs.com/svg.latex?j * k = i, k * j = -i)
+![1](http://latex.codecogs.com/svg.latex?k *i = j, i *k = -j)
 
 Eigen中的四元数：
 ```cpp
