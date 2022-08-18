@@ -13,6 +13,7 @@ categories: [vision, course, camera]
 *由于作者写本教程时的水平原因，不保证本教程中的所有内容正确。如果你想要系统地学习相关内容，请阅读相关书籍。*
 
 **由于gitbook不支持markdown公式，本文章公式是在太多，笔者懒得改，你可以直接这一版本**[传送门](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2021-11-5-vision-learning-6/substitute.html)
+直接通过传送门跳转时，github会解析为原始代码，你可以将网页下载后用浏览器打开。
 
 
 ### 为什么要使用卡尔曼滤波
