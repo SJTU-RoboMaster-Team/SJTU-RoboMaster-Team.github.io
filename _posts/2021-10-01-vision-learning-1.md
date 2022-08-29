@@ -10,6 +10,8 @@ categories: [vision, course, opencv]
 ###### 机械是肉体， 电控是大脑， 视觉是灵魂
 ----------------------------------------
 
+[本教程资料下载链接](https://jbox.sjtu.edu.cn/l/01PK2H)
+
 ### OpenCV基本组件——Mat
 
 ``Mat``是``OpenCV``中常用的基本类型，即矩阵类。在``OpenCV``中常常被用于储存图像数据。
