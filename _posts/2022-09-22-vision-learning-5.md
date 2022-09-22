@@ -72,7 +72,7 @@ int main(int argc,char** argv)
     orb->detect(gray1,feature_points1);
     orb->detect(gray2,feature_points2);
 ```
-根据关键点计算描述子，描述子用Mat矩阵存储，你会发现这是一个$500\times 32$的矩阵，其中元素均为uchar类型即128bit，存储上述的128维特征向量，通过位运算大大提高了计算速度。
+根据关键点计算描述子，描述子用Mat矩阵存储，你会发现这是一个<!-- $500\times 32$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?500%5Ctimes%2032"> 的矩阵，其中元素均为uchar类型即128bit，存储上述的128维特征向量，通过位运算大大提高了计算速度。
 ```C++
     // compute the descriptors
     Mat descriptor1,descriptor2;
@@ -159,86 +159,110 @@ int main(int argc,char** argv)
 
 首先，如图所示，p1,p2是一对<b>已经匹配好</b>的对应点，即它们在空间中对应同一物体P
 
-我们称向量$\vec{e_1p_1}$ $\vec{e_2p_2}$ 所在的直线为极线，$O_1PO_2$为极平面，$O_1O_2$为基线，这张我们后面还会用到
+我们称向量<!-- $\vec{e_1p_1}$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?%5Cvec%7Be_1p_1%7D"> <!-- $\vec{e_2p_2}$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?%5Cvec%7Be_2p_2%7D"> 所在的直线为极线，<!-- $O_1PO_2$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?O_1PO_2">为极平面，<!-- $O_1O_2$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?O_1O_2">为基线，这张我们后面还会用到
 
 在上两节课中，我们知道了这些公式
-$$
+<!-- $$
 z_1p_1 = z_1  \left[ \begin{matrix}u_1\\v_1\\1\end{matrix}\right] = KP_1\\
 z_2p_2 = z_2  \left[ \begin{matrix}u_2\\v_2\\1\end{matrix}\right] = KP_2\\
 P_2 = RP_1+t
-$$
-其中$R,t$为视角1到视角2的位姿变化，未知。
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?z_1p_1%20%3D%20z_1%20%20%5Cleft%5B%20%5Cbegin%7Bmatrix%7Du_1%5C%5Cv_1%5C%5C1%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20KP_1%5C%5C%0Az_2p_2%20%3D%20z_2%20%20%5Cleft%5B%20%5Cbegin%7Bmatrix%7Du_2%5C%5Cv_2%5C%5C1%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20KP_2%5C%5C%0AP_2%20%3D%20RP_1%2Bt"></div>
+其中<!-- $R,t$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?R%2Ct">为视角1到视角2的位姿变化，未知。
 
 设归一化相机坐标系下，有
-$$
+<!-- $$
 x_1 = K^{-1}\left[ \begin{matrix}u_1\\v_1\\1\end{matrix}\right]  \\
 x_2 = K^{-1}\left[ \begin{matrix}u_2\\v_2\\1\end{matrix}\right] 
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?x_1%20%3D%20K%5E%7B-1%7D%5Cleft%5B%20%5Cbegin%7Bmatrix%7Du_1%5C%5Cv_1%5C%5C1%5Cend%7Bmatrix%7D%5Cright%5D%20%20%5C%5C%0Ax_2%20%3D%20K%5E%7B-1%7D%5Cleft%5B%20%5Cbegin%7Bmatrix%7Du_2%5C%5Cv_2%5C%5C1%5Cend%7Bmatrix%7D%5Cright%5D%20"></div>
 
 
 下面的等式被称为up to scale等式，即两边在任意一边乘上一个非零常数后相等
 
-如$2 = 1$就是一个up to scale等式
+如<!-- $2 = 1$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?2%20%3D%201">就是一个up to scale等式
 
 则有下面式子，等式两边差深度因子
-$$
+<!-- $$
 P_1 = K^{-1}\left[ \begin{matrix}u_1\\v_1\\1\end{matrix}\right]  = x_1\\
 P_2 = RP_1+t = K^{-1}\left[ \begin{matrix}u_2\\v_2\\1\end{matrix}\right] = x_2
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?P_1%20%3D%20K%5E%7B-1%7D%5Cleft%5B%20%5Cbegin%7Bmatrix%7Du_1%5C%5Cv_1%5C%5C1%5Cend%7Bmatrix%7D%5Cright%5D%20%20%3D%20x_1%5C%5C%0AP_2%20%3D%20RP_1%2Bt%20%3D%20K%5E%7B-1%7D%5Cleft%5B%20%5Cbegin%7Bmatrix%7Du_2%5C%5Cv_2%5C%5C1%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20x_2"></div>
 即
-$$
+<!-- $$
 x_2 = Rx_1+t\\
 t\times x_2 = t\times(Rx_1+t) = t\times Rx_1 + t\times t
-$$
-显然  $t\times t = 0$
+$$ --> 
 
-我们试着两边对$x_2$做内积，这是因为大学物理或者高等数学告诉我们，$t\times x_2$是垂直于$x_2$的
-$$
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?x_2%20%3D%20Rx_1%2Bt%5C%5C%0At%5Ctimes%20x_2%20%3D%20t%5Ctimes(Rx_1%2Bt)%20%3D%20t%5Ctimes%20Rx_1%20%2B%20t%5Ctimes%20t"></div>
+显然  <!-- $t\times t = 0$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?t%5Ctimes%20t%20%3D%200">
+
+我们试着两边对<!-- $x_2$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?x_2">做内积，这是因为大学物理或者高等数学告诉我们，<!-- $t\times x_2$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?t%5Ctimes%20x_2">是垂直于<!-- $x_2$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?x_2">的
+<!-- $$
 x_2^T(t\times x_2) = x_2^T(t\times Rx_1) \\
 0 = x_2^T(t\times Rx_1)
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?x_2%5ET(t%5Ctimes%20x_2)%20%3D%20x_2%5ET(t%5Ctimes%20Rx_1)%20%5C%5C%0A0%20%3D%20x_2%5ET(t%5Ctimes%20Rx_1)"></div>
 根据up to scale的定义，我们知道下面这个式子在正常等式下也成立
-$$
+<!-- $$
 x_2^T(t\times Rx_1) = 0
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?x_2%5ET(t%5Ctimes%20Rx_1)%20%3D%200"></div>
 这里补充一个概念
-$$
+<!-- $$
 \left[ \begin{matrix}a_1\\a_2\\a_3\end{matrix}\right]\times \left[ \begin{matrix}b_1\\b_2\\b_3\end{matrix}\right] =\left| \begin{matrix}\vec{i}&\vec{j}&\vec{k}\\a_1&a_2&a_3\\b_1&b_2&b_3\end{matrix}\right|=\left[\begin{matrix}0&-a_3&a_2\\a_3&0&-a_1\\-a_2&a_1&0\end{matrix}\right]\left[\begin{matrix}b_1\\b_2\\b_3\end{matrix}\right] = a^{\ \hat{}}\ b
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?%5Cleft%5B%20%5Cbegin%7Bmatrix%7Da_1%5C%5Ca_2%5C%5Ca_3%5Cend%7Bmatrix%7D%5Cright%5D%5Ctimes%20%5Cleft%5B%20%5Cbegin%7Bmatrix%7Db_1%5C%5Cb_2%5C%5Cb_3%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%5Cleft%7C%20%5Cbegin%7Bmatrix%7D%5Cvec%7Bi%7D%26%5Cvec%7Bj%7D%26%5Cvec%7Bk%7D%5C%5Ca_1%26a_2%26a_3%5C%5Cb_1%26b_2%26b_3%5Cend%7Bmatrix%7D%5Cright%7C%3D%5Cleft%5B%5Cbegin%7Bmatrix%7D0%26-a_3%26a_2%5C%5Ca_3%260%26-a_1%5C%5C-a_2%26a_1%260%5Cend%7Bmatrix%7D%5Cright%5D%5Cleft%5B%5Cbegin%7Bmatrix%7Db_1%5C%5Cb_2%5C%5Cb_3%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20a%5E%7B%5C%20%5Chat%7B%7D%7D%5C%20b"></div>
 则
-$$
+<!-- $$
 x_2^Tt^{\ \hat{}}Rx_1 = 0
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?x_2%5ETt%5E%7B%5C%20%5Chat%7B%7D%7DRx_1%20%3D%200"></div>
 该式便称为对极约束,当然像素值的对极约束为
-$$
+<!-- $$
 p_2^T{K^{-1}}^Tt^{\ \hat{}}RK^{-1}p_1 = 0
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?p_2%5ET%7BK%5E%7B-1%7D%7D%5ETt%5E%7B%5C%20%5Chat%7B%7D%7DRK%5E%7B-1%7Dp_1%20%3D%200"></div>
 可以改写为
-$$
+<!-- $$
 x_2^TEx_1 = 0\\
 p_2^TFp_1 = 0
-$$
-$E$称为essential matrix本质矩阵，来源其尺度不变性，即对$\forall\alpha\in \mathbb{R} , \alpha E$仍然为一个可行的本质矩阵，这在于平移向量$t$的尺度，在这里也表现出了单目的尺度不确定性
+$$ --> 
 
-$F$称为fundamental matrix基础矩阵，可以从$E$导出，在于你有没有完成上上周的相机标定任务,由于$K$一般已知，且$E$形式更为简单，我们通常估计$E$
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?x_2%5ETEx_1%20%3D%200%5C%5C%0Ap_2%5ETFp_1%20%3D%200"></div>
+<!-- $E$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?E">称为essential matrix本质矩阵，来源其尺度不变性，即对<!-- $\forall\alpha\in \mathbb{R} , \alpha E$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?%5Cforall%5Calpha%5Cin%20%5Cmathbb%7BR%7D%20%2C%20%5Calpha%20E">仍然为一个可行的本质矩阵，这在于平移向量<!-- $t$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?t">的尺度，在这里也表现出了单目的尺度不确定性
+
+<!-- $F$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?F">称为fundamental matrix基础矩阵，可以从<!-- $E$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?E">导出，在于你有没有完成上上周的相机标定任务,由于<!-- $K$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?K">一般已知，且<!-- $E$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?E">形式更为简单，我们通常估计<!-- $E$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?E">
 
 利用我们匹配的特征点对，可以列出多个对极约束方程
-$$
+<!-- $$
 {x_2^i}^TEx_1^i = 0\\
 E = \left[\begin{matrix}e_1&e_2&e_3\\e_4&e_5&e_6\\e_7&e_8&e_9\end{matrix}\right] \rightarrow e = \left[\begin{matrix}e_1\\e_2\\e_3\\e_4\\e_5\\e_6\\e_7\\e_8\\e_9\end{matrix}\right]
-$$
+$$ --> 
 
-实际上可改写为一个线性方程组,我们用至少8组特征点构造一个$8\times 9$的$A$矩阵，实际求解会用RANSAC方式来优选匹配，排除误匹配
-$$
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?%7Bx_2%5Ei%7D%5ETEx_1%5Ei%20%3D%200%5C%5C%0AE%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7De_1%26e_2%26e_3%5C%5Ce_4%26e_5%26e_6%5C%5Ce_7%26e_8%26e_9%5Cend%7Bmatrix%7D%5Cright%5D%20%5Crightarrow%20e%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7De_1%5C%5Ce_2%5C%5Ce_3%5C%5Ce_4%5C%5Ce_5%5C%5Ce_6%5C%5Ce_7%5C%5Ce_8%5C%5Ce_9%5Cend%7Bmatrix%7D%5Cright%5D"></div>
+
+实际上可改写为一个线性方程组,我们用至少8组特征点构造一个<!-- $8\times 9$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?8%5Ctimes%209">的<!-- $A$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?A">矩阵，实际求解会用RANSAC方式来优选匹配，排除误匹配
+<!-- $$
 Ae = 0
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?Ae%20%3D%200"></div>
 > RANSAC简介
 >
 > ![这里写图片描述](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-09-21-vision-learning-5/ransac.jpg)
 >
 > RANSAC，随机采样一致性算法，是一种迭代算法，其本质思路是对数据集随机采样出数个子集，在这些子集上对原问题进行估计，并计算估计指标（比如MSE等），若指标低于设定阈值，则采纳该子集，将其元素作为inlier（内点），每次迭代，我们在随机采样的各个子集中选择最优子集，即内点最多的一个子集，以其评估的参数作为该次迭代的结果，然后根据迭代停止条件（如迭代最大次数，设定迭代停止阈值等）选择继续迭代还是停止返回结果。
 
-解线性方程求解$E$,由于$E = t^{\ \hat{}}R$, 对$E$做SVD分解，便能求解$R$和$t$,同时$E$的特征值的约束使得我们能够求出$E$的形式。这里详细过程涉及矩阵论知识就不展开了，opencv已经帮我们封装好了。
+解线性方程求解<!-- $E$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?E">,由于<!-- $E = t^{\ \hat{}}R$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?E%20%3D%20t%5E%7B%5C%20%5Chat%7B%7D%7DR">, 对<!-- $E$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?E">做SVD分解，便能求解<!-- $R$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?R">和<!-- $t$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?t">,同时<!-- $E$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?E">的特征值的约束使得我们能够求出<!-- $E$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?E">的形式。这里详细过程涉及矩阵论知识就不展开了，opencv已经帮我们封装好了。
 
 这些都是一些数学，虽然美，但是也比较烦，我们还是来看看怎么实际操作。
 
@@ -277,56 +301,70 @@ int main(int argc,char** argv)
 
 这里尺度不确定性可以通过补充深度信息来解决，从而实现通过反投影方式来进行图像拼接，不过在此之前，我们先来介绍一下另外一种进行直接二维映射的图像拼接方式。
 
-实际上，此处估计出的相机运动信息通常不恢复其尺度至常见单位，而是基于初始化来固定尺度，通常做法有将初始化时所有特征点深度设为1（比如对着一面墙来初始化），或者就像这样将平移向量$t$归一化，但这样后续计算会不稳定。
+实际上，此处估计出的相机运动信息通常不恢复其尺度至常见单位，而是基于初始化来固定尺度，通常做法有将初始化时所有特征点深度设为1（比如对着一面墙来初始化），或者就像这样将平移向量<!-- $t$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?t">归一化，但这样后续计算会不稳定。
 
 #### 单应矩阵
 
 回顾此式,注意该式为up to scale
-$$
+<!-- $$
 P_1 = K^{-1}\left[ \begin{matrix}u_1\\v_1\\1\end{matrix}\right]  = x_1\\
 RP_1+t = K^{-1}\left[ \begin{matrix}u_2\\v_2\\1\end{matrix}\right] = x_2
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?P_1%20%3D%20K%5E%7B-1%7D%5Cleft%5B%20%5Cbegin%7Bmatrix%7Du_1%5C%5Cv_1%5C%5C1%5Cend%7Bmatrix%7D%5Cright%5D%20%20%3D%20x_1%5C%5C%0ARP_1%2Bt%20%3D%20K%5E%7B-1%7D%5Cleft%5B%20%5Cbegin%7Bmatrix%7Du_2%5C%5Cv_2%5C%5C1%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20x_2"></div>
 假定所有的特征点落在同一平面上，则有
-$$
+<!-- $$
 n^TP_1+d = 0\\
 -\frac{n^TP_1}{d} = 1
-$$
-则
-$$
-p_2 = K(RP_1-\frac{n^TP_1}{d}t) = K（R-\frac{t}{d}n^T）P_1 = K（R-\frac{t}{d}n^T）K^{-1}p_1 = Hp_1
-$$
-其中$p1,p2$均为像素点（可以在去畸变后再进行特征点匹配，本教程例子均不考虑畸变）
+$$ --> 
 
-这样只需求出单应矩阵$H$便可，实际上$H$是一个透视变换矩阵，这你们在上节课学过
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?n%5ETP_1%2Bd%20%3D%200%5C%5C%0A-%5Cfrac%7Bn%5ETP_1%7D%7Bd%7D%20%3D%201"></div>
+则
+<!-- $$
+p_2 = K(RP_1-\frac{n^TP_1}{d}t) = K（R-\frac{t}{d}n^T）P_1 = K（R-\frac{t}{d}n^T）K^{-1}p_1 = Hp_1
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?p_2%20%3D%20K(RP_1-%5Cfrac%7Bn%5ETP_1%7D%7Bd%7Dt)%20%3D%20K%EF%BC%88R-%5Cfrac%7Bt%7D%7Bd%7Dn%5ET%EF%BC%89P_1%20%3D%20K%EF%BC%88R-%5Cfrac%7Bt%7D%7Bd%7Dn%5ET%EF%BC%89K%5E%7B-1%7Dp_1%20%3D%20Hp_1"></div>
+其中<!-- $p1,p2$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?p1%2Cp2">均为像素点（可以在去畸变后再进行特征点匹配，本教程例子均不考虑畸变）
+
+这样只需求出单应矩阵<!-- $H$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?H">便可，实际上<!-- $H$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?H">是一个透视变换矩阵，这你们在上节课学过
 
 那么有
-$$
+<!-- $$
 H = \left[ \begin{matrix}h_{11}&h_{12}&h_{13}\\
 h_{21}&h_{22}&h_{23}\\
 h_{31}&h_{32}&h_{33}\end{matrix}\right]
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?H%20%3D%20%5Cleft%5B%20%5Cbegin%7Bmatrix%7Dh_%7B11%7D%26h_%7B12%7D%26h_%7B13%7D%5C%5C%0Ah_%7B21%7D%26h_%7B22%7D%26h_%7B23%7D%5C%5C%0Ah_%7B31%7D%26h_%7B32%7D%26h_%7B33%7D%5Cend%7Bmatrix%7D%5Cright%5D"></div>
 则有
-$$
+<!-- $$
 \left[ \begin{matrix}u_2\\v_2\\1\end{matrix}\right]= \left[ \begin{matrix}h_{11}&h_{12}&h_{13}\\
 h_{21}&h_{22}&h_{23}\\
 h_{31}&h_{32}&h_{33}\end{matrix}\right]\left[ \begin{matrix}u_1\\v_1\\1\end{matrix}\right]
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?%5Cleft%5B%20%5Cbegin%7Bmatrix%7Du_2%5C%5Cv_2%5C%5C1%5Cend%7Bmatrix%7D%5Cright%5D%3D%20%5Cleft%5B%20%5Cbegin%7Bmatrix%7Dh_%7B11%7D%26h_%7B12%7D%26h_%7B13%7D%5C%5C%0Ah_%7B21%7D%26h_%7B22%7D%26h_%7B23%7D%5C%5C%0Ah_%7B31%7D%26h_%7B32%7D%26h_%7B33%7D%5Cend%7Bmatrix%7D%5Cright%5D%5Cleft%5B%20%5Cbegin%7Bmatrix%7Du_1%5C%5Cv_1%5C%5C1%5Cend%7Bmatrix%7D%5Cright%5D"></div>
 则有两对约束
-$$
+<!-- $$
 u_2 = \frac{h_{11}u_1+h_{12}v_1+h_{13}}{h_{31}u_1+h_{32}v_1+h_{33}}\\
 v_2 = \frac{h_{21}u_1+h_{22}v_1+h_{23}}{h_{31}u_1+h_{32}v_1+h_{33}}
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?u_2%20%3D%20%5Cfrac%7Bh_%7B11%7Du_1%2Bh_%7B12%7Dv_1%2Bh_%7B13%7D%7D%7Bh_%7B31%7Du_1%2Bh_%7B32%7Dv_1%2Bh_%7B33%7D%7D%5C%5C%0Av_2%20%3D%20%5Cfrac%7Bh_%7B21%7Du_1%2Bh_%7B22%7Dv_1%2Bh_%7B23%7D%7D%7Bh_%7B31%7Du_1%2Bh_%7B32%7Dv_1%2Bh_%7B33%7D%7D"></div>
 通过这两对约束，基于四对匹配特征点，我们同样可以获得$8\times 9$矩阵$A$
-$$
+<!-- $$
 A\left[ \begin{matrix}h_{11}\\h_{12}\\h_{13}\\
 h_{21}\\h_{22}\\h_{23}\\
 h_{31}\\h_{32}\\h_{33}\end{matrix}\right] = b
-$$
- 解得$H$，并且也可通过矩阵分解来获得$R$和$t$,详细过程略过
+$$ --> 
 
-下面同样是实践环节，在本环节，我们将进行图像拼接，在这里我们假设所有点在同一平面，这样效果可能不好，但值得一试。(由于opencv没有提供api进行$H$的分解计算，想了解从$H$得到$R$和$t$可参考`opencv_$version$/samples/cpp/tutorial_code/features2D/Homography/pose_from_homography.cpp`例程）
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?A%5Cleft%5B%20%5Cbegin%7Bmatrix%7Dh_%7B11%7D%5C%5Ch_%7B12%7D%5C%5Ch_%7B13%7D%5C%5C%0Ah_%7B21%7D%5C%5Ch_%7B22%7D%5C%5Ch_%7B23%7D%5C%5C%0Ah_%7B31%7D%5C%5Ch_%7B32%7D%5C%5Ch_%7B33%7D%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20b"></div>
+ 解得<!-- $H$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?H">，并且也可通过矩阵分解来获得<!-- $R$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?R">和<!-- $t$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?t">,详细过程略过
 
-求解$H$单应矩阵的函数,和上面求解$E$类似
+下面同样是实践环节，在本环节，我们将进行图像拼接，在这里我们假设所有点在同一平面，这样效果可能不好，但值得一试。(由于opencv没有提供api进行<!-- $H$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?H">的分解计算，想了解从<!-- $H$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?H">得到<!-- $R$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?R">和<!-- $t$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?t">可参考`opencv_$version$/samples/cpp/tutorial_code/features2D/Homography/pose_from_homography.cpp`例程）
+
+求解<!-- $H$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?H">单应矩阵的函数,和上面求解<!-- $E$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?E">类似
 ```C++
 void find_Trans_H(const Mat &img1,const Mat &img2,Mat& H)
 {
@@ -337,11 +375,13 @@ void find_Trans_H(const Mat &img1,const Mat &img2,Mat& H)
 }
 ```
 进行图像拼接的函数。对于图像透视变换后其投影位置在原图像外，一个比较简单的解决方法是增大展示的画布大小，这样便需要对原图像进行一定平移使其展示在画布中心。若对原图像进行了平移，那么投影的图像其投影位置也要进行平移，可以用如下函数
-$$
+<!-- $$
 u_2 + \delta u = \frac{(h_{11}+\delta u \cdot h_{31})u_1+(h_{12}+\delta u \cdot h_{32})v_1+(h_{13}+\delta u \cdot h_{33})}{h_{31}u_1+h_{32}v_1+h_{33}}\\
 v_2+\delta v = \frac{(h_{21}+\delta v \cdot h_{31})u_1+(h_{22}+\delta v \cdot h_{32})v_1+(h_{23}+\delta v \cdot h_{33})}{h_{31}u_1+h_{32}v_1+h_{33}}
-$$
-通过改动$[Math Processing Error]H$,我们在基于`warpPerspective`函数进行变换的时候能对投影位置进行相应的平移。
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?u_2%20%2B%20%5Cdelta%20u%20%3D%20%5Cfrac%7B(h_%7B11%7D%2B%5Cdelta%20u%20%5Ccdot%20h_%7B31%7D)u_1%2B(h_%7B12%7D%2B%5Cdelta%20u%20%5Ccdot%20h_%7B32%7D)v_1%2B(h_%7B13%7D%2B%5Cdelta%20u%20%5Ccdot%20h_%7B33%7D)%7D%7Bh_%7B31%7Du_1%2Bh_%7B32%7Dv_1%2Bh_%7B33%7D%7D%5C%5C%0Av_2%2B%5Cdelta%20v%20%3D%20%5Cfrac%7B(h_%7B21%7D%2B%5Cdelta%20v%20%5Ccdot%20h_%7B31%7D)u_1%2B(h_%7B22%7D%2B%5Cdelta%20v%20%5Ccdot%20h_%7B32%7D)v_1%2B(h_%7B23%7D%2B%5Cdelta%20v%20%5Ccdot%20h_%7B33%7D)%7D%7Bh_%7B31%7Du_1%2Bh_%7B32%7Dv_1%2Bh_%7B33%7D%7D"></div>
+通过改动<!-- $H$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?H">,我们在基于`warpPerspective`函数进行变换的时候能对投影位置进行相应的平移。
 ```C++
 void process_Stitch(const Mat& img1,const Mat& img2,const Mat &img3,const Mat& H1,const Mat& H2)
 {
@@ -396,17 +436,17 @@ int main(int argc,char** argv)
 }
 ```
 
-效果，拼接痕迹是难免的，这里我们主要学习$H$矩阵的运用，若想进一步详细了解图像拼接可参考《计算机视觉：算法与运用》
+效果，拼接痕迹是难免的，这里我们主要学习<!-- $H$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?H">矩阵的运用，若想进一步详细了解图像拼接可参考《计算机视觉：算法与运用》
 
 ![stitch](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-09-21-vision-learning-5/stitch.jpg)
 
 #### 思考
 
-若给出了图像对应的深度图，那么便可知道图像各点的坐标值，那么便可通过重投影的方式进行图像拼接，不妨以此来验证$E$转移矩阵的估计效果。
+若给出了图像对应的深度图，那么便可知道图像各点的坐标值，那么便可通过重投影的方式进行图像拼接，不妨以此来验证<!-- $E$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?E">转移矩阵的估计效果。
 
 > 下面的方法,是一种恢复尺度的方式，在单目slam中，我们将各个特征点深度设为1来初始化尺度，也要估计缩放尺度。若想了解更为复杂但可靠的算法，可参考《Least-Squares Estimation of Transmation Parameters Between Two Point Patterns》
 
-下面便为基于上面基于本质矩阵$E$单目估计相机运动方法，根据深度图来计算平移向量$t$的尺度。
+下面便为基于上面基于本质矩阵<!-- $E$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?E">单目估计相机运动方法，根据深度图来计算平移向量<!-- $t$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?t">的尺度。
 
 ```c++
 void find_use_E(const Mat &img1,const Mat& depth1,const Mat& img2,const Mat& depth2,const Mat& K,Mat& R,Mat& t)
@@ -419,15 +459,19 @@ void find_use_E(const Mat &img1,const Mat& depth1,const Mat& img2,const Mat& dep
     Mat E = findEssentialMat(left_pts,right_pts,K,RANSAC);
     recoverPose(E,left_pts,right_pts,K,R,t);
 ```
-在这时，$t$为归一化值，并不对应实际尺度，但我们知道$t_0 = \alpha t$，一个常见的思路便是通过最小二乘法来求解$\alpha$值，即
-$$
+在这时，<!-- $t$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?t">为归一化值，并不对应实际尺度，但我们知道<!-- $t_0 = \alpha t$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?t_0%20%3D%20%5Calpha%20t">，一个常见的思路便是通过最小二乘法来求解<!-- $\alpha$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?%5Calpha">值，即
+<!-- $$
 \min_\alpha \sum_i \frac{1}{2}||RP_i^i+\alpha t -P_2^i||^2
-$$
-这显然是一个无约束凸优化问题，通过求导求得$[Math Processing Error]\alpha$闭式解
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?%5Cmin_%5Calpha%20%5Csum_i%20%5Cfrac%7B1%7D%7B2%7D%7C%7CRP_i%5Ei%2B%5Calpha%20t%20-P_2%5Ei%7C%7C%5E2"></div>
+这显然是一个无约束凸优化问题，通过求导求得<!-- $\alpha$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?%5Calpha">闭式解
+<!-- $$
 \sum_i(RP_1^i+\alpha t+P_2^i)^Tt = 0\\
 \alpha^* = \frac{1}{N\cdot ||t||^2}\sum_{i=1}^N(P_2^i-RP_1^i)^Tt
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?%5Csum_i(RP_1%5Ei%2B%5Calpha%20t%2BP_2%5Ei)%5ETt%20%3D%200%5C%5C%0A%5Calpha%5E*%20%3D%20%5Cfrac%7B1%7D%7BN%5Ccdot%20%7C%7Ct%7C%7C%5E2%7D%5Csum_%7Bi%3D1%7D%5EN(P_2%5Ei-RP_1%5Ei)%5ETt"></div>
 
 
 ```C++
@@ -487,7 +531,7 @@ $$
 }
 ```
 
-此外，我们根据特征点来做PNP，与用$E$求解的做对比
+此外，我们根据特征点来做PNP，与用<!-- $E$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?E">求解的做对比
 
 ```C++
 void find_PnP(const Mat& img1,const Mat& depth1,const Mat& img2,const Mat& depth2,const Mat& K,Mat &rvec,Mat &tvec)
@@ -524,7 +568,7 @@ void find_PnP(const Mat& img1,const Mat& depth1,const Mat& img2,const Mat& depth
 }
 ```
 
-结果,PnP的效果较好，但对于$E$矩阵估计我们使用了较为基本的估计算法，也达到了不错的恢复尺度的效果
+结果,PnP的效果较好，但对于<!-- $E$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?E">矩阵估计我们使用了较为基本的估计算法，也达到了不错的恢复尺度的效果
 
 ```
 pnp error is 10.423
@@ -674,7 +718,7 @@ int main(int argc,char** argv)
         object.push_back(object_per_im);
     }
 ```
-然后进行双目标定,这里得到参数我们都很熟悉，$R,t,E,F$都在我们上面的讲解中出现，实际上你还可以用对极约束来验证这一过程。
+然后进行双目标定,这里得到参数我们都很熟悉，<!-- $R,t,E,F$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?R%2Ct%2CE%2CF">都在我们上面的讲解中出现，实际上你还可以用对极约束来验证这一过程。
 ```C++
     Mat R,t,E,F;
     double rms = stereoCalibrate(object,corners_vec_left,corners_vec_right,K_0,C_0,K_1,C_1,im_size,R,t,E,F);
@@ -687,26 +731,26 @@ int main(int argc,char** argv)
 
 <img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-09-21-vision-learning-5/recitify.png" alt="img" style="zoom: 25%;" />
 
-`stereoRectify`函数输出了$R_1,R_2,P_1,P_2,Q$
+`stereoRectify`函数输出了<!-- $R_1,R_2,P_1,P_2,Q$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?R_1%2CR_2%2CP_1%2CP_2%2CQ">
 
 来自官方文档的解析
 
-$R_1$
+<!-- $R_1$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?R_1">
 
 ```
 Output 3x3 rectification transform (rotation matrix) for the first  camera. This matrix brings points given in the unrectified first  camera's coordinate system to points in the rectified first camera's  coordinate system. In more technical terms, it performs a change of  basis from the unrectified first camera's coordinate system to the  rectified first camera's coordinate system. 
 ```
 
-实际上就是左相机未矫正坐标系旋转到矫正坐标系的旋转矩阵，如上图，$R2$同理
+实际上就是左相机未矫正坐标系旋转到矫正坐标系的旋转矩阵，如上图，<!-- $R2$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?R2">同理
 
-$P_1$
+<!-- $P_1$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?P_1">
 
 ```
 Output 3x4 projection matrix in the new (rectified) coordinate systems for the first camera, i.e. it projects points given in the rectified first camera coordinate system into the rectified first camera's image. 
 ```
 
-实际上就是一个$3\times 4$矩阵，矫正（rectified）相机坐标系投影到矫正左像素平面的变换矩阵（外参+内参）,$P_2$是矫正（rectified）相机坐标系投影到矫正右像素平面的变换矩阵。
-$$
+实际上就是一个<!-- $3\times 4$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?3%5Ctimes%204">矩阵，矫正（rectified）相机坐标系投影到矫正左像素平面的变换矩阵（外参+内参）,<!-- $P_2$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?P_2">是矫正（rectified）相机坐标系投影到矫正右像素平面的变换矩阵。
+<!-- $$
 P_1 = \left[ \begin{matrix}f& 0 & c_x & 0\\0 & f& c_y & 0\\0& 0& 1 & 0
 \end{matrix}\right]\\
 
@@ -714,12 +758,14 @@ P_2 = \left[ \begin{matrix}f& 0 & c_x & T_x\cdot f\\0 & f& c_y & 0\\0& 0& 1 & 0
 \end{matrix}\right] = \left[ \begin{matrix}f& 0 & c_x \\0 & f& c_y \\0& 0& 1
 \end{matrix}\right]\left[ \begin{matrix}1& 0 & 0 & T_x\\0 & 1& 0 & 0\\0& 0& 1 & 0
 \end{matrix}\right]
-$$
-以上为横向双目（**Horizontal stereo**）的模型，$T_x\cdot f$是X轴向平移，从上面图可以看出，两个旋转矫正后的平面之间是有X轴向位移的。
+$$ --> 
 
->  $P$矩阵的前三列是旋转矫正后的新的相机内参。
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?P_1%20%3D%20%5Cleft%5B%20%5Cbegin%7Bmatrix%7Df%26%200%20%26%20c_x%20%26%200%5C%5C0%20%26%20f%26%20c_y%20%26%200%5C%5C0%26%200%26%201%20%26%200%0A%5Cend%7Bmatrix%7D%5Cright%5D%5C%5C%0A%0AP_2%20%3D%20%5Cleft%5B%20%5Cbegin%7Bmatrix%7Df%26%200%20%26%20c_x%20%26%20T_x%5Ccdot%20f%5C%5C0%20%26%20f%26%20c_y%20%26%200%5C%5C0%26%200%26%201%20%26%200%0A%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20%5Cleft%5B%20%5Cbegin%7Bmatrix%7Df%26%200%20%26%20c_x%20%5C%5C0%20%26%20f%26%20c_y%20%5C%5C0%26%200%26%201%0A%5Cend%7Bmatrix%7D%5Cright%5D%5Cleft%5B%20%5Cbegin%7Bmatrix%7D1%26%200%20%26%200%20%26%20T_x%5C%5C0%20%26%201%26%200%20%26%200%5C%5C0%26%200%26%201%20%26%200%0A%5Cend%7Bmatrix%7D%5Cright%5D"></div>
+以上为横向双目（**Horizontal stereo**）的模型，<!-- $T_x\cdot f$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?T_x%5Ccdot%20f">是X轴向平移，从上面图可以看出，两个旋转矫正后的平面之间是有X轴向位移的。
 
-$Q$
+>  <!-- $P$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?P">矩阵的前三列是旋转矫正后的新的相机内参。
+
+<!-- $Q$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?Q">
 
 ```
 Output 4×4 disparity-to-depth mapping matrix (see reprojectImageTo3D). 
@@ -777,20 +823,24 @@ Output 4×4 disparity-to-depth mapping matrix (see reprojectImageTo3D).
 ![11](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-09-21-vision-learning-5/tritangular.jpg)
 
 双目中另一个比较重要的概念是三角测量，其原理十分简单，对于极线矫正后的两个归一化相机平面，有
-$$
+<!-- $$
 \frac{z-f}{z} = \frac{b-x_L+x_R}{b}\\
 \frac{f}{z} = \frac{x_L-x_R}{b}=\frac{d}{b}\\
 z  =\frac{f\cdot b}{d}
-$$
-最后一个公式即为三角测量公式，请牢记于心。其中$d$称为视差，$b$称为基线。
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?%5Cfrac%7Bz-f%7D%7Bz%7D%20%3D%20%5Cfrac%7Bb-x_L%2Bx_R%7D%7Bb%7D%5C%5C%0A%5Cfrac%7Bf%7D%7Bz%7D%20%3D%20%5Cfrac%7Bx_L-x_R%7D%7Bb%7D%3D%5Cfrac%7Bd%7D%7Bb%7D%5C%5C%0Az%20%20%3D%5Cfrac%7Bf%5Ccdot%20b%7D%7Bd%7D"></div>
+最后一个公式即为三角测量公式，请牢记于心。其中<!-- $d$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?d">称为视差，<!-- $b$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?b">称为基线。
 
 实际上在opencv中，上述公式一般用于估计稠密深度图中，视差图到深度图的转换。而在直接的三角测量函数，一般使用如下公式
-$$
+<!-- $$
 z_1 x_1 = z_2Rx_2+t\\
 x_1\times z_1 x_1 = 0=z_2x_1\times Rx_2 + x_1\times t\\
 z_2(x_1^{\ \hat{}} Rx_2) = -x_1^{\ \hat{}} t
-$$
-考虑到噪声，我们应该求解该式的最小二乘解来得到$z_2$,求得$z_2$自然也容易得到$z_1$。
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?z_1%20x_1%20%3D%20z_2Rx_2%2Bt%5C%5C%0Ax_1%5Ctimes%20z_1%20x_1%20%3D%200%3Dz_2x_1%5Ctimes%20Rx_2%20%2B%20x_1%5Ctimes%20t%5C%5C%0Az_2(x_1%5E%7B%5C%20%5Chat%7B%7D%7D%20Rx_2)%20%3D%20-x_1%5E%7B%5C%20%5Chat%7B%7D%7D%20t"></div>
+考虑到噪声，我们应该求解该式的最小二乘解来得到<!-- $z_2$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?z_2">,求得<!-- $z_2$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?z_2">自然也容易得到<!-- $z_1$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?z_1">。
 
 上述公式都说明了在三角测量中需要用到齐次相机坐标。
 
@@ -800,7 +850,7 @@ $$
 | ------------------------------------------------------------ |
 | 3x4 从世界坐标系到第一个相机的变换矩阵（通常我们使得第一个相机为世界坐标系，则该项为单位阵去除最后一行） |
 | **projMatr2**                                                |
-| 3x4 从世界坐标系到第二个相机的变换矩阵(若使用上述方案，则该项为[R,t]，则双目相机标定中, $R,t$均为从左相机到右相机的变换) |
+| 3x4 从世界坐标系到第二个相机的变换矩阵(若使用上述方案，则该项为[R,t]，则双目相机标定中, <!-- $R,t$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?R%2Ct">均为从左相机到右相机的变换) |
 | **projPoints1**                                              |
 | 第一张图片中点在归一化相机平面上的坐标，建议用vector\<Point2f\>，该函数不接受double类型 |
 | **projPoints2**                                              |
@@ -856,7 +906,7 @@ $$
 
 >  这里简单介绍一下极线搜索
 >  <img src="https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/vision-course/2022-09-21-vision-learning-5/recitify.png" alt="img" style="zoom: 25%;" />
->  仍然是这张图片，在大部分情况下，我们很难知道$P_r$的位置，但是通过极线矫正，我们知道它一定在$P_l$所在的极线上，那么我们只要搜索这条极线便可。
+>  仍然是这张图片，在大部分情况下，我们很难知道<!-- $P_r$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?P_r">的位置，但是通过极线矫正，我们知道它一定在<!-- $P_l$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?P_l">所在的极线上，那么我们只要搜索这条极线便可。
 
 ### 三角测量的局限
 
@@ -869,21 +919,29 @@ $$
 
 ### 光流
 
-光流根据了灰度不变假设，即对于连续两帧图片，若定义$I(x,y,t)$为$t$时刻下$(x,y)$位置的像素的灰度（gray-level），则有假设
-$$
+光流根据了灰度不变假设，即对于连续两帧图片，若定义<!-- $I(x,y,t)$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?I(x%2Cy%2Ct)">为<!-- $t$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?t">时刻下<!-- $(x,y)$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?(x%2Cy)">位置的像素的灰度（gray-level），则有假设
+<!-- $$
 I(x,y,t) = I(x+\delta x,y+\delta y,t+\delta t)
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?I(x%2Cy%2Ct)%20%3D%20I(x%2B%5Cdelta%20x%2Cy%2B%5Cdelta%20y%2Ct%2B%5Cdelta%20t)"></div>
 对右边项进行泰勒展开一阶项
-$$
-I(x,y,t) \approx I(x,y,t) + \frac{\part I}{\part x}\delta x+ \frac{\part I}{\part y}\delta y+\frac{\part I}{\part t}\delta t\\
-\frac{\part I}{\part x}\frac{\delta x}{\delta t}+\frac{\part I}{\part y}\frac{\delta y}{\delta t} = -\frac{\part I}{\part t}\\
-\left[\begin{matrix}\frac{\part I}{\part x}&\frac{\part I}{\part y}\end{matrix}\right]\left[\begin{matrix}\frac{\delta x}{\delta t}\\\frac{\delta y}{\delta t}\end{matrix}\right] =  -\frac{\part I}{\part t}
-$$
-若我们取相邻帧，$\delta t = 1$，则有
-$$
-\left[\begin{matrix}\frac{\part I}{\part x}&\frac{\part I}{\part y}\end{matrix}\right]\left[\begin{matrix}\delta x\\\delta y\end{matrix}\right] =  -\frac{\part I}{\part t}
-$$
-类似上面的做法，我们假设一个$w \times w$的方格内像素具有相同的运动，则可得一个线性方程组，解线性方程便可得得到像素运动。
+<!-- $$
+I(x,y,t) \approx I(x,y,t) + \frac{\partial I}{\partial x}\delta x+ \frac{\partial I}{\partial y}\delta y+\frac{\partial I}{\partial t}\delta t\\
+\frac{\partial I}{\partial x}\frac{\delta x}{\delta t}+\frac{\partial I}{\partial y}\frac{\delta y}{\delta t} = -\frac{\partial I}{\partial t}\\
+\left[\begin{matrix}\frac{\partial I}{\partial x}&\frac{\partial I}{\partial y}\end{matrix}\right]\left[\begin{matrix}\frac{\delta x}{\delta t}\\\frac{\delta y}{\delta t}\end{matrix}\right] =  -\frac{\partial I}{\partial t}
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?I(x%2Cy%2Ct)%20%5Capprox%20I(x%2Cy%2Ct)%20%2B%20%5Cfrac%7B%5Cpartial%20I%7D%7B%5Cpartial%20x%7D%5Cdelta%20x%2B%20%5Cfrac%7B%5Cpartial%20I%7D%7B%5Cpartial%20y%7D%5Cdelta%20y%2B%5Cfrac%7B%5Cpartial%20I%7D%7B%5Cpartial%20t%7D%5Cdelta%20t%5C%5C%0A%5Cfrac%7B%5Cpartial%20I%7D%7B%5Cpartial%20x%7D%5Cfrac%7B%5Cdelta%20x%7D%7B%5Cdelta%20t%7D%2B%5Cfrac%7B%5Cpartial%20I%7D%7B%5Cpartial%20y%7D%5Cfrac%7B%5Cdelta%20y%7D%7B%5Cdelta%20t%7D%20%3D%20-%5Cfrac%7B%5Cpartial%20I%7D%7B%5Cpartial%20t%7D%5C%5C%0A%5Cleft%5B%5Cbegin%7Bmatrix%7D%5Cfrac%7B%5Cpartial%20I%7D%7B%5Cpartial%20x%7D%26%5Cfrac%7B%5Cpartial%20I%7D%7B%5Cpartial%20y%7D%5Cend%7Bmatrix%7D%5Cright%5D%5Cleft%5B%5Cbegin%7Bmatrix%7D%5Cfrac%7B%5Cdelta%20x%7D%7B%5Cdelta%20t%7D%5C%5C%5Cfrac%7B%5Cdelta%20y%7D%7B%5Cdelta%20t%7D%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20%20-%5Cfrac%7B%5Cpartial%20I%7D%7B%5Cpartial%20t%7D"></div> 
+
+
+若我们取相邻帧，<!-- $\delta t = 1$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?%5Cdelta%20t%20%3D%201">，则有
+<!-- $$
+\left[\begin{matrix}\frac{\partial I}{\partial x}&\frac{\partial I}{\partial y}\end{matrix}\right]\left[\begin{matrix}\delta x\\\delta y\end{matrix}\right] =  -\frac{\partial I}{\partial t}
+$$ --> 
+
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?%5Cleft%5B%5Cbegin%7Bmatrix%7D%5Cfrac%7B%5Cpartial%20I%7D%7B%5Cpartial%20x%7D%26%5Cfrac%7B%5Cpartial%20I%7D%7B%5Cpartial%20y%7D%5Cend%7Bmatrix%7D%5Cright%5D%5Cleft%5B%5Cbegin%7Bmatrix%7D%5Cdelta%20x%5C%5C%5Cdelta%20y%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20%20-%5Cfrac%7B%5Cpartial%20I%7D%7B%5Cpartial%20t%7D"></div> 
+类似上面的做法，我们假设一个<!-- $w \times w$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?w%20%5Ctimes%20w">的方格内像素具有相同的运动，则可得一个线性方程组，解线性方程便可得得到像素运动。
 
 下面便是实践时间，我们来看一个视频上各个特征点根据光流法追踪的效果。
 
