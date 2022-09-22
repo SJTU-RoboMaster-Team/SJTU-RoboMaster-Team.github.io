@@ -321,10 +321,12 @@ $$ -->
 <div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?n%5ETP_1%2Bd%20%3D%200%5C%5C%0A-%5Cfrac%7Bn%5ETP_1%7D%7Bd%7D%20%3D%201"></div>
 则
 <!-- $$
-p_2 = K(RP_1-\frac{n^TP_1}{d}t) = K（R-\frac{t}{d}n^T）P_1 = K（R-\frac{t}{d}n^T）K^{-1}p_1 = Hp_1
+p_2 = K(RP_1-\frac{n^TP_1}{d}t) = K(R-\frac{t}{d}n^T)P_1 = K(R-\frac{t}{d}n^T)K^{-1}p_1 = Hp_1
 $$ --> 
 
-<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?p_2%20%3D%20K(RP_1-%5Cfrac%7Bn%5ETP_1%7D%7Bd%7Dt)%20%3D%20K%EF%BC%88R-%5Cfrac%7Bt%7D%7Bd%7Dn%5ET%EF%BC%89P_1%20%3D%20K%EF%BC%88R-%5Cfrac%7Bt%7D%7Bd%7Dn%5ET%EF%BC%89K%5E%7B-1%7Dp_1%20%3D%20Hp_1"></div>
+<div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?p_2%20%3D%20K(RP_1-%5Cfrac%7Bn%5ETP_1%7D%7Bd%7Dt)%20%3D%20K(R-%5Cfrac%7Bt%7D%7Bd%7Dn%5ET)P_1%20%3D%20K(R-%5Cfrac%7Bt%7D%7Bd%7Dn%5ET)K%5E%7B-1%7Dp_1%20%3D%20Hp_1"></div> 
+
+
 其中<!-- $p1,p2$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?p1%2Cp2">均为像素点（可以在去畸变后再进行特征点匹配，本教程例子均不考虑畸变）
 
 这样只需求出单应矩阵<!-- $H$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?H">便可，实际上<!-- $H$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?H">是一个透视变换矩阵，这你们在上节课学过
@@ -382,6 +384,7 @@ $$ -->
 
 <div align="center"><img style="background: white;" src="https://latex.codecogs.com/svg.latex?u_2%20%2B%20%5Cdelta%20u%20%3D%20%5Cfrac%7B(h_%7B11%7D%2B%5Cdelta%20u%20%5Ccdot%20h_%7B31%7D)u_1%2B(h_%7B12%7D%2B%5Cdelta%20u%20%5Ccdot%20h_%7B32%7D)v_1%2B(h_%7B13%7D%2B%5Cdelta%20u%20%5Ccdot%20h_%7B33%7D)%7D%7Bh_%7B31%7Du_1%2Bh_%7B32%7Dv_1%2Bh_%7B33%7D%7D%5C%5C%0Av_2%2B%5Cdelta%20v%20%3D%20%5Cfrac%7B(h_%7B21%7D%2B%5Cdelta%20v%20%5Ccdot%20h_%7B31%7D)u_1%2B(h_%7B22%7D%2B%5Cdelta%20v%20%5Ccdot%20h_%7B32%7D)v_1%2B(h_%7B23%7D%2B%5Cdelta%20v%20%5Ccdot%20h_%7B33%7D)%7D%7Bh_%7B31%7Du_1%2Bh_%7B32%7Dv_1%2Bh_%7B33%7D%7D"></div>
 通过改动<!-- $H$ --> <img style="transform: translateY(0.1em); background: white;" src="https://latex.codecogs.com/svg.latex?H">,我们在基于`warpPerspective`函数进行变换的时候能对投影位置进行相应的平移。
+
 ```C++
 void process_Stitch(const Mat& img1,const Mat& img2,const Mat &img3,const Mat& H1,const Mat& H2)
 {
