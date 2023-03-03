@@ -137,13 +137,13 @@ categories: [rm.cv]
 
 在浏览器地址栏输入 `192.168.137.xxx:3000`（英雄为 `192.168.137.xxx:8888`），回车进入 flask，网页如下。
 
-![](aimer002.jpg)
+![](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/aimer_readme/aimer002.jpg)
 
 先勾选 **网页下半部分“自定义复选框”** 中 show armor aim 左边的小方框，然后点击 “实时视频” 中的 armor aim，跳转到预测器绘制的视频。
 
 最终界面如下，左边是网页，右边是终端 vim。注意 **网页图像中间有白色、黄色、橙色三个小圆点（对于静止目标，黄色圆点会刚好覆盖橙色圆点）。待会要用。**
 
-![](aimer003.jpg)
+![](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/aimer_readme/aimer003.jpg)
 
 ## 1) 调落点
 
@@ -151,7 +151,7 @@ categories: [rm.cv]
 
 在参数表中找到以下三个参数。
 
-![](aimer004.jpg)
+![](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/aimer_readme/aimer004.jpg)
 
 > **注意**！为了确认 **参数实时更新程序** 在正常运行，可以先开启自瞄，瞄向静止目标后，试着调节 `CAMERA_TO_BARREL_YAW` 若干角度，譬如调大 5 度并输入 Esc + `:w` + 回车 以保存，观察枪口是否在短暂延迟后转动 5 度。若枪口未响应，请问视觉。
 
@@ -167,7 +167,7 @@ categories: [rm.cv]
 
 在参数表中找到以下三个参数。数值都以 **秒** 为单位。
 
-![](aimer005.jpg)
+![](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/aimer_readme/aimer005.jpg)
 
 > 不可颠倒延迟参数的调节顺序。
 
@@ -175,19 +175,19 @@ categories: [rm.cv]
 
 假设静止时，橙点和白点（橙点被黄点覆盖）相对位置如下：
 
-![](aimer006.jpg)
+![](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/aimer_readme/aimer006.jpg)
 
 我们希望平移时，相对稳定后的橙点和白点相对位置与之前一致。希望效果如下：
 
-![](aimer007.jpg)
+![](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/aimer_readme/aimer007.jpg)
 
 下图这种情况，橙点往箭头方向偏离原来位置太多，需调大 `ADDITIONAL_PREDICTION_TIME` 几十毫秒或一百多毫秒：
 
-![](aimer008.jpg)
+![](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/aimer_readme/aimer008.jpg)
 
 下图这种情况，橙点有点反向偏离原来位置了，需调小 `ADDITIONAL_PREDICTION_TIME` 几十毫秒：
 
-![](aimer009.jpg)
+![](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/aimer_readme/aimer009.jpg)
 
 2. 调节 `SEND_TO_CONTROL_LATENCY`。开自瞄，**跟随并发弹打击** 匀速运动的目标。**注意须等到跟随稳定后发弹，因为开始跟随时都会有点跟不上**。若预测总体跟不上，调大 `SEND_TO_CONTROL_LATENCY`。若预测超前，调小 `SEND_TO_CONTROL_LATENCY`。
 
