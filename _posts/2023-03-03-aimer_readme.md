@@ -2,6 +2,7 @@
 layout: post
 title: 如何调节视觉自瞄
 categories: [rm.cv]
+author: 佩克拉
 ---
 
 对应预测器更新日期 **2022年7月27日 15:46**。因为预测器更新可能有逻辑变动，最好先查看小电脑上 `~/Workspace/CVRM2022-infantry/armor/predictor/readme.md` 中显示的预测器更新日期
