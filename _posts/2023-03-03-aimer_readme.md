@@ -255,4 +255,4 @@ make -j8 # 编译
 
 ---
 
-作者：方俊杰，github 主页传送门: [https://github.com/JulyFun].
+作者：方俊杰，github 主页传送门: [https://github.com/JulyFun](https://github.com/JulyFun).
