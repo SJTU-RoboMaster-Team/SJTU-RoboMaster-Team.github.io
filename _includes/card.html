@@ -31,7 +31,7 @@
       {% assign date_format = site.sleek.date_format | default: "%b %-d, %Y" %}
       <span class="post-card__meta">
         <time>{{ post.date | date: date_format }}</time>
-        {% if post.author-img %}
+        {% if post.author %}
           <author> by {{ post.author | strip_html }}</author>
         {% endif %}
       </span>
