@@ -1,8 +1,8 @@
 # SITE CONFIGURATION
-title: 交龙战队 # your site title
+title: 云汉交龙 # your site title
 author: SJTU-RoboMaster-Team # You :P
 description: > # Meta description of Homepage
-  上海交通大学RoboMaster交龙战队博客
+  上海交通大学 RoboMaster 交龙战队博客
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://sjtu-robomaster-team.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -13,9 +13,8 @@ navigation: # Navigation links
   - {name: 'Contact', link: '/contact'}
 
 tagline: >
-  Modern Jekyll theme focused on speed performance &amp; SEO best practices
-
-hero_img: posts/sleek_lg.jpg # Main background image: use the path from /assets/img/ => This will output /assets/img/posts/sleek_lg.jpg
+    极致 竞争 疯狂
+hero_img: "posts/Dragon.gif" # Main background image: use the path from /assets/img/ => This will output /assets/img/posts/sleek_lg.jpg
 
 email: your-email@domain.com # email for form submission
 
