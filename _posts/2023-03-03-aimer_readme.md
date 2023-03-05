@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 自瞄使用说明
+title: CVRM2022 系列自瞄使用说明
 categories: [视觉]
-author: 佩克拉
+author: 方俊杰
 ---
 
 对应预测器更新日期 **2022年7月27日 15:46**。因为预测器更新可能有逻辑变动，最好先查看小电脑上 `~/Workspace/CVRM2022-infantry/armor/predictor/readme.md` 中显示的预测器更新日期
@@ -256,4 +256,4 @@ make -j8 # 编译
 
 ---
 
-作者：方俊杰，github 主页传送门: [https://github.com/JulyFun](https://github.com/JulyFun).
+作者 github 主页传送门: [https://github.com/JulyFun](https://github.com/JulyFun).
