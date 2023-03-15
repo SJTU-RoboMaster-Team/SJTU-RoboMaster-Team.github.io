@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CVRM2022 系列自瞄使用说明
+title: CVRM 系列自瞄 - 使用说明
 categories: [视觉]
 author: 方俊杰
 ---
