@@ -204,9 +204,9 @@ pip install ipykernel ipython-genutils jupyter-client jupyter-core pygments pyzm
 
 ## error: Multiple top-level packages discovered in a flat-layout: ['resource', 'prefix_override'].
 
-:::success
-在 src 中对应的 setup.py 中，setup(..., packages = ['prefix_override'])
-:::
+**解决方案：**
+
+在 src 中对应的 setup.py 中，setup(..., packages = ['prefix_override']) 
 
 ## - rviz_ogre_vendor： "cpuid": "=a"
 
@@ -218,7 +218,6 @@ pip install ipykernel ipython-genutils jupyter-client jupyter-core pygments pyzm
 brew uninstall qt@6
 # 如果您本机有 qt5，则 qt5 会被留下来
 ```
-:::
 
 ## Unknown CMake command "set_package_properties".
 
