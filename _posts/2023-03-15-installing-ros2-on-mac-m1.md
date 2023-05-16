@@ -106,7 +106,7 @@ colcon build \
 
 ## 额外错误
 
-在 Kliment Mamykin blog 教程中，已经对部分编译期遇到的错误提出了解决方案。然而由于该教程撰写于多年前，现在出现的编译 bug 比教程所说的更多。在 2023 年 3 月，你至少还会遇到如下错误。这些错误我通过查 github issue，Stackoverflow 等和询问 chatGPT 找到了解决方案，并对大多数问题给出了解决理由的链接。我忘记存链接的就没给出。
+在 Kliment Mamykin blog 教程中，已经对部分编译期遇到的错误提出了解决方案。然而由于该教程撰写于多年前，现在出现的编译 bug 比教程所说的更多。在 2023 年 3 月，你至少还会遇到如下错误。这些错误我通过查 github issue，Stackoverflow 等和询问 chatGPT 找到了解决方案，但不是所有问题我都记下了链接。
 
 ## pip 安装大量包时 pygraphviz/graphviz_wrap.c:2711:10: fatal error: 'graphviz/cgraph.h' file not found
 
@@ -164,7 +164,7 @@ Could NOT find PythonExtra (missing: PythonExtra_LIBRARIES)
 
 **解决方案：**
 
-在所有 package 共享的 `install/share/python_cmake_module/cmake/Modules/FindPythonExtra.cmake` 中，修改 `48` 行附近的：
+在所有 package 共享的 `src/ros2/python_cmake_module/cmake/Modules/FindPythonExtra.cmake` 中，修改 `48` 行附近的：
 
 `find_program(PYTHON_CONFIG_EXECUTABLE NAMES "python3-config")`
 
