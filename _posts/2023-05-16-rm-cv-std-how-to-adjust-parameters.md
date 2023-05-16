@@ -11,14 +11,14 @@ author: Julyfun
 
 用网线连接你的电脑和车车的小电脑。
 
-配置网线的 IPv4 地址为 `192.168.137.1`，子网掩码 `255.255.255.0`。
+配置网线的 IPv4 地址为 `192.168.137.1`（对于有些小电脑需调成 `192.168.1.1`），子网掩码 `255.255.255.0`。
 
 ### Step 1.2 用终端连接小电脑
 
-- Windows: 。用网线连接小电脑网线接口，按 `Win + R` 后输入 `powershell`，回车进入终端。
+- Windows: 用网线连接小电脑网线接口，按 `Win + R` 后输入 `powershell`，回车进入终端。
 - Linux: 进入终端。
 
-等待小电脑开机。在终端输入 `ssh nvidia@192.168.137.xxx`（xxx 就是贴在小电脑上的序号），然后输入密码 `nvidia`，此时进入小电脑的用户文件夹。
+等待小电脑开机。在终端输入 `ssh nvidia@192.168.137.xxx`（xxx 就是贴在小电脑上的序号，有些小电脑是 `192.168.1.xxx`），然后输入密码 `nvidia`，此时进入小电脑的用户文件夹。
 
 输入 `vim ~/Workspace/rm.cv.std/assets/base.param.toml`，终端开始编辑预测器参数表。
 
@@ -31,13 +31,13 @@ author: Julyfun
 
 在浏览器地址栏输入 `192.168.137.xxx:3001`，回车进入自瞄网页端，网页如下。
 
-![](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/2023-05-16-rm-cv-std-how-to-adjust-parameters/3871684244550_.pic_hd.jpg)
+![](/assets/2023-05-16-rm-cv-std-how-to-adjust-parameters/3871684244550_.pic_hd.jpg)
 
 先勾选 `show auto_aim.predictor.aim` 左边的小方框。
 
 然后点击“实时视频”栏目中的 `auto_aim.predictor.aim`，进入一个视频界面，如下，左边是网页，右边是终端 vim。
 
-![](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/2023-05-16-rm-cv-std-how-to-adjust-parameters/3911684247552_.pic_hd.jpg)
+![](/assets/2023-05-16-rm-cv-std-how-to-adjust-parameters/3911684247552_.pic_hd.jpg)
 
 ## Step 2 调落点
 
@@ -91,11 +91,11 @@ additional-predict-time = 0.060
 
 - 下图这种情况称为“橙点朝着红箭头的方向偏移绿点”。需要调大 `additional-predict-time` 几十毫秒。
 
-![](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/2023-05-16-rm-cv-std-how-to-adjust-parameters/3891684246407_.pic.jpg)
+![](/assets/2023-05-16-rm-cv-std-how-to-adjust-parameters/3891684246407_.pic.jpg)
 
 - 下图这种情况称为“橙点朝着红箭头的反方向偏移绿点”。需要调小 `additional-predict-time` 一些。
 
-![](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/2023-05-16-rm-cv-std-how-to-adjust-parameters/3901684246652_.pic.jpg)
+![](/assets/2023-05-16-rm-cv-std-how-to-adjust-parameters/3901684246652_.pic.jpg)
 
 ## Step 3.2 测量 `send-to-control` 延迟
 
