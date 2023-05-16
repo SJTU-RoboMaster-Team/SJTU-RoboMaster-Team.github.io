@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 2023 年 3 月如何在 Mac M1 上安装 ROS2？
-categories: [视觉]
+categories: [视觉, MacOS, 犯病, 浪费时间]
 author: 方俊杰
 ---
 
