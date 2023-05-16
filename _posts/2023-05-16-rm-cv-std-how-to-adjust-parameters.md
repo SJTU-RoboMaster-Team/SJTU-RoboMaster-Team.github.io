@@ -31,13 +31,13 @@ author: Julyfun
 
 在浏览器地址栏输入 `192.168.137.xxx:3001`，回车进入自瞄网页端，网页如下。
 
-![](assets/3871684244550_.pic_hd.jpg)
+![](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/2023-05-16-rm-cv-std-how-to-adjust-parameters/3871684244550_.pic_hd.jpg)
 
 先勾选 `show auto_aim.predictor.aim` 左边的小方框。
 
 然后点击“实时视频”栏目中的 `auto_aim.predictor.aim`，进入一个视频界面，如下，左边是网页，右边是终端 vim。
 
-![](assets/3911684247552_.pic_hd.jpg)
+![](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/2023-05-16-rm-cv-std-how-to-adjust-parameters/3911684247552_.pic_hd.jpg)
 
 ## Step 2 调落点
 
@@ -91,11 +91,11 @@ additional-predict-time = 0.060
 
 - 下图这种情况称为“橙点朝着红箭头的方向偏移绿点”。需要调大 `additional-predict-time` 几十毫秒。
 
-![](assets/3891684246407_.pic.jpg)
+![](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/2023-05-16-rm-cv-std-how-to-adjust-parameters/3891684246407_.pic.jpg)
 
 - 下图这种情况称为“橙点朝着红箭头的反方向偏移绿点”。需要调小 `additional-predict-time` 一些。
 
-![](assets/3901684246652_.pic.jpg)
+![](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master/_img/posts/2023-05-16-rm-cv-std-how-to-adjust-parameters/3901684246652_.pic.jpg)
 
 ## Step 3.2 测量 `send-to-control` 延迟
 
