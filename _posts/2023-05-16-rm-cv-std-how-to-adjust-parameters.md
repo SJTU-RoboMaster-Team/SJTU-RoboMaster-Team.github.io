@@ -4,7 +4,6 @@ title: 如何调节 rm.cv.std 的自瞄参数？
 categories: [视觉, 电控, 机械, 自瞄, 苦力活, low-level]
 author: Julyfun
 ---
-
 ## Step 1 连接小电脑
 
 ### Step 1.1 配置网线 IPv4 地址
@@ -25,7 +24,6 @@ author: Julyfun
 > 如何使用 vim 编辑器？按 `i` 键进入正常编辑模式，可以开始修改数值。编辑完后，按 `Esc` 退出编辑模式，输入 `:w + 回车`（英文冒号 + 小写字母 w + 回车） 则保存。输入 `:q + 回车` 则退出 vim。
 >
 > 自瞄参数是实时更新的。
->
 
 ### Step 1.3 打开自瞄网页端
 
@@ -65,7 +63,7 @@ pitch = 0.0
 
 > 某些延迟的存在，比如视觉到电控的信号传输延迟，会导致自瞄打不中运动靶。因此我们要测量出这些延迟，让自瞄去进行一个预测。每隔几个小时，延迟参数可能也需要重新测量。
 
-## Step 3.1 调节额外发送量 `additional-predict-time`
+### Step 3.1 调节额外发送量 `additional-predict-time`
 
 在参数表中找到这个参数。延迟数值都以 **秒** 为单位。
 
@@ -97,7 +95,7 @@ additional-predict-time = 0.060
 
 ![](/assets/2023-05-16-rm-cv-std-how-to-adjust-parameters/3901684246652_.pic.jpg)
 
-## Step 3.2 测量 `send-to-control` 延迟
+### Step 3.2 测量 `send-to-control` 延迟
 
 找到如下参数：
 
@@ -115,7 +113,7 @@ send-to-control = -18e-3
 
 一般调节 15 ~ 40ms 就会有肉眼可见的变化。本参数在调好后可能是一个负的值，比如 -0.020。
 
-## Step 3.3 测量 `control-to-fire` 延迟
+### Step 3.3 测量 `control-to-fire` 延迟
 
 找到下面这个参数：
 
@@ -128,10 +126,10 @@ control-to-fire = 20e-3
 ```
 
 > 调节该参数之前，应将下方：
+>
 > - `[auto-aim.top-model]` 中 `aim.max-orientation-angle` 参数暂时设为 0.0（只瞄中心）
-> 
 > - `[auto-aim.top-model]` 中 `aim.max-out-error` 暂时设为 0.2（收紧打击时机宽度）。
-> 
+>
 > 调节完毕后再改回原数值。
 
 开自瞄，打击距离自己 2 米左右的匀速原地陀螺的敌人，敌人转速须在 20rpm 以上。观察子弹打击时机是否正确。
