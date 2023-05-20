@@ -7,7 +7,13 @@ author: Julyfun
 
 ![](/assets/2023-05-20-cpp-style-guide/example.jpg)
 
-[本仓库](https://github.com/SJTU-RoboMaster-Team/style-team)代码规范的参考主要是 [Chromium C++ style guide](http://chromium.googlesource.com/chromium/src/+/HEAD/styleguide/c++/c++.md)，[Google 开源项目风格指南](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/)和 [Rust style guide](https://github.com/rust-lang/style-team)。翻译规范遵循 Rust 中文翻译项目组的 [Rust 文档翻译指引](https://rustwiki.org/wiki/translate/rust-translation-guide/)和 [Rust 语言术语中英文对照表](https://rustwiki.org/wiki/translate/english-chinese-glossary-of-rust/)。
+[本仓库](https://github.com/SJTU-RoboMaster-Team/style-team)代码规范的参考主要是 [Chromium C++ style guide](http://chromium.googlesource.com/chromium/src/+/HEAD/styleguide/c++/c++.md)，[Google 开源项目风格指南](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/)和 [Rust style guide](https://github.com/rust-lang/style-team)。翻译规范参考 [C++ 参考手册](https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5)，为了让翻译后文档规范且易于阅读，也参考了 Rust 中文翻译项目组的 [Rust 文档翻译指引](https://rustwiki.org/wiki/translate/rust-translation-guide/)。
+
+如何自动化地应用这些规范？
+
+* 将本仓库的 `.clang-format` 和 `.clang-tidy` 文件拷贝至你的项目根目录下。
+* 在编辑器中开启 `Clang-Format` 和 `Clang-Tidy` 插件。插件通常默认使用工作区根目录下的配置文件。
+* 在 C++ 代码文件中执行编辑器的格式化文档操作。你也可以开启保存时自动格式化的功能。
 
 # 代码规范 RFCs
 
@@ -55,7 +61,7 @@ author: Julyfun
 
 # C++ 代码风格指南
 
-## 使用风格化工具的动机？
+## 动机 - 为什么使用格式化工具？
 
 格式化代码其实是一个机械性的任务，但是人工实现又非常耗精力。格式化工具可以一键实现这个目的，解放程序员的生产力。
 
@@ -597,7 +603,6 @@ a_function_call(
 )
 ```
 
-
 ### 方法调用
 
 和函数调用保持一致。
@@ -607,7 +612,6 @@ a_function_call(
 ```cpp
 x.foo().bar().baz(x, y, z);
 ```
-
 
 ### 宏调用
 
@@ -727,7 +731,6 @@ int y = something_very_long
     : also_not_small;
 ```
 
-
 ### Switch
 
 `case` 语句和 `case` 语句后面的块都使用一个块缩进，`default` 后不要加 `break`：
@@ -789,7 +792,7 @@ for(auto v: values) {}
 
 十六进制字面量可以使用大写或小写字母，但是在同一表达式中不要混用大小写。在同一工程中应该使用同样的大小写，但是我们对此不进行建议。格式化工具应该提供转换混用大小写的字面量的选项，以及转换所有字面量为大写或小写的选项。
 
-## 类型和约束
+## 类型
 
 ### 单行格式化
 
@@ -825,7 +828,7 @@ Foo<Bar, Baz<
 
  * 类型 `CamelCase`，
  * 枚举成员 `UPPER_CASE`，
- * 在以上情况中, 若使用缩写, 则仅大写缩写单词的首字母 `HttpRequest`.
+ * 在以上情况中, 若使用缩写, 则仅大写缩写单词的首字母 `HttpRequest`。
  * 命名空间 `lower_case`，
  * 成员 `lower_case`，
  * 函数 `lower_case`，
@@ -833,6 +836,8 @@ Foo<Bar, Baz<
  * 宏 `UPPER_CASE`，
  * 全局常量 `UPPER_CASE`，
 * 如果和关键字冲突（例如 `namespace`），就连接一个下划线（例如 `namespace_`）。
+
+---
 
 ## 单位
 
@@ -860,7 +865,6 @@ if (true)
 ## 文件后缀
 
 使用 `.cpp` 和 `.hpp` 作为 C++ 文件后缀。
-
 
 ## 调用
 
@@ -899,7 +903,7 @@ void fn1() {
 }
 ```
 
-不使用隐式 `this`.
+不使用隐式 `this`。
 
 ```cpp
 class A {
@@ -970,6 +974,8 @@ struct Bar {
     }
 };
 ```
+
+---
 
 # CMakeLists.txt, *.cmake 规范
 
