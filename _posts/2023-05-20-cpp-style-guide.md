@@ -363,7 +363,7 @@ void foo(const std::vector<T>& x, const std::vector<U>& y) ...
 ```cpp
 using Foo = Bar<T>;
 
-// If multi-line is required
+// 如果需要拆成多行
 using VeryLongType<T, U> =
     AnEvenLongerType<T, U, Foo<T>>;
 ```
@@ -388,11 +388,11 @@ using namespace a::b::d;
 尽可能使用 `=` 初始化，当它不可使用或者造成类型名冗余时，使用“统一初始化方法” `Type pattern { expr };`。
 
 ```cpp
-// use
+// 使用
 std::vector<int> numbers = { 1, 2, 3 };
 auto numbers = std::vector<int>(100, 2);
 Foo bar { 0.01, 10 };
-// not
+// 不使用
 Foo bar = Foo(0.01, 10);
 Foo bar(0.01, 10);
 ```
@@ -409,7 +409,7 @@ Type pattern =
 语句中调用的宏应该在尾部加上分号。小括号两边都不应有空格。
 
 ```cpp
-// A comment.
+// 一个注释。
 a_macro(...);
 ```
 
@@ -628,15 +628,15 @@ int foo = bar
 如果一个调用链的第一个元素的最后一行加上其缩进小于下一行的缩进，则只要有足够的空间，就应合并这两行。例如，
 
 ```cpp
-// use
+// 使用
 x.baz
     .qux()
-// not
+// 不使用
 x
     .baz
     .qux()
 
-// use
+// 使用
 int foo = x
     .baz?
     .qux();
@@ -667,12 +667,12 @@ a.b.c().d
 将整个调用格式化为多行且每个元素独占一行，要优于把部分元素放在同一行而其他元素格式化为多行。例如，
 
 ```cpp
-// Better
+// 好的
 this->pre_comment
     .as_ref()
     .map_or(false, [&](auto comment) { return comment.starts_with("//"); })
 
-// Worse
+// 坏的
 this->pre_comment.as_ref().map_or(
     false,
     [&](auto comment) { return comment.starts_with("//"); }
@@ -721,7 +721,7 @@ if (a_long_expression
 ```cpp
 int y = x ? 0 : 1;
 
-// Examples that must be multi-line.
+// 必须拆为多行的一个例子。
 int y = something_very_long
     ? not_small
     : also_not_small;
@@ -848,11 +848,11 @@ const double SIN_RESULT = std::sin(SOME_ANGLE);
 ## 不省略 if / for statements 的花括号
 
 ```cpp
-// use
+// 使用
 if (true) {
     continue;
 }
-// not
+// 不使用
 if (true)
     continue;
 ```
@@ -875,9 +875,9 @@ int foo(const int& x, const int& y) {
 
 namespace a::b::c {
 int foo() {
-    // use
+    // 使用
     return b::func(2, 3); // 光标在调用处时，需要保证调用处的第一个前缀 "b" 出现在面包屑中
-    // not
+    // 不使用
     return func(2, 3);
 }
 }
@@ -910,9 +910,9 @@ private:
 }
 
 A::A(const int& x) {
-    // use
+    // 使用
     this->member = x;
-    // not
+    // 不使用
     member = x;
 }
 ```
@@ -943,7 +943,7 @@ private:
 ## 不将 class / struct 作为命名空间使用
 
 ```cpp
-// use
+// 使用
 namespace a {
 struct Foo {
     int a;
@@ -958,7 +958,7 @@ struct Bar {
 };
 } // namespace a
 
-// not
+// 不使用
 struct Bar {
     struct Foo {
         int a;
