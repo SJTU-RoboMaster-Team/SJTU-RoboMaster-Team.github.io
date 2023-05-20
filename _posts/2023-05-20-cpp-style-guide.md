@@ -832,7 +832,7 @@ Foo<Bar, Baz<
  * 变量 `lower_case`，
  * 宏 `UPPER_CASE`，
  * 全局常量 `UPPER_CASE`，
-* 如果和关键字冲突 (e.g., `namespace`)，就连接一个下划线 (e.g., `namespace_`)。
+* 如果和关键字冲突（例如 `namespace`），就连接一个下划线（例如 `namespace_`）。
 
 ## 单位
 
@@ -999,6 +999,6 @@ a_function_call(foo,
                 bar);
 ```
 
-这样能减小代码修改时的 diff (e.g., if `a_function_call` 在上例中被重命名) 而且能防止右飘。
+这样能减小代码修改时的 diff（例如 `a_function_call` 在上例中被重命名）而且能防止右飘。
 
 列表元素应尾随逗号，这样移动代码（比如：复制粘贴）更容易，而且减小代码修改造成的 diff。
