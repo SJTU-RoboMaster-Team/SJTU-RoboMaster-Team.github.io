@@ -5,8 +5,6 @@ categories: [视觉, 电控, C++, 没人用, 冷门]
 author: Julyfun
 ---
 
-<link rel="stylesheet" type="text/css" href="/assets/css/code.css">
-
 ![](/assets/2023-05-20-cpp-style-guide/example.jpg)
 
 [本仓库](https://github.com/SJTU-RoboMaster-Team/style-team)代码规范的参考主要是 [Chromium C++ style guide](http://chromium.googlesource.com/chromium/src/+/HEAD/styleguide/c++/c++.md)，[Google 开源项目风格指南](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/)和 [Rust style guide](https://github.com/rust-lang/style-team)。翻译规范遵循 Rust 中文翻译项目组的 [Rust 文档翻译指引](https://rustwiki.org/wiki/translate/rust-translation-guide/)和 [Rust 语言术语中英文对照表](https://rustwiki.org/wiki/translate/english-chinese-glossary-of-rust/)。
@@ -799,7 +797,7 @@ for(auto v: values) {}
 * `const T* name`, `T& name`（`*` 和 `&` 与类型名之间没有空格，与变量名之间有一个空格）
 * `template<typename T, typename U>`（逗号后有一个空格，尖括号两边没有空格）
 * `std::tuple<A, B, C, D>` （逗号后有空格，尖括号两边没有空格）
-* `class A: public B, public C {}` （冒号和逗号尾随类型名）。
+* `class A: public B, public C {}` （冒号、逗号与类型名之间没有空格）。
 
 ### 分行
 
@@ -819,23 +817,6 @@ Foo<Bar, Baz<
     Type1,
     Type2,
 >>
-```
-
-Function types may be broken following the rules for function declarations.
-
-Generic types may be broken following the rules for generics.
-
-Types with `+` may be broken after any `+` using block indent and breaking before the `+`. When breaking such a type, all `+`s should be line broken, e.g.,
-
-```cpp
-class A:
-    public Clone,
-    public Copy,
-    public Debug {
-private:
-    int a;
-    int b;
-};
 ```
 
 # 其他风格建议
