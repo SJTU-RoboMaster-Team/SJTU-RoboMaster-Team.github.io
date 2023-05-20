@@ -211,7 +211,7 @@ Foo { 1, 2 };
 ```cpp
 int foo(
     int arg1,
-    int arg2,
+    int arg2
 ) {
     ...
 }
