@@ -59,6 +59,8 @@ author: Julyfun
   - 规则的一致性
   - 保持风格规则的简并性
 
+---
+
 # C++ 代码风格指南
 
 ## 动机 - 为什么使用格式化工具？
@@ -191,6 +193,8 @@ Foo { 1, 2 };
 有一些因素是不错的参考，比如条目的名字长度和复杂性（子属性无子表达式）。
 
 格式化工具应允许用户忽略这些因素，从而总是采用常规格式化。
+
+---
 
 ## 条目
 
@@ -339,7 +343,7 @@ namespace bar = foo;
 
 ### 泛型
 
-模板参数部分与定义部分之间应换行。最好把模板参数部分放在同一行。
+泛型的模板参数部分与定义部分之间应换行。最好把模板参数部分放在同一行。
 
 在尖括号两边不要加空格。每个逗号后面应有一个空格。
 
@@ -389,6 +393,8 @@ using namespace a::b::d;
 
 不要在头文件中使用 `using namespace`。
 
+---
+
 ### 定义和初始化
 
 尽可能使用 `=` 初始化，当它不可使用或者造成类型名冗余时，使用“统一初始化方法” `Type pattern { expr };`。
@@ -429,6 +435,8 @@ a_macro(...);
 
 不应给 `return` 语句后的表达式加上括号。
 
+---
+
 ## 表达式
 ### 语句块
 
@@ -441,7 +449,7 @@ void block_as_stmt() {
     {
         a_call_inside_a_block();
 
-        // a comment in a block
+        // 语句块中的一条注释
         return the_value;
     }
 }
@@ -450,7 +458,7 @@ void block_as_expr() {
     auto foo = [&]() {
         a_call_inside_a_block();
 
-        // a comment in a block
+        // 语句块中的一条注释
         return the_value;
     }();
 }
@@ -625,7 +633,7 @@ x.foo().bar().baz(x, y, z);
 
 ```cpp
 int foo = bar
-    .baz?
+    .baz
     .qux();
 ```
 
@@ -642,7 +650,7 @@ x
 
 // 使用
 int foo = x
-    .baz?
+    .baz
     .qux();
 
 foo(
@@ -792,6 +800,8 @@ for(auto v: values) {}
 
 十六进制字面量可以使用大写或小写字母，但是在同一表达式中不要混用大小写。在同一工程中应该使用同样的大小写，但是我们对此不进行建议。格式化工具应该提供转换混用大小写的字面量的选项，以及转换所有字面量为大写或小写的选项。
 
+---
+
 ## 类型
 
 ### 单行格式化
@@ -822,6 +832,8 @@ Foo<Bar, Baz<
 >>
 ```
 
+---
+
 # 其他风格建议
 
 ## 命名
@@ -837,16 +849,14 @@ Foo<Bar, Baz<
  * 全局常量 `UPPER_CASE`，
 * 如果和关键字冲突（例如 `namespace`），就连接一个下划线（例如 `namespace_`）。
 
----
-
 ## 单位
 
-程序内部角度运算用弧度制。显式存储的角度常量用角度制。
+程序内部角度变量使用弧度制。给人编辑的角度常量（包括在参数表文件内）用角度制。
 
 如果变量的名称中没有说明单位，默认采用国际单位。
 
 ```cpp
-const double SOME_ANGLE = math::deg_to_rad(45); // 角度制转弧度制
+const double SOME_ANGLE = 30.0 / 180.0 * M_PI; // 角度制转弧度制
 const double SIN_RESULT = std::sin(SOME_ANGLE);
 ```
 
@@ -989,6 +999,8 @@ struct Bar {
 set(key "value")
 ```
 
+---
+
 ## 非常重要的指南
 
 块缩进比对齐缩进更好。例如：
@@ -997,7 +1009,7 @@ set(key "value")
 // 块缩进
 a_function_call(
     foo,
-    bar,
+    bar
 );
 
 // 对齐缩进
