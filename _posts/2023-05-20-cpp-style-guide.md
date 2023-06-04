@@ -55,7 +55,7 @@ author: Julyfun
 
 * 应用 👶🏻
   - 规则易于手动实践（在最简编辑环境中）
-  - 规则易于自动实践（当可以使用 Clang-format 等其他工具时）
+  - 规则易于自动实践（当可以使用 Clang-Format 等其他工具时）
   - 规则的一致性
   - 保持风格规则的简并性
 
@@ -304,7 +304,7 @@ class IndexRanges:
     public Index<RangeFull, Output>
 {
     ...
-}
+};
 ```
 
 ### #include
@@ -440,7 +440,7 @@ a_macro(...);
 ## 表达式
 ### 语句块
 
-语句块在左大括号 `{` 之后和右大括号 `}` 之前都应有换行符。块前的任何限定符都应与 `{`在同一行，且间隔一个空格。语句块中的内容应使用块缩进。
+语句块在左大括号 `{` 之后和右大括号 `}` 之前都应有换行符。块前的任何限定符都应与 `{` 在同一行，且间隔一个空格。语句块中的内容应使用块缩进。
 
 ```cpp
 void block_as_stmt() {
@@ -472,7 +472,7 @@ void block_as_stmt() {
     {
         #define another_definition
 
-        // a comment in a block
+        // 语句块中的一条注释
         #undef another_definition
     }
     #endif
