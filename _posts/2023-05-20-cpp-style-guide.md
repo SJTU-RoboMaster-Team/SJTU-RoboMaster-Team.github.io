@@ -7,7 +7,7 @@ author: Julyfun
 
 ![](/assets/2023-05-20-cpp-style-guide/example.jpg)
 
-[本仓库](https://github.com/SJTU-RoboMaster-Team/style-team)代码规范的参考主要是 [Chromium C++ style guide](http://chromium.googlesource.com/chromium/src/+/HEAD/styleguide/c++/c++.md)，[Google 开源项目风格指南](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/)和 [Rust style guide](https://github.com/rust-lang/style-team)。翻译规范参考 [C++ 参考手册](https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5)，为了让翻译后文档规范且易于阅读，也参考了 Rust 中文翻译项目组的 [Rust 文档翻译指引](https://rustwiki.org/wiki/translate/rust-translation-guide/)。
+[本仓库](https://github.com/SJTU-RoboMaster-Team/style-team)代码规范的参考主要是 [Chromium C++ style guide](http://chromium.googlesource.com/chromium/src/+/HEAD/styleguide/c++/c++.md)，[Google 开源项目风格指南](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/)和 [Rust style guide](https://github.com/rust-lang/style-team)。英文部分的翻译规范参考 [C++ 参考手册](https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5)，为了让翻译后文档规范且易于阅读，也参考了 Rust 中文翻译项目组的 [Rust 文档翻译指引](https://rustwiki.org/wiki/translate/rust-translation-guide/)。
 
 如何自动化地应用这些规范？
 
@@ -276,9 +276,9 @@ union Foo {
 类中的条目使用块缩进。如果没有条目，则类可以被格式化为单行。否则在左大括号后和右大括号前应换行。访问修饰符不缩进。当访问修饰符开始一个新的逻辑块时添加空行。
 
 ```cpp
-class Foo {};
+struct Foo {};
 
-class Bar {
+struct Bar {
 public:
     A a;
     B b;
@@ -291,13 +291,13 @@ private:
 如果类型有父类，则在冒号后和每个逗号后有一个空格，例如，
 
 ```cpp
-class Foo: public Debug, public Bar {};
+struct Foo: public Debug, public Bar {};
 ```
 
 在父类列表中最好不要换行。如果要换行，每个父类独占一行，左大括号也独占一行。
 
 ```cpp
-class IndexRanges:
+struct IndexRanges:
     public Index<Range<size_t>, Output>,
     public Index<RangeTo<size_t>, Output>,
     public Index<RangeFrom<size_t>, Output>,
@@ -352,7 +352,7 @@ template<typename T, typename U>
 void foo(const std::vector<T>& x, const std::vector<U>& y) ...
 
 template<typename T, typename U>
-class SomeType { ...
+struct SomeType { ...
 ```
 
 如果模板参数部分必须被格式化为多行，则每个参数应该独占一行且缩进一次，左尖括号后应换行。
@@ -422,7 +422,7 @@ Type pattern =
 
 ```cpp
 // 一个注释。
-a_macro(...);
+A_MACRO(...);
 ```
 
 ### 语句中的表达式
@@ -810,7 +810,7 @@ for(auto v: values) {}
 * `const T* name`, `T& name`（`*` 和 `&` 与类型名之间没有空格，与变量名之间有一个空格）
 * `template<typename T, typename U>`（逗号后有一个空格，尖括号两边没有空格）
 * `std::tuple<A, B, C, D>` （逗号后有空格，尖括号两边没有空格）
-* `class A: public B, public C {}` （冒号、逗号与类型名之间没有空格）。
+* `struct A: public B, public C {}` （冒号、逗号与类型名之间没有空格）。
 
 ### 分行
 
@@ -916,7 +916,7 @@ void fn1() {
 不使用隐式 `this`。
 
 ```cpp
-class A {
+struct A {
 public:
     A(const int& x);
 private: 
@@ -931,30 +931,9 @@ A::A(const int& x) {
 }
 ```
 
-## 对于不含 public 变量的结构体使用 class
+## 使用 struct 而不是 class
 
-```cpp
-struct A {
-public:
-    A() {}
-    Type member; // 由于存在公共变量，使用 struct
-    
-private:
-    int id;
-};
-
-class B {
-public:
-    int method1() { return 0; }
-    void method2() {}
-    int get_id() { return this->id; }
-
-private:
-    int id; // 由于不存在公共变量，使用 class
-};
-```
-
-## 不将 class / struct 作为命名空间使用
+## 不将 struct 作为命名空间使用
 
 ```cpp
 // 使用
