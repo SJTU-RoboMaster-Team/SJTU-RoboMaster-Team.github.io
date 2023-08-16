@@ -1,0 +1,56 @@
+---
+layout: post
+title: C++ 代码风格指南
+categories: [视觉, 电控, C++, 没人用, 冷门]
+author: Julyfun
+---
+
+![](/assets/2023-08-17-antitop/Slide1.jpg)
+
+![](/assets/2023-08-17-antitop/Slide2.jpg)
+
+![](/assets/2023-08-17-antitop/Slide3.jpg)
+
+![](/assets/2023-08-17-antitop/Slide4.jpg)
+
+![](/assets/2023-08-17-antitop/Slide5.jpg)
+
+![](/assets/2023-08-17-antitop/Slide6.jpg)
+
+![](/assets/2023-08-17-antitop/Slide7.jpg)
+
+![](/assets/2023-08-17-antitop/Slide8.jpg)
+
+![](/assets/2023-08-17-antitop/Slide10.jpg)
+
+![](/assets/2023-08-17-antitop/Slide11.jpg)
+
+![](/assets/2023-08-17-antitop/Slide12.jpg)
+
+![](/assets/2023-08-17-antitop/Slide13.jpg)
+
+![](/assets/2023-08-17-antitop/Slide14.jpg)
+
+![](/assets/2023-08-17-antitop/Slide15.jpg)
+
+![](/assets/2023-08-17-antitop/Slide16.jpg)
+
+![](/assets/2023-08-17-antitop/Slide17.jpg)
+
+![](/assets/2023-08-17-antitop/Slide18.jpg)
+
+![](/assets/2023-08-17-antitop/Slide19.jpg)
+
+![](/assets/2023-08-17-antitop/Slide20.jpg)
+
+![](/assets/2023-08-17-antitop/Slide21.jpg)
+
+![](/assets/2023-08-17-antitop/Slide22.jpg)
+
+![](/assets/2023-08-17-antitop/Slide23.jpg)
+
+![](/assets/2023-08-17-antitop/Slide24.jpg)
+
+![](/assets/2023-08-17-antitop/Slide25.jpg)
+   
+![](/assets/2023-05-20-cpp-style-guide/example.jpg)
