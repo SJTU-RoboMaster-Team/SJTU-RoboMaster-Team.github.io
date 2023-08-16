@@ -95,19 +95,14 @@ layout: compress
         </div>
       </div>
 
-      {% if site.disqus.shortname %}
-
-      <div class="comments">
-        <div class="container">
-          <div class="post-content">
-
-            {% include disqus.html %}
-
-          </div>
-        </div>
-      </div>
-
-      {% endif %}
+    <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'Jx6fTElQS3cweoHbEj8wyWLt-gzGzoHsz',
+            appKey: '0LI9g0Hq8L8ShGBdxlnPZjdb'
+        })
+    </script>
 
     </main>
 
