@@ -3,13 +3,13 @@ layout: post
 title: 2024赛季交龙视觉部招新笔试环境配置教程
 categories: [视觉]
 ---
+
+
 # 24视觉部笔试环境配置
-
-
 
 ## 请先下载资源整合包
 
-
+​	下载链接：https://jbox.sjtu.edu.cn/l/J14IqF          
 
 ## 一、虚拟机安装
 
