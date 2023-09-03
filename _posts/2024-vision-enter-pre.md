@@ -240,7 +240,7 @@ sudo reboot
 
 **CMakeLists.txt**
 
-```
+```cmake
 cmake_minimum_required(VERSION 3.10)
 project(ocv)
 
@@ -257,7 +257,7 @@ target_link_libraries(  ocv ${OpenCV_LIBS}  )
 
 **main.cpp**
 
-```
+```c++
 #include <iostream>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
