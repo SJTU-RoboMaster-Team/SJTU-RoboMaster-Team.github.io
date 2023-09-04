@@ -9,7 +9,7 @@ categories: [视觉]
 
 ## 请先下载资源整合包
 
-​	下载链接：https://jbox.sjtu.edu.cn/l/J14IqF          
+​	下载链接：[https://jbox.sjtu.edu.cn/l/J14IqF](https://jbox.sjtu.edu.cn/l/J14IqF)          
 
 ## 一、虚拟机安装
 
