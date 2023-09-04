@@ -289,9 +289,9 @@ int main() {
 
 ​	若你在安装虚拟机并配置环境的过程中遇到了无法解决的问题，你也可以选择下载配置好的虚拟机。
 
-​	虚拟机下载链接：https://jbox.sjtu.edu.cn/l/j1xLwB
+​	虚拟机下载链接：[https://jbox.sjtu.edu.cn/l/j1xLwB](https://jbox.sjtu.edu.cn/l/j1xLwB)
 
-​	然后根据文件夹中的说明文档完成虚拟机导入
+​	然后根据文件夹中的说明文档完成虚拟机导入。
 
 ​	虚拟机信息：
 
