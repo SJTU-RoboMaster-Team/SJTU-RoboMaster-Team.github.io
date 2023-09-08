@@ -6,6 +6,46 @@ categories: [视觉]
 
 # 24视觉部笔试环境配置
 
+------
+
+
+
+#### 如果你之前使用了 `sudo ln -sf` 建立了软链接，这可能会影响到OpenCV的编译和Eigen的使用，请按照以下教程重新配置
+
+卸载Eigen库
+
+```
+cd /usr/include
+sudo rm -r Eigen
+sudo apt autoremove libeigen3-dev
+```
+
+重新安装eigen和ceres
+
+```
+sudo apt-get install libeigen3-dev
+sudo apt-get install libceres-dev
+```
+
+进入 `Eigen` 库安装路径
+
+```
+#要先确定你的Eigen3安装在/usr/local/include还是/usr/include
+cd /usr/include
+```
+
+创建软链接
+
+```
+sudo ln -s eigen3/Eigen Eigen
+```
+
+重新完成OpenCV的编译安装
+
+------
+
+
+
 ## 请先下载资源整合包
 
 ​	下载链接：[https://jbox.sjtu.edu.cn/l/J14IqF](https://jbox.sjtu.edu.cn/l/J14IqF)          
