@@ -128,7 +128,7 @@ cd /usr/include
 ​	创建软链接
 
 ```
-sudo ln -sf eigen3/Eigen Eigen
+sudo ln -s eigen3/Eigen Eigen
 ```
 
 ​	找到资源包中的 opencv-4.4.0.zip 文件，解压(此步骤需要在压缩文件所在目录下进行)
