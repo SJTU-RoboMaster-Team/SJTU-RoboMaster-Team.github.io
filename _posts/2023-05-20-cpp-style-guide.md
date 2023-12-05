@@ -857,7 +857,7 @@ if (true)
 
 ## 调用
 
-除 std:: 外，不可跨具名作用域 (named scope) 调用。
+除 std:: 外，不进行跨具名作用域 (named scope) 调用。
 
 ```cpp
 namespace a::b {
@@ -910,9 +910,7 @@ A::A(const int& x) {
 }
 ```
 
-## 使用 struct 而不是 class
-
-## 不将 struct 作为命名空间使用
+## 不将 struct / class 作为命名空间使用
 
 ```cpp
 // 使用
