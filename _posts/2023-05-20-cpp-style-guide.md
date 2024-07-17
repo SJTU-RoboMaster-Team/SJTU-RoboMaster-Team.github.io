@@ -828,17 +828,6 @@ Foo<Bar, Baz<
  * 全局常量 `UPPER_CASE`，
 * 如果和关键字冲突（例如 `namespace`），就连接一个下划线（例如 `namespace_`）。
 
-## 单位
-
-程序内部角度变量使用弧度制。给人编辑的角度常量（包括在参数表文件内）用角度制。
-
-如果变量的名称中没有说明单位，默认采用国际单位。
-
-```cpp
-const double SOME_ANGLE = 30.0 / 180.0 * M_PI; // 角度制转弧度制
-const double SIN_RESULT = std::sin(SOME_ANGLE);
-```
-
 ## 不省略 if / for statements 的大括号
 
 ```cpp
