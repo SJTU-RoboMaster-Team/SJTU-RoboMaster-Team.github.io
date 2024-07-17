@@ -7,13 +7,13 @@ author: Julyfun
 
 ![](/assets/2023-05-20-cpp-style-guide/example.jpg)
 
-[本仓库](https://github.com/SJTU-RoboMaster-Team/style-team)代码规范的参考主要是 [Chromium C++ style guide](http://chromium.googlesource.com/chromium/src/+/HEAD/styleguide/c++/c++.md)，[Google 开源项目风格指南](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/)和 [Rust style guide](https://github.com/rust-lang/style-team)。
+[仓库链接](https://github.com/SJTU-RoboMaster-Team/style-team)
 
-如何自动化地应用这些规范？
+这份规范提供类似 rust 的排版。如果你觉得这还挺好看，你可以使用 Clang-Format 自动使用这些规范，不需要手动调整。方法：
 
-* 将本仓库的 `.clang-format` 和 `.clang-tidy` 文件拷贝至你的项目根目录下。
+* 将本仓库的 `.clang-format` 和 `.clang-tidy` 文件拷贝至你的工作区根目录下。
 * 在编辑器中开启 `Clang-Format` 和 `Clang-Tidy` 插件。插件通常默认使用工作区根目录下的配置文件。
-* 在 C++ 代码文件中执行编辑器的格式化文档操作。你也可以开启保存时自动格式化的功能。
+* 执行编辑器的格式化文档命令，例如在 VSCode 中可以打开命令面板搜索 `Format`。也可以开启保存时自动格式化。
 
 ## 设计原则
 
