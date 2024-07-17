@@ -5,7 +5,7 @@ categories: [视觉, 电控, C++, 没人用, 冷门]
 author: Julyfun
 ---
 
-![](/assets/2023-05-20-cpp-style-guide/example.jpg)
+![](https://raw.githubusercontent.com/SJTU-RoboMaster-Team/style-team/main/example.jpg)
 
 [仓库链接](https://github.com/SJTU-RoboMaster-Team/style-team)
 
