@@ -299,7 +299,7 @@ make
 
 - ​	虚拟机平台：VMware 17 pro
 - ​    操作系统：Ubuntu22.04
-- ​    用户名：jiaolong
+- ​    用户名：jiaoloong
 - ​    密码：123456
 
 
