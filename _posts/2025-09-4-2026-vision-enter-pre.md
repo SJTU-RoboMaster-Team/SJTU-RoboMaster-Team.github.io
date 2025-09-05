@@ -9,7 +9,7 @@ categories: [视觉]
 
 ------
 
-笔试所需要的库：opencv、eigen、ceres
+笔试所需要的库：opencv、eigen、ceres、OpenGL、GLFW
 如果你没有现成的环境或者没有使用linux/配环境的经验，笔试前可以按照本教程配一个虚拟机/使用已经配好环境的虚拟机的克隆(见文末)
 
 
@@ -220,7 +220,16 @@ sudo apt-get install llvm clang clangd
 随后重新加载VSCode窗口，可以看见红色波浪线已经消失了，按住ctrl点击划线部分的代码也可转跳至源码
     ![](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master//_img/posts/2025-vision-test-pre/32.png)
 
-#### 5.检查环境是否配置成功
+#### 5.安装OpenGL与GLFW
+
+##### 打开终端，输入以下命令
+
+```
+sudo apt install libgl1-mesa-dev
+sudo apt install libglfw3-dev
+```
+
+#### 6.检查环境是否配置成功
 
 ​	新建项目文件夹，在其中创建如下两个文件：
 
