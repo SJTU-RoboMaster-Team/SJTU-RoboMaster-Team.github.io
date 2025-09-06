@@ -10,17 +10,37 @@ categories: [视觉]
 ------
 
 笔试所需要的库：opencv、eigen、ceres、OpenGL、GLFW
-如果你没有现成的环境或者没有使用linux/配环境的经验，笔试前可以按照本教程配一个虚拟机/使用已经配好环境的虚拟机的克隆(见文末)
+如果你没有现成的环境或者没有使用linux/配环境的经验，笔试前可以按照本教程配置wsl/配一个虚拟机/使用已经配好环境的虚拟机的克隆(见文末)
 
 
-## 请先下载资源整合包
+## 如果选择虚拟机可以下载资源整合包
 
 ​	下载链接：[https://pan.sjtu.edu.cn/web/share/2c41e8930453293953ac201654959ee0](https://pan.sjtu.edu.cn/web/share/2c41e8930453293953ac201654959ee0)
 
 内含VMware、VScode安装包与Ubuntu 22.04镜像文件
 
-## 一、虚拟机安装
+## 一、配置wsl/虚拟机安装
 
+### 配置wsl
+#### 1.安装 WSL
+在 UEFI 设置中启用虚拟化，然后从 Microsoft Store 安装 Windows Subsystem for Linux（适用于 Linux 的 Windows 子系统）。
+
+#### 2.更新 WSL
+要更新到最新稳定版的 WSL 和 WSLg，在具有管理员权限的 Windows 的命令行 Shell 中执行以下命令：
+```cmd
+> wsl --update
+```
+要更新到最新的预发行版本，请换用以下命令：
+```cmd
+> wsl --update --pre-release
+```
+#### 3.在 WSL 上安装 Ubuntu
+在 Windows 的命令行 Shell 中执行该命令：
+```cmd
+> wsl --install Ubuntu-22.04
+```
+
+### 虚拟机安装
 #### 1.安装VMware 
 
 目前VMware已完全免费使用，只需到官网下载后安装即可，或者使用资源包内的VMware-workstation-full-17.6.4-24832109.exe进行安装。
@@ -185,6 +205,12 @@ sudo apt-get install python3-opencv
 
 #### 3.安装VSCode
 
+##### 使用wsl时
+
+   你可以在windows上安装vscode,随后安装wsl插件后即可在点击右下角连接wsl
+
+##### 使用虚拟机时
+
 ​	你可以在官网 [https://code.visualstudio.com/ ](https://code.visualstudio.com/)下载deb安装包，也可以选择资源包中的code_1.103.2-1755709794_amd64.deb文件
 
 ​	使用 `dpkg  ` 命令安装deb文件
@@ -220,16 +246,8 @@ sudo apt-get install llvm clang clangd
 随后重新加载VSCode窗口，可以看见红色波浪线已经消失了，按住ctrl点击划线部分的代码也可转跳至源码
     ![](https://github.com/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io/raw/master//_img/posts/2025-vision-test-pre/32.png)
 
-#### 5.安装OpenGL与GLFW
 
-##### 打开终端，输入以下命令
-
-```
-sudo apt install libgl1-mesa-dev
-sudo apt install libglfw3-dev
-```
-
-#### 6.检查环境是否配置成功
+#### 5.检查环境是否配置成功
 
 ​	新建项目文件夹，在其中创建如下两个文件：
 
